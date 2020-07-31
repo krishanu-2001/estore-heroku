@@ -1,3 +1,9 @@
+# REMEMBER: WORK ON OWN FORK, BRANCH AND CREATE PULL REQUEST DO NOT FORCE ANYTHING
+  
+    
+      
+      
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
