@@ -45,9 +45,9 @@ function Nav() {
 </div>
 
 <div className="others">
-  <a onClick={openLoginModal} className="login">Login</a>
+  <a onClick={openLoginModal} className="login">SignIn</a>
   <span className="vl"></span>
-  <a onClick={openSignupModal} className="sign">Sign Up</a>
+  <a onClick={openSignupModal} className="sign">SignUp</a>
 
   <div className="cart">
   <img src="https://image.flaticon.com/icons/svg/126/126083.svg" className="cartLogo"/>

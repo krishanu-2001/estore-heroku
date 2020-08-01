@@ -20,10 +20,11 @@
     left: 50%;
     transform: translate(-50%, -50%);
     min-height: 30%;
-    width: 60%;
+    width: 40%;
+    height: 90%;
     overflow-y: auto;
     background-color: white;
-    box-shadow: 0 0 10px rgba(0,0,0,0.25);
+    box-shadow: 0 0 20px #44d7eb;
     z-index: 101;
     padding: 40px;
   }
