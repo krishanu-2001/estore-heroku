@@ -18,7 +18,7 @@ export default [
     },
     {
         name: "Chips",
-        price: "120",
+        price: "40",
     },
     {
         name: "Lassi",
