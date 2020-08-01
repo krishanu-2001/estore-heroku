@@ -51,7 +51,7 @@ export class Card extends React.Component {
                     <img src = {("./items-images/"+this.props.name+".png")} alt={"./items-images/"+this.props.name+".png"} style={myImage}/>
                 </div>
                 <hr></hr>
-                <div style={{"margin-bottom":"20px",}}>
+                <div style={{"marginBottom":"20px",}}>
                     <div style={{"fontSize":"1.5em", "marginBottom":"200px,"}}>{this.props.name}</div>
                 </div>
                 <div style={myBanner}>
