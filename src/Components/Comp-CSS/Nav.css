@@ -142,10 +142,12 @@ body {
   
   .btn:hover{
     background-color: black;
+    color: white;
   }
   
   .btn:active{
     background-color: black;
+    color: white;
   }
   
   .btn{
