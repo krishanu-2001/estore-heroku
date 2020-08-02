@@ -1,11 +1,25 @@
 
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
+import {Link} from 'react-router-dom';
+
+function fileExists(url) {
+  if(url){
+      var req = new XMLHttpRequest();
+      req.open('GET', url, false);
+      req.send();
+      return req.status==200;
+  } else {
+      return false;
+  }
+}
 
 export class Card extends React.Component {
   constructor(props) {
     super(props);
   }
+
+  
 
   render() {
     const menu = this.menuItems;
@@ -44,15 +58,15 @@ export class Card extends React.Component {
         padding: "5px",
         backgroundColor: "#dddddd",
       };
-      
+
     return (
         <div style={myStyleCard}>
                 <div>
-                    <img src = {("./items-images/"+this.props.name+".png")} alt={"./items-images/"+this.props.name+".png"} style={myImage}/>
+                    <img src = {("/items-images/"+this.props.name+".png")} alt={"/items-images/"+this.props.name+".png"} style={myImage}/>
                 </div>
                 <hr></hr>
                 <div style={{"marginBottom":"20px",}}>
-                    <div style={{"fontSize":"1.5em", "marginBottom":"200px,"}}>{this.props.name}</div>
+                    <Link to={"./individual/" + this.props.name}><div style={{"fontSize":"1.5em", "marginBottom":"200px,"}} >{this.props.name}</div></Link>
                 </div>
                 <div style={myBanner}>
                     <div style={myBannertext}>
@@ -62,7 +76,7 @@ export class Card extends React.Component {
                 <div className={myForm}>
                     <div>
                         <br></br>
-                        <form>
+                        <form style={{border:"0px"}}>
                             <input type="number" min="0" placeholder="0" name="quantity" style={{"width":"60%", }}/>
                             <input type="hidden" name="itemName" value={this.props.name}/>
                             <input type="submit" value="add to cart" name="submit" />
@@ -70,6 +84,7 @@ export class Card extends React.Component {
                     </div>
                 </div>
         </div>
+
     );
   }
 }

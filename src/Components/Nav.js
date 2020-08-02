@@ -20,7 +20,7 @@ function Nav() {
         <SignIn_Modal ref={signInModalRef}/>
         <SignUp_Modal ref={signUpModalRef}/>
         <div className="nav">
-  <img src='./logo.png' className="logo"/>
+  <img src='/logo.png' className="logo"/>
   <span className="shopName">La Fresco</span>
 
 <div>
