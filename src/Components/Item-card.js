@@ -30,7 +30,7 @@ export class Card extends React.Component {
       const myBanner = {
         textAlign:"left",
         marginTop: "0px",
-        border:"2px solid black",
+        border:"2px solid green",
       };
       const myBannertext = {
         fontFamily: "Arial",
