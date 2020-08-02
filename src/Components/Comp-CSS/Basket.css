@@ -1,0 +1,146 @@
+.basket{
+    height: auto;
+    width: auto;
+    margin: 40px 40px 40px 40px;
+    border-color: grey;
+    border-style: double;
+}
+
+.header{
+    margin-top: 10px;
+    margin-left: 15px;
+    font-size: 35px;
+    font-family: sans-serif;
+}
+
+.hl{
+    margin-left: 0px;
+    height: 1px;
+    background-color: gray;
+    width: auto;
+}
+.offers{
+    margin-left: 25px;
+    margin-top: 20px;
+    height: 35px;
+    width: 200px;
+    background-image: linear-gradient(white,grey);
+    text-transform: uppercase;
+    font-size: 12px;
+    border-radius: 7px;
+    margin-bottom: 20px;
+    color: black;
+}
+.offers:hover{
+    cursor: pointer;
+    background-image: linear-gradient(grey,white);
+
+}
+
+.description{
+    height: 35px;
+    background-color: khaki;
+    color: black;
+    font-weight: 500;
+}
+
+.left{
+    margin-left: 60px;
+    padding-top: 45px;
+}
+.right{
+    float: right;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-right: 50px;
+}
+.food{
+    margin-top: 3px;
+    margin-bottom: 10px;
+}
+
+.basket_left{
+    margin-left: 70px;
+    padding-top: 45px;
+
+}
+
+.basket_right{
+    float: right;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-right: 80px;
+    justify-content: center;
+
+}
+
+.payment{
+    margin-top: 13px;
+    margin-right: 5px;
+    width: 500px;
+    float: right;
+   /* background-color: blue; */
+    border-style: double;
+    border-color: black;
+    border-radius: 10px;
+    background-color: #f6f7f2;
+}
+.total{
+    float: left;
+    margin-left: 25px;
+}
+.amt{
+    float: right;
+    margin-right: 30px;
+}
+
+.hl1{
+    padding: 0px;
+    height: 1px;
+    background-color: gray;
+    width: auto;
+    margin-left: 20px;
+    margin-right: 22px;
+}
+
+.checkout{
+    float: right;
+    font-size: 17px;
+    height: 55px;
+    width: 150px;
+    margin-top: 20px;
+    margin-right: -87px;
+    border-radius: 14px;
+    margin-bottom: 13px;
+    background-image:linear-gradient(#c2e03a,#e6d6d3);
+    box-shadow: grey;
+    color: black;
+}
+
+.checkout:hover{
+    cursor: pointer;
+    background-image:linear-gradient(#e6d6d3,#c2e03a);
+
+}
+
+/*.final{
+    background-color: hotpink;
+}*/
+
+.cntshp{
+    margin-left: 40px;
+    margin-bottom: 70px;
+    margin-top: 80px;
+    height: 60px;
+    width: 220px;
+    font-size: 18px;
+    border-radius: 15px;
+    background-image:linear-gradient(#c2e03a,#e6d6d3);
+    color: #211e20;
+    font-weight: 600;
+}
+
+.cntshp:hover{
+    cursor: pointer;
+    background-image:linear-gradient(#e6d6d3,#c2e03a);
+}

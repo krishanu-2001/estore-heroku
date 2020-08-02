@@ -1,4 +1,5 @@
 import React from 'react';
+import {Switch, Route, Link} from 'react-router-dom';
 import SignIn_Modal from './Sign_in_modal';
 import SignUp_Modal from './Sign_up_modal';
 import './Comp-CSS/Nav.css';
@@ -19,16 +20,27 @@ function Nav() {
         <>
         <SignIn_Modal ref={signInModalRef}/>
         <SignUp_Modal ref={signUpModalRef}/>
-        <div className="nav">
-  <img src='/logo.png' className="logo"/>
+        <div className="nav"><Link to='/'>
+  <img src='/logo.png' className="logo" onClick/>
+  </Link><Link to='/'>
   <span className="shopName">La Fresco</span>
-
+  </Link>
 <div>
   <div className="buttons">
-    <button className="btn">All Products</button>
-    <button className="btn">Categories</button>
-    <button className="btn">Help</button>
-    <button className="btn">Contact Us</button>
+  <Link to='/allProducts'><button className="btn">All Products</button></Link>
+  <div className="dropDown">
+  <button className="btn">Categories</button>
+  <div class="dropdown-content">
+    <a href="#">Category 1</a>
+    <a href="#">Category 2</a>
+    <a href="#">Category 3</a>
+    <a href="#">Category 4</a>
+    <a href="#">Category 5</a>
+    <a href="#">Category 6</a>
+  </div>
+  </div>
+  <Link to='/help'><button className="btn">Help</button></Link>
+  <Link to='/contact-us'><button className="btn">Contact Us</button></Link>
 </div>
 
 <div className="search">
@@ -51,7 +63,7 @@ function Nav() {
 
   <div className="cart">
   <img src="https://image.flaticon.com/icons/svg/126/126083.svg" className="cartLogo"/>
-  <div className="cartText">My Cart</div>
+  <Link to='/basket'><div className="cartText">My Cart</div></Link>
   </div>
 </div>
 
