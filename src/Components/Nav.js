@@ -63,7 +63,7 @@ function Nav() {
 
   <div className="cart">
   <img src="https://image.flaticon.com/icons/svg/126/126083.svg" className="cartLogo"/>
-  <div className="cartText">My Cart</div>
+  <Link to='/basket'><div className="cartText">My Cart</div></Link>
   </div>
 </div>
 
