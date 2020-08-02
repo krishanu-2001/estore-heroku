@@ -1,6 +1,5 @@
 
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
 import ScrollMenu from 'react-horizontal-scrolling-menu';
 import items from "./Item-data";
 import Card from './Item-card.js';
