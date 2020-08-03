@@ -17,14 +17,15 @@ export class ItemHtml extends React.Component {
 
   render() {
     var name = this.props.match.params.id;
+    var description = "please add description from server here";
     const myStyleCard = {
       color: "black",
       backgroundColor: "#ffffff",
       padding: "10px",
       margin: "10px",
       fontFamily: "Arial",
-      height: "400px",
-      width: "250px",
+      height: "100%",
+      width: "100%",
       border:"4px solid #dddddd",
       overflow: "hidden",
     };
@@ -32,8 +33,8 @@ export class ItemHtml extends React.Component {
       color: "white",
       backgroundColor: "white",
       fontFamily: "Arial",
-      height: "150px",
-      width: "200px",
+      height: "300px",
+      width: "400px",
     };
     const myBanner = {
       textAlign:"left",
@@ -53,31 +54,52 @@ export class ItemHtml extends React.Component {
       backgroundColor: "#dddddd",
       border:"0px",
     };
+    const myBox = {
+      marginTop: "10px",
+      fontFamily: "Arial",
+      color:"black",
+      padding: "5px",
+      backgroundColor: "#dddddd",
+      border:"0px",
+      height:"100%",
+    };
     return (
-      <div style={myStyleCard}>
-               <div>
-                    <img src = {("/items-images/"+name+".png")} alt={"/items-images/"+name+".png"} style={myImage}/>
-                </div>
-                <hr></hr>
-                <div style={{"marginBottom":"20px",}}>
-                     <div style={{"fontSize":"1.5em", "marginBottom":"200px,"}} >{name}</div>
-                </div>
-                <div style={myBanner}>
-                    <div style={myBannertext}>
-                    1 Packet - Rs {123}
+      <div style={myStyleCard}>    
+                <div>
+                  <div className="row">
+                    <div className="col-sm-3 col" style={{"height":"410px",}}>
+                      <div style={myBox} >
+                        <h2>{name}</h2>
+                        <hr />
+                        <h4>{description}</h4>
+                        <div className={myForm}>
+                          <div>
+                              <br></br>
+                              <form style={{border:"0px"}}>
+                                  <input type="number" min="0" placeholder="0" name="quantity" style={{"width":"60%", }}/>
+                                  <input type="hidden" name="itemName" value={name}/>
+                                  <input type="submit" value="add to cart" name="submit" />
+                              </form>
+                          </div>
+                        </div>
+                      </div>
                     </div>
-                </div>
-                <div className={myForm}>
-                    <div>
-                        <br></br>
-                        <form style={{border:"0px"}}>
-                            <input type="number" min="0" placeholder="0" name="quantity" style={{"width":"60%", }}/>
-                            <input type="hidden" name="itemName" value={name}/>
-                            <input type="submit" value="add to cart" name="submit" />
-                        </form>
+                    
+                    <div className="col-sm-9 col">
+                      <div style={{"textAlign":"center"}}>
+                      <img src = {("/items-images/"+name+".png")} alt={"/items-images/"+name+".png"} style={myImage}/>
+                      </div>
+                      <div style={{"textAlign":"left", "marginTop":"3em", "position":"relative","left":"25%", }}>
+                        <img src="/items-images/veg.png" style={{"background-color":"white","width":"20px",}}/><br />
+                      </div>
+                      <div style={{"textAlign":"center", "marginTop":"2em", }}>
+                      <span style={{"fontSize":"2em",}}>{name}</span>
+                      </div>
                     </div>
+                  </div>
                 </div>
         </div>
+        
     );
   }
 }
