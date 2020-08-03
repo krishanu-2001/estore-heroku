@@ -51,7 +51,7 @@ export class ItemNavigator extends React.Component {
   }
 
   state = {
-      selected
+      selected,
   };
 
   onSelect = key => {
@@ -61,7 +61,7 @@ export class ItemNavigator extends React.Component {
   
 
   render() {
-    const { selected } = this.state;
+    const { selected } = this.state.selected;
     // Create menu from items
     const menu = this.menuItems;
  
