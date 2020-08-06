@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 import ScrollMenu from 'react-horizontal-scrolling-menu';
 import items from "./Item-data";
 import Card from './Item-card.js';
+import axios from 'axios';
+import { timeout } from 'q';
 
 
 // One item component
@@ -29,6 +31,7 @@ const MenuItem = ({text, price, selected}) => {
     fontFamily: "Arial"
     };
 
+
   const Arrow = ({ text, myStyle }) => {
     return (
       <div
@@ -36,11 +39,12 @@ const MenuItem = ({text, price, selected}) => {
       >{text}</div>
     );
   };
+
+  var xtemp = [];
    
    
   const ArrowLeft = Arrow({ text: '<', myStyle: myStyle });
-  const ArrowRight = Arrow({ text: '>', myStyle: myStyle });
-   
+  const ArrowRight = Arrow({ text: '>', myStyle: myStyle });   
   const selected = "potato";
 
 export class ItemNavigator extends React.Component {
@@ -52,19 +56,51 @@ export class ItemNavigator extends React.Component {
 
   state = {
       selected,
+      persons: [],
+      menuItems: xtemp,
   };
 
   onSelect = key => {
       this.setState({ selected: key });
   }
 
-  
+  xparser(xres) {
+    var temp = [];
+    for(var i=0; i<xres.data.length; i++){
+      temp.push({
+        name: xres.data[i].itemname,
+        price: xres.data[i].price,
+      });
+     
+    } 
+    xtemp = temp;
+    var xfacts = Menu(xtemp, this.state.selected);
+    this.setState({menuItems: xfacts});
+    return temp;
+  }
+
+
+
+  componentWillMount() {
+    axios.get('http://localhost:5000/items/')
+      .then(res => {
+        this.setState({ persons: res.data});
+        this.xparser(res);
+        });
+  }
 
   render() {
     const { selected } = this.state.selected;
     // Create menu from items
-    const menu = this.menuItems;
- 
+    const menu = this.state.menuItems;
+
+    if(this.menuItems.length === 0 || menu.length === 0 || menu === undefined){
+      return (<div>/loading</div>);
+
+    }
+    if(this.state.persons.length === 0){
+      return (<span>/loading...</span>);
+    }
     return (
       <div className="card">
         <ScrollMenu
