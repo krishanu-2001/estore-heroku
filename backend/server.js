@@ -1,28 +1,22 @@
 const express = require('express');
 const cors = require('cors');
-const mongoose = require('mongoose');
-
+const bodyParser = require('body-parser'); 
+const database = require('./database');
 require('dotenv').config();
 
-const app = express()
+const app = express();
 const port = process.env.PORT || 5000;
 
 app.use(cors());
 app.use(express.json());
-
-const db = "mongodb://localhost/fresco-app";
-mongoose.connect(db, {  useNewUrlParser: true, 
-                        useCreateIndex: true,
-                     }
-);
-const connection = mongoose.connection;
-connection.once('open', () => {
-    console.log("MongoDB database onnection established succesfully");
-}) 
+app.use(bodyParser.json());
 
 const itemsRouter = require('./routes/items.js');
 const usersRouter = require('./routes/users.js');
 
+app.get('/',(req, res)=>{
+    res.send('Hello World!')
+});
 app.use('/items', itemsRouter);
 app.use('/users', usersRouter);
 
