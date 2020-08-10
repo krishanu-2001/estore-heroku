@@ -27,16 +27,16 @@ function Nav() {
   </Link>
 <div>
   <div className="buttons">
-  <Link to='/allProducts'><button className="btn">All Products</button></Link>
+  <Link to='/'><button className="btn">All Products</button></Link>
   <div className="dropDown">
   <button className="btn">Categories</button>
   <div class="dropdown-content">
-    <a href="#">Category 1</a>
-    <a href="#">Category 2</a>
-    <a href="#">Category 3</a>
-    <a href="#">Category 4</a>
-    <a href="#">Category 5</a>
-    <a href="#">Category 6</a>
+    <a href="#">vegetable</a>
+    <a href="#">fruits</a>
+    <a href="#">sweets</a>
+    <a href="#">namkeen</a>
+    <a href="#">toiletries</a>
+    <a href="#">stationary</a>
   </div>
   </div>
   <Link to='/help'><button className="btn">Help</button></Link>
