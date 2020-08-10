@@ -1,12 +1,24 @@
 import React from 'react';
 import {Switch, Route, Link} from 'react-router-dom';
+import UserContext from '../Context/UserContext';
 import SignIn_Modal from './Sign_in_modal';
 import SignUp_Modal from './Sign_up_modal';
+import LogOut_Handler from './LogOut_Handler';
 import './Comp-CSS/Nav.css';
+
 
 
 function Nav() {
 
+
+  const {userData, setUserData} = React.useContext(UserContext);
+  const logout = () => {
+    setUserData({
+      token: undefined,
+      user: undefined,
+    });
+    localStorage.setItem("auth-token", "");
+  };
     const signInModalRef = React.useRef();
     const signUpModalRef = React.useRef();
     const openLoginModal = ()=>{
@@ -15,7 +27,7 @@ function Nav() {
     const openSignupModal = ()=>{
         signUpModalRef.current.openModal()
     };
-
+    
     return(
         <>
         <SignIn_Modal ref={signInModalRef}/>
@@ -57,10 +69,18 @@ function Nav() {
 </div>
 
 <div className="others">
-  <a onClick={openLoginModal} className="login">SignIn</a>
+{userData.userInfo ? 
+        <div>
+        <a onClick={logout} className="login">LogOut</a>
+<small>{userData.userInfo.username}</small>
+      </div>
+        : 
+        <div>
+          <a onClick={openLoginModal} className="login">SignIn</a>
   <span className="vl"></span>
   <a onClick={openSignupModal} className="sign">SignUp</a>
-
+        </div>
+}
   <div className="cart">
   <img src="https://image.flaticon.com/icons/svg/126/126083.svg" className="cartLogo"/>
   <Link to='/basket'><div className="cartText">My Cart</div></Link>

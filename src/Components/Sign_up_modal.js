@@ -31,18 +31,15 @@ const Modal = React.forwardRef((props, ref)=>{
         e.preventDefault();
         if(email !== "" && password !== "" && cpassword !=="" && password === cpassword)
         {
-            axios.post('http://localhost:5000/users/new',
-            {
-                "username": email,
-                "password": password
-            }
-            ,{headers: {'Accept': 'application/json'}})
-            .then((res)=>{
-                console.log(res);
-            })
-            .catch((err)=>{
-                console.log(err);
-            })
+
+            axios({
+                method: "POST",
+                data: {
+                  username: email,
+                  password: password,
+                },
+                url: "http://localhost:5000/users/new",
+              }).then((res) => console.log(res));
         }
         else
         {

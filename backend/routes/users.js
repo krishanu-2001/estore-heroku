@@ -1,9 +1,9 @@
 const router = require('express').Router();
-const objectID = require('mongoose').Types.ObjectId;
 const bcrypt = require('bcryptjs');
-
+const jwt = require('jsonwebtoken');
+const Authenticate = require('../middleware/authentication');
 const User = require('../models/user.model');
-const passport = require('passport');
+
 
 router.route('/').get((req, res) => {
     User.find()
@@ -13,8 +13,8 @@ router.route('/').get((req, res) => {
 
 router.route('/new').post((req, res) => {
     User.findOne({"username": req.body.username})
-    .then(async (item)=>{
-        if(item === null)
+    .then(async (user)=>{
+        if(user === null)
         {
             var hashedPassword = await bcrypt.hash(req.body.password, 10)
             var newUser = new User({
@@ -26,24 +26,40 @@ router.route('/new').post((req, res) => {
                 .catch(err => res.status(200).json('Error: ' + err));
         
         }
-        else res.json(item + 'User already exists');
+        else res.json(user + 'User already exists');
     })
     .catch(err => res.status(200).json('Error: ' + err));
 });
 
-router.route('/login').post((req, res, next)=>{
-
-   passport.authenticate('local',(err,user,info)=>{
-     if(err) throw err;
-     if(!user) res.json("NO user found !");
-     else{
-         req.logIn(user,(err)=>{
-             if(err) throw err;
-             res.json("Successfully Authenticated");
-             console.log(req.user);
-         })
-     }  
-   })(req, res, next);
+router.route('/login').post((req, res)=>{
+    User.findOne({"username": req.body.username})
+    .then(async (user)=>{
+        if(user === null)
+        {
+            res.json({msg: "User does not exist"});
+        }
+        else{
+            const isMatch = await bcrypt.compare(req.body.password, user.password);
+            if(!isMatch){ return res.json({msg: "Password does not match"})};
+            const token = jwt.sign({id: user._id},process.env.JWT_SECRET);
+            res.json({
+                token,
+                user
+            })
+        }
+    })
+    .catch(err => res.status(200).json('Error: ' + err)); 
 });
+
+router.route('/userInfo').post(Authenticate,async (req, res)=>{
+    User.findOne({"_id": req.user_id.id})
+    .then((user)=>{
+        res.json({
+            token: req.header('x-auth-token'),
+            userInfo: user
+
+        })
+    })
+})
 
 module.exports = router;
