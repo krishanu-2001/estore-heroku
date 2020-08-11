@@ -41,7 +41,7 @@ const MenuItem = ({text, price, selected}) => {
   };
 
   var xtemp = [];
-   
+  var count = 10;
    
   const ArrowLeft = Arrow({ text: '<', myStyle: myStyle });
   const ArrowRight = Arrow({ text: '>', myStyle: myStyle });   
@@ -52,6 +52,7 @@ export class ItemNavigator extends React.Component {
   constructor(props) {
     super(props);
     this.menuItems = Menu(items, selected);
+
   }
 
   state = {
@@ -75,20 +76,21 @@ export class ItemNavigator extends React.Component {
     } 
     xtemp = temp;
     var xfacts = Menu(xtemp, this.state.selected);
+    
     this.setState({menuItems: xfacts});
     return temp;
   }
 
+ 
 
-
-  componentWillMount() {
+  componentDidMount() {
     axios.get('http://localhost:5000/items/')
       .then(res => {
         this.setState({ persons: res.data});
         this.xparser(res);
         });
+    
   }
-
   render() {
     const { selected } = this.state.selected;
     // Create menu from items
