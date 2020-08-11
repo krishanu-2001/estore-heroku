@@ -15,7 +15,9 @@ function Nav() {
     const openSignupModal = ()=>{
         signUpModalRef.current.openModal()
     };
-
+    const xbtn = {
+      backgroundColor: "#3333da",
+    };
     return(
         <>
         <SignIn_Modal ref={signInModalRef}/>
@@ -27,9 +29,9 @@ function Nav() {
   </Link>
 <div>
   <div className="buttons">
-  <Link to='/'><button className="btn">All Products</button></Link>
+  <Link to='/'><button className="btn" style={xbtn}>All Products</button></Link>
   <div className="dropDown">
-  <button className="btn">Categories</button>
+  <button className="btn" style={xbtn}>Categories</button>
   <div class="dropdown-content">
     <a href="#">vegetable</a>
     <a href="#">fruits</a>
@@ -39,8 +41,8 @@ function Nav() {
     <a href="#">stationary</a>
   </div>
   </div>
-  <Link to='/help'><button className="btn">Help</button></Link>
-  <Link to='/contact-us'><button className="btn">Contact Us</button></Link>
+  <Link to='/help'><button className="btn" style={xbtn}>Help</button></Link>
+  <Link to='/contact-us'><button className="btn" style={xbtn}>Contact Us</button></Link>
 </div>
 
 <div className="search">
@@ -64,6 +66,10 @@ function Nav() {
   <div className="cart">
   <img src="https://image.flaticon.com/icons/svg/126/126083.svg" className="cartLogo"/>
   <Link to='/basket'><div className="cartText">My Cart</div></Link>
+  </div>
+
+  <div style={{"textAlign":"center","margin":"0px",}}>
+    <Link to="/adminwebsite">Admin Section</Link>
   </div>
 </div>
 
