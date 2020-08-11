@@ -3,9 +3,18 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const userSchema = new Schema({
-    username: String,
-    password: String
-},{collection: 'users1812'});
+    username: {
+        type: String,
+        required: true,
+        unique: true,
+    },
+    password: {
+        type: String,
+        required: true
+    }
+},{collection: 'users1812',
+    timestamps: true
+});
 
 const User = mongoose.model('User', userSchema);
 

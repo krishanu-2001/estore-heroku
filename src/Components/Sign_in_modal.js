@@ -1,12 +1,20 @@
-import React from "react";
+import React, {useContext} from "react";
 import ReactDOM from "react-dom";
-import axios from "axios";
+import {useHistory} from 'react-router-dom';
+import Axios from "axios";
+import UserContext from '../Context/UserContext'
 import './Comp-CSS/SignInUp_modal.css';
 import './Comp-CSS/Sign_Up_form.css';
 
+
+
 const Modal = React.forwardRef((props, ref)=>{
 
+    const {userData, setUserData} = useContext(UserContext);
+
     const [display, setDisplay] = React.useState(false);
+
+    const history = useHistory();
 
     React.useImperativeHandle(ref, () => {
         return {
@@ -26,22 +34,26 @@ const Modal = React.forwardRef((props, ref)=>{
     const [email, setEmail] = React.useState("");
     const [password, setPaasword] = React.useState("");
 
-    const signInHandler = (e)=>{
+    const signInHandler = async (e)=>{
         e.preventDefault();
-        axios.post('http://localhost:5000/users/login',
-            {
-                "username": email,
-                "password": password
-            }
-            ,{headers: {'Accept': 'application/json'}})
-            .then((res)=>{
-                console.log(res.data);
-            })
-            .catch((err)=>{
-                console.log(err);
-            })
+
+           const loginRes = await Axios.post(
+                "http://localhost:5000/users/login",
+                 {
+                  username: email,
+                  password: password,
+                }
+                )
+                    console.log(loginRes);
+                    setUserData({
+                        token: loginRes.data.token,
+                        userInfo: loginRes.data.user
+                    });
+                    console.log(userData);
+                    localStorage.setItem("auth-token",loginRes.data.token);
 
             close();
+            history.push('/');
     }
     
     if(display)
