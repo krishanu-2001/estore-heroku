@@ -5,7 +5,7 @@ import {Switch, Route} from 'react-router-dom';
 import Xnav from './xNav';
 import { existsTypeAnnotation } from '@babel/types';
 import axios from 'axios';
-
+import './Admin-CSS/Admin1.css'
 
 export class AdminAdd extends React.Component {
   constructor(props) {
@@ -71,32 +71,6 @@ export class AdminAdd extends React.Component {
     
 
   render() {
-        const xnavbar = {
-          display:"inline-block",
-          width:"100%",
-          heigth:"100%",
-          padding:"0px",
-          marginTop: "10px",
-          paddingLeft: "0px",
-          fontSize:"20px",
-          backgroundColor:"white",
-        };
-        const xli = {
-          padding:"0px",
-          height:"100px",
-          backgroundColor:"#3accdc",
-          marginTop: "0px",
-          paddingLeft: "0px",
-          fontSize:"20px",
-        };
-        const xbtn={
-          "backgroundColor":"#3a7cfc",
-          "border":"0px solid blue",
-          "borderRadius":"10px",
-          "width":"100px",
-          height:"40px",
-          "color":"#fff",
-        };
 
         return (
             <div className="">
@@ -109,7 +83,7 @@ export class AdminAdd extends React.Component {
                           <input type="text" name="description" placeholder="desciption" style={{width:"400px",}} onChange={this.handleChange_desciption} /><br />
                           <input type="text" name="price" placeholder="price" style={{width:"400px",}} onChange={this.handleChange_price} /><br />
                           <input type="text" name="quantity" placeholder="quantity" style={{width:"400px",}} onChange={this.handleChange_quantity} /><br />
-                          <input type="submit" className="" style={xbtn} />
+                          <input type="submit" className="" className="xbtn" />
                         </form>
                     </div>
                 </div>

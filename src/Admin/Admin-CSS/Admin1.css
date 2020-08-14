@@ -1,0 +1,28 @@
+  .xbtn{
+      background-color: #3a7cfc;
+      border: 0px solid blue;
+      border-radius: 10px;
+      width: 100px;
+      height: 40px;
+      color: #fff;
+  }
+
+  .xnavbar {
+    display:inline-block;
+    width:100%;
+    height:100%;
+    padding:0px;
+    margin-top: 10px;
+    padding-left: 0px;
+    font-size:20px;
+    background-color: #3accdc;
+  }
+  .xli {
+    padding:0px;
+    height:100px;
+    background-color:#3accdc;
+    margin-top: 0px;
+    margin: 0px;
+    padding-left: 0px;
+    font-size:20px;
+  }
