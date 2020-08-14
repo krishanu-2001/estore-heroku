@@ -1,5 +1,6 @@
 
 import React, { Component } from 'react';
+import './Comp-CSS/individual-item.css';
 
 export class ItemHtml extends React.Component {
   constructor(props) {
@@ -64,15 +65,15 @@ export class ItemHtml extends React.Component {
       height:"100%",
     };
     return (
-      <div style={myStyleCard}>    
+      <div className="myStyleCard1">    
                 <div>
                   <div className="row">
                     <div className="col-sm-3 col" style={{"height":"410px",}}>
-                      <div style={myBox} >
+                      <div className="myBox1" >
                         <h2>{name}</h2>
                         <hr />
                         <h4>{description}</h4>
-                        <div className={myForm}>
+                        <div className="myForm1">
                           <div>
                               <br></br>
                               <form style={{border:"0px"}}>
@@ -87,7 +88,7 @@ export class ItemHtml extends React.Component {
                     
                     <div className="col-sm-9 col">
                       <div style={{"textAlign":"center"}}>
-                      <img src = {("/items-images/"+name+".png")} alt={"/items-images/"+name+".png"} style={myImage}/>
+                      <img src = {("/items-images/"+name+".png")} alt={"/items-images/"+name+".png"} className="myImage1"/>
                       </div>
                       <div style={{"textAlign":"left", "marginTop":"3em", "position":"relative","left":"25%", }}>
                         <img src="/items-images/veg.png" style={{"background-color":"white","width":"20px",}}/><br />
