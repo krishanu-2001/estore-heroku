@@ -40,15 +40,12 @@ function App() {
         {headers: {"x-auth-token": token}}
       );
       
-      console.log(tokenRes.data.token);
     if(tokenRes.data){
-      console.log('Hello');
       setUserData({
         token: tokenRes.data.token,
         userInfo:tokenRes.data.userInfo
       });
     }
-    console.log(userData);
     }
     checkLoggedIn();
   },[]);

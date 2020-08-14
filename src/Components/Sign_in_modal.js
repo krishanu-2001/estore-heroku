@@ -44,12 +44,11 @@ const Modal = React.forwardRef((props, ref)=>{
                   password: password,
                 }
                 )
-                    console.log(loginRes);
+                    
                     setUserData({
                         token: loginRes.data.token,
                         userInfo: loginRes.data.user
                     });
-                    console.log(userData);
                     localStorage.setItem("auth-token",loginRes.data.token);
 
             close();

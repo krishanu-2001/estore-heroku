@@ -2,23 +2,10 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
 
-function fileExists(url) {
-  if(url){
-      var req = new XMLHttpRequest();
-      req.open('GET', url, false);
-      req.send();
-      return req.status==200;
-  } else {
-      return false;
-  }
-}
-
 export class Card extends React.Component {
   constructor(props) {
     super(props);
   }
-
-  
 
   render() {
     const menu = this.menuItems;
