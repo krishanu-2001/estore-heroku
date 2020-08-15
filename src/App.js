@@ -7,6 +7,8 @@ import All_products from './Components/All_products';
 import Contact_us from './Components/Contact-us';
 import Help from './Components/Help';
 import Basket from './Components/Basket.js';
+import Checkout from './Components/Checkout';
+import Payment from './Components/Payment';
 import Admin1 from './Admin/adminWebpage';
 import Xnav from './Admin/xNav';
 import AdminFace from './Admin/AdminFace';
@@ -61,6 +63,8 @@ function App() {
     <Route exact path="/contact-us" render = {(props)=><div><Nav/><br/><Contact_us/></div>} />
     <Route exact path="/help" render = {(props)=><div><Nav/><br/><Help/></div>} />
     <Route exact path="/basket" render = {(props)=><div><Nav/><br/><Basket/></div>} />
+    <Route exact path="/checkout" render = {(props)=><div><Nav/><br/><Checkout/></div>} />
+    <Route exact path="/paymentGateway" render = {(props)=><div><Nav/><br/><Payment/></div>} />
 
     <Route exact path="/adminwebsite" render = {(props)=><div><Xnav/><br/><div className="row"><Admin1/><AdminFace/></div></div>} />
     <Route exact path="/adminwebsite/requests" render = {(props)=><div><Xnav/><br/><div className="row"><Admin1/><AdminRequests/></div></div>} />

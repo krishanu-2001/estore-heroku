@@ -3,22 +3,25 @@ import {Switch, Route, Link} from 'react-router-dom';
 import UserContext from '../Context/UserContext';
 import SignIn_Modal from './Sign_in_modal';
 import SignUp_Modal from './Sign_up_modal';
-import LogOut_Handler from './LogOut_Handler';
 import './Comp-CSS/Nav.css';
+import Logout from './LogOut_Handler';
 
 
 
 function Nav() {
 
-
   const {userData, setUserData} = React.useContext(UserContext);
-  const logout = () => {
-    setUserData({
-      token: undefined,
-      user: undefined,
-    });
-    localStorage.setItem("auth-token", "");
-  };
+const Logout = ()=>{
+        setUserData({
+          token: undefined,
+          user: undefined,
+        });
+        localStorage.setItem("auth-token", "");
+        return(
+          <>
+          </>
+        )
+}
     const signInModalRef = React.useRef();
     const signUpModalRef = React.useRef();
     const openLoginModal = ()=>{
@@ -74,7 +77,7 @@ function Nav() {
 <div className="others">
 {userData.userInfo ? 
         <div>
-        <a onClick={logout} className="login">LogOut</a>
+        <a onClick={Logout} className="login">LogOut</a>
 <small>{userData.userInfo.username}</small>
       </div>
         : 
