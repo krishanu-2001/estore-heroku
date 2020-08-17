@@ -54,7 +54,7 @@ class ItemNavigator extends Component {
   }
 
   componentDidMount() {
-    Axios.get('http://localhost:3000/items/')
+    Axios.get('http://localhost:5000/items/')
       .then((res) => {
           this.setState({list: res.data});
           console.log(this.state.list);
