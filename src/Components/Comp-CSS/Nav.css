@@ -11,6 +11,10 @@ body {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
       monospace;
   }
+
+  .parentApp{
+    margin-bottom: 70px;
+  }
   
   .nav{
     display: flex;
@@ -19,6 +23,11 @@ body {
     height: 120px;
     width: auto;
     position: relative;
+  }
+
+  .navg{
+    background-color: black;
+    text-align: center;
   }
   
   .logo{
@@ -41,8 +50,8 @@ body {
   
   .others{
     padding: 0%;
-    position: absolute;
-    margin-left: 1360px; 
+    margin-left: 10px; 
+    float: left;
     width: 150px;
     height: 120px;
   }
@@ -98,6 +107,17 @@ body {
     color: black;
     cursor: pointer;
   }
+
+  .logout{
+    padding: 0px;
+    margin-left: 15px;
+    font-size: 12px;
+    margin-top: 0px;
+    letter-spacing: 2px;
+    text-decoration: solid;
+    color: black;
+    cursor: pointer;
+  }
   
   .vl{
     border-left: 1px solid grey;
@@ -110,10 +130,10 @@ body {
   
   .search{
     padding: 0%;
-    margin-left: 770px;
     width: 350px;
     height: 50px;
     margin-top: 35px;
+    float: left;
   }
   
   .input{
@@ -132,12 +152,7 @@ body {
   }
   
   .buttons{
-    position: relative;
-    width: 480px;
-    height: 50px;
-    margin-top: 20px;
-    margin-left: 180px;
-    float: left;
+    padding: 20px;
   }
   
   .btn:hover{
@@ -145,31 +160,23 @@ body {
     color: white;
   }
   
-  .btn:active{
+  .btn:focus{
     background-color: black;
     color: white;
   }
   
   .btn{
+    margin: 5px;
     cursor: pointer;
-    position: relative;
-    float: left;
-    border-color: #b1bab3;
     color: white;
     text-transform: uppercase;
     text-align: center;
-    width: 120px;
-    height: 60px;
     background-color: #383834;
-    font-size: 10px 20px;
-    transition: 0.3s;
-    border-radius: 15px;
+    
   }
+
   .info{
-    margin-left: 770px;
-    margin-top: 0px;
-    position: relative;
-  
+    margin-top: 5px;  
   }
   
   .location{
@@ -178,11 +185,21 @@ body {
     width: 20px;
     float: left;
   }
+
+  .malang{
+    margin-left:50% ;
+    position: absolute;
+    right: 0;
+  }
   
   .loc{
     float: left;
     text-decoration: none;
     color: black;
+  }
+
+  .menuRow{
+    margin: 0px;
   }
   
   .phone{
@@ -214,3 +231,8 @@ body {
   .dropDown:hover .dropdown-content {display: block;}
  
 
+  @media only screen and (max-width: 1077px) {
+    .search{
+      display: none;
+    }
+  }
