@@ -8,9 +8,9 @@
 	},
 	"item": [
 		{
-			"name": "http://localhost:5000/items/",
+			"name": "http://localhost:3000/items/",
 			"request": {
-				"url": "http://localhost:5000/items/",
+				"url": "http://localhost:3000/items/",
 				"method": "GET",
 				"header": [],
 				"body": {},
@@ -19,9 +19,9 @@
 			"response": []
 		},
 		{
-			"name": "localhost:5000/items/add",
+			"name": "localhost:3000/items/add",
 			"request": {
-				"url": "localhost:5000/items/add",
+				"url": "localhost:3000/items/add",
 				"method": "POST",
 				"header": [
 					{
@@ -39,9 +39,9 @@
 			"response": []
 		},
 		{
-			"name": "localhost:5000/items/add",
+			"name": "localhost:3000/items/add",
 			"request": {
-				"url": "localhost:5000/items/add",
+				"url": "localhost:3000/items/add",
 				"method": "POST",
 				"header": [
 					{
@@ -59,9 +59,9 @@
 			"response": []
 		},
 		{
-			"name": "localhost:5000/items/add",
+			"name": "localhost:3000/items/add",
 			"request": {
-				"url": "localhost:5000/items/add",
+				"url": "localhost:3000/items/add",
 				"method": "POST",
 				"header": [
 					{
@@ -79,9 +79,9 @@
 			"response": []
 		},
 		{
-			"name": "localhost:5000/items/add",
+			"name": "localhost:3000/items/add",
 			"request": {
-				"url": "localhost:5000/items/add",
+				"url": "localhost:3000/items/add",
 				"method": "POST",
 				"header": [
 					{
@@ -99,9 +99,9 @@
 			"response": []
 		},
 		{
-			"name": "localhost:5000/items/add",
+			"name": "localhost:3000/items/add",
 			"request": {
-				"url": "localhost:5000/items/add",
+				"url": "localhost:3000/items/add",
 				"method": "POST",
 				"header": [
 					{
@@ -119,9 +119,9 @@
 			"response": []
 		},
 		{
-			"name": "localhost:5000/items/add",
+			"name": "localhost:3000/items/add",
 			"request": {
-				"url": "localhost:5000/items/add",
+				"url": "localhost:3000/items/add",
 				"method": "POST",
 				"header": [
 					{
@@ -139,9 +139,9 @@
 			"response": []
 		},
 		{
-			"name": "localhost:5000/items/add",
+			"name": "localhost:3000/items/add",
 			"request": {
-				"url": "localhost:5000/items/add",
+				"url": "localhost:3000/items/add",
 				"method": "POST",
 				"header": [
 					{
@@ -159,9 +159,9 @@
 			"response": []
 		},
 		{
-			"name": "localhost:5000/items/add",
+			"name": "localhost:3000/items/add",
 			"request": {
-				"url": "localhost:5000/items/add",
+				"url": "localhost:3000/items/add",
 				"method": "POST",
 				"header": [
 					{

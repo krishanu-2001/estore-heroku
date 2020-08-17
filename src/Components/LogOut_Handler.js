@@ -8,6 +8,10 @@ const Logout = ()=>{
           user: undefined,
         });
         localStorage.setItem("auth-token", "");
+        return(
+          <>
+          </>
+        )
 }
 
 

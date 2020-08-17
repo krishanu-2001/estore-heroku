@@ -1,4 +1,4 @@
-
+import axios from 'axios';
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
 import './Comp-CSS/item-card.css'; 
@@ -6,7 +6,68 @@ import './Comp-CSS/item-card.css';
 export class Card extends React.Component {
   constructor(props) {
     super(props);
+
+    this.onChangeQuantity=this.onChangeQuantity.bind(this);
+    this.onClick=this.onClick.bind(this);
+
+    this.state={
+      username: "kuchbhi",
+      password: "123",
+          itemname: this.props.name,
+          price: this.props.price,
+          quantity: 0,
+    }
   }
+
+  componentDidMount(){
+    axios.get('http://localhost:3000/users/')
+    .then(response=>{
+      this.setState({
+      username: this.state.username,
+      password: this.state.password,
+      basket:[
+        {
+          itemname: this.state.name,
+          price: this.state.price,
+          quantity: this.state.quantity,
+        }
+      ]
+    })
+  })
+  } 
+
+
+
+  onChangeQuantity(e){
+    this.setState({
+      quantity: e.target.value
+    });
+  }
+
+  onClick(e){
+    e.preventDefault();
+      const Baskets={
+        username: this.state.username,
+        password: this.state.password,
+        itemname: this.props.name,
+        price: this.props.price,
+        quantity: this.state.quantity
+      }
+  
+    console.log(Baskets);
+    axios.post('http://localhost:3000/users/add',Baskets)
+    .then(res=> {
+        console.log(res.data);
+        console.log(Baskets);
+        alert("Successfully Added!");
+        window.location='/basket';
+    })
+    .catch((err)=>{
+      console.log(err);
+      alert("Item Not added");
+  })
+}
+
 
   render() {
     const menu = this.menuItems;
@@ -29,9 +90,10 @@ export class Card extends React.Component {
                     <div>
                         <br></br>
                         <form style={{border:"0px"}}>
-                            <input type="number" min="0" placeholder="0" name="quantity" style={{"width":"60%", }}/>
+                            <input type="number" min="0" placeholder="0" name="quantity" style={{"width":"60%"}} onChange={this.onChangeQuantity }/>
                             <input type="hidden" name="itemName" value={this.props.name}/>
-                            <input type="submit" value="add to cart" name="submit" />
+                            <input onClick={this.onClick} 
+                            type="submit" value="add to cart" name="submit" />
                         </form>
                     </div>
                 </div>

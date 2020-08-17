@@ -3,16 +3,14 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const userSchema = new Schema({
-    username: {
-        type: String,
-        required: true,
-        unique: true,
-    },
-    password: {
-        type: String,
-        required: true
+    username: String,
+    password: String,
+    basket:{
+        type: Array,
+        default:[],
     }
-},{collection: 'users1812',
+
+},{collection: 'users1828',
     timestamps: true
 });
 
