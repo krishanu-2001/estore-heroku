@@ -20,7 +20,7 @@ export class Card extends React.Component {
   }
 
   componentDidMount(){
-    axios.get('http://localhost:3000/users/')
+    axios.get('http://localhost:5000/users/')
     .then(response=>{
       this.setState({
       username: this.state.username,
@@ -55,7 +55,7 @@ export class Card extends React.Component {
       }
   
     console.log(Baskets);
-    axios.post('http://localhost:3000/users/add',Baskets)
+    axios.post('http://localhost:5000/users/add',Baskets)
     .then(res=> {
         console.log(res.data);
         console.log(Baskets);

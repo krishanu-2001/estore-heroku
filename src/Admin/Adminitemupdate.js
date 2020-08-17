@@ -54,7 +54,7 @@ export class Xitemupdate extends React.Component {
       };
       console.log("item");
       console.log({item});
-      axios.post(`http://localhost:3000/items/adminwebsite/update/${params.id}`,
+      axios.post(`http://localhost:5000/items/adminwebsite/update/${params.id}`,
         item
         ,{headers: {'Content-Type': 'application/json'}})
         .then((res)=>{
@@ -74,7 +74,7 @@ export class Xitemupdate extends React.Component {
   componentDidMount() {
     const {match : { params }} = this.props;
 
-    axios.get(`http://localhost:3000/items/adminwebsite/update/${params.id}`)
+    axios.get(`http://localhost:5000/items/adminwebsite/update/${params.id}`)
     .then(res => {
     this.setState({ person: res.data});
     console.log(this.state.person);

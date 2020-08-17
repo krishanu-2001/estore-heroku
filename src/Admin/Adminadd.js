@@ -52,7 +52,7 @@ export class AdminAdd extends React.Component {
       };
       console.log("item");
       console.log({item});
-      axios.post('http://localhost:3000/items/add',
+      axios.post('http://localhost:5000/items/add',
             item
             ,{headers: {'Content-Type': 'application/json'}})
             .then((res)=>{
