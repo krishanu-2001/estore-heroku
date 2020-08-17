@@ -3,11 +3,46 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const Authenticate = require('../middleware/authentication');
 const User = require('../models/user.model');
+const mongoose = require("mongoose");
 
 
 router.route('/').get((req, res) => {
     User.find()
         .then(items => res.json(items))
+        .catch(err => res.status(400).json('Error: ' + err));
+});
+router.route("/add").post((req, res) => {
+    User.findOne({"username": req.body.username})
+    .then(user=>{
+
+        user.username= req.body.username;
+        user.password= req.body.password;
+        const basket ={
+            itemname: req.body.itemname,
+            price: req.body.price,
+            quantity: Number(req.body.quantity),
+        };
+
+        console.log("basket");
+        console.log(basket);
+        user.basket.push(basket);
+    
+       user.save()
+      .then(()=> {res.json('Item added');console.log(user.basket);})
+      .catch(err => res.status(400).json('Error '+err));
+  })
+  .catch(err=> res.status(400).json('Error: '+err));
+});
+
+router.route('/:id').get((req,res) => {
+    User.findById(req.params.id)
+        .then(item => res.json(item))
+        .catch(err => res.status(400).json('Error: ' + err));
+});
+
+router.route('/:id').delete((req,res) => {
+    User.findByIdAndDelete(req.params.id)
+        .then(() => res.json('item deleted'))
         .catch(err => res.status(400).json('Error: ' + err));
 });
 
@@ -62,4 +97,4 @@ router.route('/userInfo').post(Authenticate,async (req, res)=>{
     })
 })
 
-module.exports = router;
+module.exports = router ;

@@ -37,7 +37,7 @@ function App() {
         console.log('token is null');
       }
       const tokenRes = await Axios.post(
-        "http://localhost:5000/users/userInfo",
+        "http://localhost:3000/users/userInfo",
         null,
         {headers: {"x-auth-token": token}}
       );
