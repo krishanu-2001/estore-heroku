@@ -15,24 +15,7 @@ export class Admin1 extends React.Component {
   }
 
   render() {
-        const xnavbar = {
-          display:"inline-block",
-          width:"100%",
-          heigth:"100%",
-          padding:"0px",
-          marginTop: "10px",
-          paddingLeft: "0px",
-          fontSize:"20px",
-          backgroundColor:"white",
-        };
-        const xli = {
-          padding:"0px",
-          height:"100px",
-          backgroundColor:"#3accdc",
-          marginTop: "0px",
-          paddingLeft: "0px",
-          fontSize:"20px",
-        };
+
         return (
             <div className="">
                 <div className="col-md-3">

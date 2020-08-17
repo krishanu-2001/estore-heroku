@@ -13,7 +13,7 @@ function xNav() {
         <>
         <div className="parentApp">
   <div className="nav"><Link to='/'>
-  <img src='/logo.png' className="logo" onClick/>
+  <img src='/logo.png' className="logo spamMe" onClick/>
   </Link><Link to='/'>
   <span className="shopName">La Fresco</span>
   </Link>
