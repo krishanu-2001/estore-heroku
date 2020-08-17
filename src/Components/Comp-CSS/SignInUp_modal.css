@@ -28,3 +28,16 @@
     z-index: 101;
     padding: 40px;
   }
+
+  
+  @media only screen and (max-width: 1200px) {
+    .modal-box{
+      width: 80%;
+    }
+  }
+
+  @media only screen and (max-width: 500px) {
+    .modal-box{
+      width: 100%;
+    }
+  }

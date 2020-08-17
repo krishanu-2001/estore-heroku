@@ -236,3 +236,12 @@ body {
       display: none;
     }
   }
+
+  @media only screen and (max-width: 500px) {
+    .search{
+      display: none;
+    }
+    .spamMe{
+      display: none;
+    }
+  }
