@@ -1,28 +1,16 @@
 import React from 'react';
 import {Switch, Route, Link} from 'react-router-dom';
-import UserContext from '../Context/UserContext';
 import SignIn_Modal from './Sign_in_modal';
 import SignUp_Modal from './Sign_up_modal';
 import useWindowDimensions from '../Utilities/WindowDimension'
 import './Comp-CSS/Nav.css';
-import Logout from './LogOut_Handler';
-
+import Cookies from 'js-cookie';
+import {useHistory} from 'react-router-dom';
 
 
 function Nav() {
 
-  const {userData, setUserData} = React.useContext(UserContext);
-const Logout = ()=>{
-        setUserData({
-          token: undefined,
-          user: undefined,
-        });
-        localStorage.setItem("auth-token", "");
-        return(
-          <>
-          </>
-        )
-}
+    const history = useHistory();
     const signInModalRef = React.useRef();
     const signUpModalRef = React.useRef();
     const openLoginModal = ()=>{
@@ -68,7 +56,9 @@ const Logout = ()=>{
         setNSOP("nav-search-div");
       }
     
-
+      const gotoHome = ()=>{
+        history.push('/');
+      }
     
     return(
         <>
@@ -80,8 +70,8 @@ const Logout = ()=>{
         <div className="line"></div>
         <div className="line"></div>
       </div>
-      <img src='/logo.png' className="logo" onClick/>
-      <div className={shopNameClass}>La<br/>Fresco</div>
+      <img onClick={gotoHome} src='/logo.png' className="logo" />
+      <div onClick={gotoHome} className={shopNameClass}>La<br/>Fresco</div>
       <div className="search">
         <div className="searchPanel">
       <input className="inputSearch" placeholder={'Search for Products...'}></input>
@@ -96,16 +86,25 @@ const Logout = ()=>{
       </div>
       </div>
       <ul className={navStyle}>
-        <li><a href="#">All Products</a></li>
-        <li><a href="#">Categories</a></li>
-        <li><a href="#">Help</a></li>
+        <li><Link to='/allProducts'>All Products</Link></li>
+        <li><a>Categories</a></li>
+        <li><Link to='/help'>Help</Link></li>
       </ul>
-     <div className={navPanelStyle}>
+     {
+       Cookies.get('token')
+        ?
+        <div className={navPanelStyle}>
+        <Link to='/basket'><img src="https://image.flaticon.com/icons/svg/126/126083.svg" className="cartLogo"/>Cart</Link>
+        <p style={{fontSize:"2vw"}}>|</p>
+        <Link to='/logout'>Logout</Link>
+      </div>
+       :
+       <div className={navPanelStyle}>
        <a onClick={openSignupModal}>Sign UP</a>
        <p style={{fontSize:"2vw"}}>|</p>
        <a onClick={openLoginModal}>Log IN</a>
      </div>
-      
+     }
     </nav>
     <div className={navSearchOP}>
     <img onClick={onclickNavSearchClose} className="close-nav-search-op" src="https://img.icons8.com/emoji/48/000000/cross-mark-emoji.png"/>
