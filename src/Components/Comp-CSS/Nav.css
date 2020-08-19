@@ -1,238 +1,268 @@
-body {
-    margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-      sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-  
-  code {
-    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-      monospace;
-  }
+nav {
+  height: 15vh;
+  background: #44d7eb;
+  display: flex;
+  align-items: center;
+}
 
-  .parentApp{
-    margin-bottom: 70px;
-  }
-  
-  .nav{
-    display: flex;
-    align-items: center;
-    background-color: #44d7eb;
-    height: 120px;
-    width: auto;
-    position: relative;
-  }
+.nav-links {
+  display: flex;
+  list-style: none;
+  width: 30%;
+  height: 100%;
+  justify-content: space-around;
+  align-items: center;
+  float: left;
+  margin-left: 1%;
+}
 
-  .navg{
-    background-color: black;
-    text-align: center;
-  }
-  
-  .logo{
-    height: 100px;
-    margin-left: 20px;
-    margin-top: 8px;
-    width: 100px;
-    border-radius: 50%;
-    text-shadow: 2px 2px 6px 
-  }
-  
-  .shopName{
-    margin-left: 15px;
-    width: 20px;
-    font-size: 40px;
-    font-family: 'Fredoka One', cursive;
-    text-shadow: 2px 2px 6px white ;
-    float: left;
-  }
-  
-  .others{
-    padding: 0%;
-    margin-left: 10px; 
-    float: left;
-    width: 150px;
-    height: 120px;
-  }
-  
-  .cart{
-    height: 50px;
-    width: 150px;
-    background-color: aliceblue;
-    justify-content: center;
-    margin-top: 49px;
-    border-radius: 10px;
-  }
-  
-  .cart:hover{
-    cursor: pointer;
-  }
-  
-  .cartLogo{
-    padding: 8px;
-    height: 35px;
-    width: 35px;
-    margin-top: -2px;
-    float: left;
-  }
-  
-  .cartText{
-    padding-top: 10px;
-    font-size: 22px;
-    font-weight: bold;
-    font-family: cursive;
-  }
-  
-  .sign {
-    padding: 5px;
-    margin-left: 6px;
-    font-size: 12px;
-    float: left;
-    margin-top: 19px;
-    letter-spacing: 2px;
-    text-decoration: none;
-    color: black;
-    cursor: pointer;
-  }
-  
-  .login {
-    padding: 5px;
-    margin-left: 15px;
-    font-size: 12px;
-    float: left;
-    margin-top: 19px;
-    letter-spacing: 2px;
-    text-decoration: solid;
-    color: black;
-    cursor: pointer;
-  }
+.nav-links li a {
+  color: white;
+  font-size: 2vw;
+  text-align: center;
+  text-decoration: none;
+  font-family: 'Fredoka One', cursive;
+  text-shadow: 2px 2px black;
+}
 
-  .logout{
-    padding: 0px;
-    margin-left: 15px;
-    font-size: 12px;
-    margin-top: 0px;
-    letter-spacing: 2px;
-    text-decoration: solid;
-    color: black;
-    cursor: pointer;
-  }
+.logo{
+  height: 90%;
+  margin-left: 2%;
+  border-bottom-left-radius: 50% 25%;
+  border-bottom-right-radius: 50% 25%;
+  border-top-left-radius: 50% 25%;
+  border-top-right-radius: 50% 25%;
+  text-shadow: 2px 2px 6px;
+  object-fit: contain;
+  display: flex;
   
-  .vl{
-    border-left: 1px solid grey;
-    margin-left: 8px;
-    height: 14px;
-    margin-top: 25px;
-    width: 4px;
-    float: left;
-  }
-  
-  .search{
-    padding: 0%;
-    width: 350px;
-    height: 50px;
-    margin-top: 35px;
-    float: left;
-  }
-  
-  .input{
-    height: 35px;
-    width: 340px;
-    border-radius: 10px;
-    overflow: hidden;
-    margin-top: -35px;
-  }
-  
-  .searchImg{
-    margin-left: 315px;
-    height: 20px;
-    margin-top: 4px;
-    position: absolute;
-  }
-  
-  .buttons{
-    padding: 20px;
-  }
-  
-  .btn:hover{
-    background-color: black;
-    color: white;
-  }
-  
-  .btn:focus{
-    background-color: black;
-    color: white;
-  }
-  
-  .btn{
-    margin: 5px;
-    cursor: pointer;
-    color: white;
-    text-transform: uppercase;
-    text-align: center;
-    background-color: #383834;
-    
-  }
+}
 
-  .info{
-    margin-top: 5px;  
-  }
+.shopName{
+  margin-left: 1%;
+  font-size: 5vh;
+  font-family: 'Fredoka One', cursive;
+  text-shadow: 2px 2px 6px white ;
+  float: left;
+  display: flex;
+}
+
+.search {
+  width: 28%;
+  height: 90%;
+  margin-left: 3%;
+  float: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.searchImg {
+  height: 95%;
+  cursor: pointer;
+}
+
+.searchPanel {
+  display: flex;
+ flex-direction: row;
+ width: 100%;
+ height: 50%;
+
+}
+
+.inputSearch {
+  height: 95%;
+  width: 100%;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.navInfo {
+  display: flex;
+ height: 30%;
+ width: 100%;
+ float: left;
+ align-items: center;
+ font-size: 1vw;
+}
+
+.navInfo img {
+  width: 10%;
+  height: 70%;
+}
+
+.navPanel {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-right: 1%;
+  margin-left: auto;
+  width: 12%;
+  height: 14vh;
+  align-items: center;
+}
+
+.navPanel a {
+  color: black;
+  font-size: 2vh;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: 5px;
+  padding: 1vh;
+  background: white;
+  font-family: 'Krona One', sans-serif;
+  border: 0.2vh solid black;
+}
+
+.navBasket{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 60%;
+  align-items: center;
+  margin-left: auto;
+  display: none;
+}
+
+.navBasket a {
+  color: white;
+  font-size: 2.5vh;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  background: black;
+  border-radius: 5px;
+}
+
+.navBasket img {
+  height: 50%;
+}
+
+.nav-search-div {
   
-  .location{
-    position: relative;
-    height: 20px;
-    width: 20px;
-    float: left;
-  }
+  display: flex;
+  flex-direction: row;
+  width: 100vw;
+  height: 7vh;
+  visibility: hidden;
+}
 
-  .malang{
-    margin-left:50% ;
-    position: absolute;
-    right: 0;
-  }
-  
-  .loc{
-    float: left;
-    text-decoration: none;
-    color: black;
-  }
+.nav-search-div.open {
+  visibility: visible;
+}
 
-  .menuRow{
-    margin: 0px;
-  }
-  
-  .phone{
-    margin-left: 20px;
-    height: 20px;
-    width: 20px;
-    padding-right: 10px;
-  }
+.nav-search-op {
+  height: 90%;
+  display: flex;
+  text-align: center;
+  border-radius: 10px;
+}
 
-  .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f1f1f1;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-  }
+.search-nav-search-op {
+  height: 90%;
+  cursor: pointer;
+}
 
-  .dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-    background-color: rgb(243, 243, 178);
-  }
+.close-nav-search-op {
+  height: 90%;
+  cursor: pointer;
+}
 
-  .dropdown-content a:hover {background-color: #44d7eb;}
-
-  .dropDown:hover .dropdown-content {display: block;}
+@media screen and (max-width: 800px) {
  
-
-  @media only screen and (max-width: 1077px) {
-    .search{
-      display: none;
-    }
+  .nav-links{
+    background: #44d7eb;
+    height: 80vh;
+    width: 100%;
+    flex-direction: column;
+    transition: all 1s ease-out;
+    clip-path: circle(100px at 90% -90%);
+    -webkit-clip-path: circle(0px at 90% -90%);
+    pointer-events: none;
+    margin-top: 2vh;
+    margin-left: 0;
+    z-index: 2;
   }
+ 
+  .nav-links.open {
+   clip-path: circle(1000px at 90% -10%);
+   -webkit-clip-path: circle(1000px at 90% -10%);
+   pointer-events: all;
+  }
+ 
+  .line {
+    width: 40px;
+    height: .8vh;
+    background: black;
+    margin: 1.6vh;
+  }
+  nav{
+    position: relative;
+  }
+
+.nav-open{
+  flex-direction: column;
+}
+
+.shopName.open {
+  display: none;
+}
+
+  .hamburger {
+    position: absolute;
+    cursor: pointer;
+    right: 5%;
+    top: 50%;
+    transform: translate(-5%, -50%);
+    z-index: 2;
+ }
+ 
+ .nav-links li a {
+   font-size: 12vw;
+ }
+ 
+ .inputSearch{
+   display: none;
+ }
+ 
+  .navPanel {
+   background: #44d7eb;
+   flex-direction: row;
+   height: 20vh;
+   width: 100%;
+   transition: all 1s ease-out;
+   clip-path: circle(100px at 90% -90%);
+   -webkit-clip-path: circle(0px at 90% -90%);
+   pointer-events: none;
+   padding: 2vw;
+   z-index: 2;
+ }
+
+ .navPanel.open {
+   clip-path: circle(1000px at 90% -10%);
+   -webkit-clip-path: circle(1000px at 90% -10%);
+   pointer-events: all;
+ }
+
+ .navPanel a{
+   font-size: 8vw;
+ }
+ 
+ .navInfo {
+   display: none;
+ }
+ 
+ .searchImg {
+   position: absolute;
+   right: 16%;
+   top: 50%;
+  transform: translate(-20%, -50%);
+  height: 50%;
+ }
+
+ .nav-search-div.open {
+  visibility: visible;
+}
+
+}
