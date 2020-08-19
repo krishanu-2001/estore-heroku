@@ -38,7 +38,7 @@ const Modal = React.forwardRef((props, ref)=>{
                   username: email,
                   password: password,
                 },
-                url: "http://localhost:3000/users/new",
+                url: "http://localhost:5000/users/new",
               }).then((res) => console.log(res));
         }
         else

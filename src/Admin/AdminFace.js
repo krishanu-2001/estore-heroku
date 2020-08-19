@@ -19,7 +19,7 @@ export class AdminFace extends React.Component {
         return (
             <div className="">
                 
-                <div className="col-md-9" style={{backgroundColor:"#dddddd", height:"550px","margin-top":"0px",}}>
+                <div className="col-md-9" style={{backgroundColor:"#dddddd", height:"550px","padding":"0px",}}>
                     <div style={{"text-align":"center", "color":"#555555","margin-top":"0px","padding":"40px",}}>
                         <h1>Welcome Admin :)</h1>
                     </div>

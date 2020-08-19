@@ -1,18 +1,31 @@
 .menu-item {
-    padding: 0 40px;
+    padding: 0 20px;
     margin: 5px 10px;
     user-select: none;
     cursor: pointer;
     border: none;
   }
   .menu-item-wrapper.active {
-    border: 1px blue solid;
+    
   }
   .menu-item.active {
-    border: 1px green solid;
+    
   }
    
   .scroll-menu-arrow {
-    padding: 20px;
+    padding: 0;
+    font-size: 30px;
     cursor: pointer;
+  }
+  
+  .categoryDisplay{
+    background-color: aliceblue;
+    min-height: 300px;
+    
+  }
+
+  .categoryTitle{
+    text-align: center;
+    font-size: 2em;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   }

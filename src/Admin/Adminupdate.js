@@ -17,7 +17,7 @@ export class AdminUpdate extends React.Component {
   }
 
   componentDidMount() {
-    axios.get('http://localhost:3000/items/')
+    axios.get('http://localhost:5000/items/')
       .then(res => {
         this.setState({ persons: res.data});
         console.log(res.data);  

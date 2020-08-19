@@ -37,7 +37,7 @@ function App() {
         console.log('token is null');
       }
       const tokenRes = await Axios.post(
-        "http://localhost:3000/users/userInfo",
+        "http://localhost:5000/users/userInfo",
         null,
         {headers: {"x-auth-token": token}}
       );
@@ -66,11 +66,11 @@ function App() {
     <Route exact path="/checkout" render = {(props)=><div><Nav/><br/><Checkout/></div>} />
     <Route exact path="/paymentGateway" render = {(props)=><div><Nav/><br/><Payment/></div>} />
 
-    <Route exact path="/adminwebsite" render = {(props)=><div><Xnav/><br/><div className="row"><Admin1/><AdminFace/></div></div>} />
-    <Route exact path="/adminwebsite/requests" render = {(props)=><div><Xnav/><br/><div className="row"><Admin1/><AdminRequests/></div></div>} />
-    <Route exact path="/adminwebsite/add" render = {(props)=><div><Xnav/><br/><div className="row"><Admin1/><AdminAdd/></div></div>} />
-    <Route exact path="/adminwebsite/update" render = {(props)=><div><Xnav/><br/><div className="row"><Admin1/><AdminUpdate/></div></div>} />
-    <Route exact path="/adminwebsite/:id" render = {(props)=><div><Xnav/><br/><div className="row"><Admin1/><Xitemupdate {...props}/></div></div>} />
+    <Route exact path="/adminwebsite" render = {(props)=><div><Xnav/><br/><div className="row" style={{"margin":"0px"}}><Admin1/><AdminFace/></div></div>} />
+    <Route exact path="/adminwebsite/requests" render = {(props)=><div><Xnav/><br/><div className="row" style={{"margin":"0px"}}><Admin1/><AdminRequests/></div></div>} />
+    <Route exact path="/adminwebsite/add" render = {(props)=><div><Xnav/><br/><div className="row" style={{"margin":"0px"}}><Admin1/><AdminAdd/></div></div>} />
+    <Route exact path="/adminwebsite/update" render = {(props)=><div><Xnav/><br/><div className="row" style={{"margin":"0px"}}><Admin1/><AdminUpdate/></div></div>} />
+    <Route exact path="/adminwebsite/:id" render = {(props)=><div><Xnav/><br/><div className="row" style={{"margin":"0px"}}><Admin1/><Xitemupdate {...props}/></div></div>} />
     
     </Switch>
     </UserContext.Provider>

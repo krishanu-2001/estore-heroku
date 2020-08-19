@@ -2,13 +2,12 @@
     color: black;
     background-color: #fff;
     padding: 10px;
-    margin: 10px;
+    margin: 0px;
     font-family: Arial;
     height: 400px;
-    width: 250px;
-    border:4px solid #ddd;
+    width: 300px;
+    border:4px solid #fff;
     border-radius: 0px;
-    overflow: hidden;
   }
   
   .myImage {
@@ -35,3 +34,5 @@
     padding: 5px;
     background-color: #dddddd;
   }
+
+ 

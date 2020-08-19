@@ -52,7 +52,7 @@ export class AdminAdd extends React.Component {
       };
       console.log("item");
       console.log({item});
-      axios.post('http://localhost:3000/items/add',
+      axios.post('http://localhost:5000/items/add',
             item
             ,{headers: {'Content-Type': 'application/json'}})
             .then((res)=>{
@@ -79,10 +79,10 @@ export class AdminAdd extends React.Component {
                     <div style={{"text-align":"center", "color":"#555555","margin-top":"0px","padding":"40px",}}>
                         <h1>Add items here</h1>
                         <form style={{"border":"0",}} onSubmit={this.handleSubmit}>
-                          <input type="text" name="itemname" placeholder="item name" style={{width:"400px",}} onChange={this.handleChange_itemname} /><br/>
-                          <input type="text" name="description" placeholder="desciption" style={{width:"400px",}} onChange={this.handleChange_desciption} /><br />
-                          <input type="text" name="price" placeholder="price" style={{width:"400px",}} onChange={this.handleChange_price} /><br />
-                          <input type="text" name="quantity" placeholder="quantity" style={{width:"400px",}} onChange={this.handleChange_quantity} /><br />
+                          <input type="text" name="itemname" placeholder="item name" style={{width:"40%",}} onChange={this.handleChange_itemname} /><br/>
+                          <input type="text" name="description" placeholder="desciption" style={{width:"40%",}} onChange={this.handleChange_desciption} /><br />
+                          <input type="text" name="price" placeholder="price" style={{width:"40%",}} onChange={this.handleChange_price} /><br />
+                          <input type="text" name="quantity" placeholder="quantity" style={{width:"40%",}} onChange={this.handleChange_quantity} /><br />
                           <input type="submit" className="" className="xbtn" />
                         </form>
                     </div>
