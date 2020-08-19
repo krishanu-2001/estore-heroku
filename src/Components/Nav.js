@@ -30,8 +30,7 @@ const Logout = ()=>{
     const openSignupModal = ()=>{
         signUpModalRef.current.openModal()
     };
-    const xbtn = {
-      backgroundColor: "#3333da",
+    const openMenu = () =>{
     };
     
     return(
@@ -90,15 +89,9 @@ const Logout = ()=>{
     </div>
     <div className="col-lg-3 navg">
     <div className="dropDown">
+      <a href = "/#Categories">
     <button className="btn">Categories</button>
-    <div class="dropdown-content">
-      <a href="#">vegetable</a>
-      <a href="#">fruits</a>
-      <a href="#">sweets</a>
-      <a href="#">namkeen</a>
-      <a href="#">toiletries</a>
-      <a href="#">stationary</a>
-    </div>
+    </a>
     </div>
     </div>
     <div className="col-lg-3 navg" >

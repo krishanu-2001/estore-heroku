@@ -24,11 +24,6 @@ body {
     width: auto;
     position: relative;
   }
-
-  .navg{
-    background-color: black;
-    text-align: center;
-  }
   
   .logo{
     height: 100px;
@@ -172,8 +167,36 @@ body {
     text-transform: uppercase;
     text-align: center;
     background-color: #383834;
-    
   }
+
+  
+ .navg{
+  background-color: black;
+  text-align: center;
+  padding-right: 30px;
+}
+  
+
+  .hamburger{
+   display: none;
+  }
+  
+  .rightMenu{
+    position: absolute;
+    right: 0;
+    z-index: 100;
+    padding-right: 5px;
+    color: white;
+  }
+
+  .menuRow{
+    margin: 0px;
+    
+ }
+ .Show{
+   display: inline;
+ }
+
 
   .info{
     margin-top: 5px;  
@@ -198,10 +221,6 @@ body {
     color: black;
   }
 
-  .menuRow{
-    margin: 0px;
-  }
-  
   .phone{
     margin-left: 20px;
     height: 20px;
@@ -229,14 +248,20 @@ body {
   .dropdown-content a:hover {background-color: #44d7eb;}
 
   .dropDown:hover .dropdown-content {display: block;}
- 
+
+
+  @media only screen and (max-width: 1199px) {
+    .hamburger{
+      display: inline;
+    }
+  }
 
   @media only screen and (max-width: 1077px) {
     .search{
       display: none;
     }
   }
-
+  
   @media only screen and (max-width: 500px) {
     .search{
       display: none;

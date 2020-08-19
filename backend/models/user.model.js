@@ -10,7 +10,7 @@ const userSchema = new Schema({
         default:[],
     }
 
-},{collection: 'users1814',
+},{collection: 'users1815',
     timestamps: true
 });
 
