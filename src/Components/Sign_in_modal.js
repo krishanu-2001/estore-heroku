@@ -2,15 +2,13 @@ import React, {useContext} from "react";
 import ReactDOM from "react-dom";
 import {useHistory} from 'react-router-dom';
 import Axios from "axios";
-import UserContext from '../Context/UserContext'
+import Cookies from 'js-cookie';
 import './Comp-CSS/SignInUp_modal.css';
 import './Comp-CSS/Sign_Up_form.css';
 
 
 
 const Modal = React.forwardRef((props, ref)=>{
-
-    const {userData, setUserData} = useContext(UserContext);
 
     const [display, setDisplay] = React.useState(false);
 
@@ -44,15 +42,15 @@ const Modal = React.forwardRef((props, ref)=>{
                   password: password,
                 }
                 )
-                    
-                    setUserData({
-                        token: loginRes.data.token,
-                        userInfo: loginRes.data.user
-                    });
-                    localStorage.setItem("auth-token",loginRes.data.token);
-
-            close();
-            history.push('/');
+                Cookies.set('username', loginRes.data.user.username)
+                Cookies.set('id', loginRes.data.user._id)
+                Cookies.set('basket', loginRes.data.user.basket);
+                Cookies.set('token', loginRes.data.token);
+                console.log(Cookies.get());
+                close();
+                history.push('/');
+            
+            
     }
     
     if(display)

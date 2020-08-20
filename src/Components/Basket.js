@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import {BrowserRouter as Router,Link} from 'react-router-dom';
 /*import Route from 'react-router-dom/Route';*/
 import './Comp-CSS/Basket.css';
-import UserContext from '../Context/UserContext';
 import SignIn_Modal from './Sign_in_modal';
 import SignUp_Modal from './Sign_up_modal';
 import LogOut_Handler from './LogOut_Handler';
