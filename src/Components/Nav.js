@@ -7,6 +7,8 @@ import './Comp-CSS/Nav.css';
 import Cookies from 'js-cookie';
 import {useHistory} from 'react-router-dom';
 
+var navTransi = true;
+
 
 function Nav() {
 
@@ -26,7 +28,7 @@ function Nav() {
     const [navSearchOP, setNSOP] = React.useState("nav-search-div");
     const [categoryDropdown, setCDD] = React.useState("dropdown-category");
     const [catClass, setCatClass] = React.useState(["Category","cat-class"]);
-
+    
     const toggleCat = () =>{
       if(categoryDropdown === 'dropdown-category')
       {
@@ -41,6 +43,7 @@ function Nav() {
     }
 
     const toggleNav = ()=>{
+      if(navTransi){
       if(navStyle === "nav-links")
       {
         setNavStyle("nav-links open");
@@ -52,11 +55,15 @@ function Nav() {
       {
         setNavStyle("nav-links");
         setNPS("navPanel");
+        navTransi = false;
         setTimeout(() => {
           setSNC("shopName");
         setNavClass("");
-        }, 1000);
+        navTransi = true;
+        }, 1000)
+      
       }
+    }
     }
     const { windowWidth } = useWindowDimensions();
     if(windowWidth>=800 && navSearchOP!=="nav-search-div"){ setNSOP("nav-search-div") }
