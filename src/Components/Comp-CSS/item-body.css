@@ -17,18 +17,6 @@
     font-size: 40px;
     cursor: pointer;
   }
-  
-  .categoryDisplay{
-    background-color: aliceblue;
-    min-height: 300px;
-    
-  }
-
-  .categoryTitle{
-    text-align: center;
-    font-size: 2em;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  }
 
   .header {
     padding: 60px;

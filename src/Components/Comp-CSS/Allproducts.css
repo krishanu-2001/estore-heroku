@@ -1,0 +1,15 @@
+.categoryDisplay{
+    background-color: white;
+    min-height: 300px;
+    margin: 30px;
+  }
+
+  .categoryTitle > hr{
+    border: 1px solid #ddd;
+    width: 100%;
+  }
+  .categoryTitle{
+    text-align: center;
+    font-size: 1.5em;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
