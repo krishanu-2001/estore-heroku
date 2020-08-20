@@ -109,7 +109,7 @@ class ItemNavigator extends Component {
 
     return (
       <div className="App">
-        <div className="row menuRow" >
+        <div className="menuRow" >
           <ScrollMenu
             data={menu}
             arrowLeft={ArrowLeft}

@@ -86,8 +86,8 @@ function Nav() {
       </div>
       </div>
       <ul className={navStyle}>
-        <li><Link to='/allProducts'>All Products</Link></li>
-        <li><a>Categories</a></li>
+        <li><Link to='/'>All Products</Link></li>
+        <li><a href='/#Categories'>Categories</a></li>
         <li><Link to='/help'>Help</Link></li>
       </ul>
      {
