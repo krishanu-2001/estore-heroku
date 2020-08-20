@@ -79,7 +79,7 @@ function Nav() {
         <>
         <SignIn_Modal ref={signInModalRef}/>
         <SignUp_Modal ref={signUpModalRef}/>
-<nav className={navClass}>
+<nav className={navClass} id = "Top">
       <div className="hamburger" onClick={toggleNav}>
         <div className="line"></div>
         <div className="line"></div>
@@ -102,14 +102,7 @@ function Nav() {
       </div>
       <ul className={navStyle}>
         <li><Link to='/allProducts'>All Products</Link></li>
-    <li><a className={catClass[1]} onClick={toggleCat}>{catClass[0]}</a><div class={categoryDropdown}>
-    <a href="#">Cat-1</a>
-    <a href="#">Cat-2</a>
-    <a href="#">Cat-3</a>
-    <a href="#">Cat-4</a>
-    <a href="#">Cat-5</a>
-    <Link onClick={toggleCat} to='/categories'>Show All</Link>
-  </div></li>
+        <li><a href='/#Categories'>Categories</a></li>
         <li><Link to='/help'>Help</Link></li>
       </ul>
      {

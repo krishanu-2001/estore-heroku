@@ -108,7 +108,7 @@ class ItemNavigator extends Component {
 
 
     return (
-      <div className="App">
+      <div className="App" id="App">
         <div className="menuRow" >
           <ScrollMenu
             data={menu}
@@ -119,9 +119,12 @@ class ItemNavigator extends Component {
           />
         </div>
 
-        <div>
+        <div id="Categories">
           <hr></hr>
-          <h1 style={{textAlign:"center"}} id="Categories">CATEGORIES</h1>
+          <div className="header">
+          <h1 style={{textAlign:"center"}} >CATEGORIES</h1>
+            <p><a href="/#Top">back to top</a></p>
+          </div>
           <div>
             {itemList}
           </div>
