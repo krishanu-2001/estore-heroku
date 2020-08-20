@@ -17,15 +17,20 @@
     font-size: 40px;
     cursor: pointer;
   }
-  
-  .categoryDisplay{
-    background-color: aliceblue;
-    min-height: 300px;
-    
+
+  .header {
+    padding: 60px;
+    text-align: center;
+    background: #44d7eb;
+    text-shadow: 2px 2px black;
+    color: white;
   }
 
-  .categoryTitle{
-    text-align: center;
-    font-size: 2em;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  .header > p {
+    font-size: 20px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    position: absolute;
+    right: 0;
+    text-shadow: 0px 0px;
+    margin-right: 30px;
   }
