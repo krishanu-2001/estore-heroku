@@ -18,6 +18,7 @@ import AdminAdd from './Admin/Adminadd';
 import Xitemupdate from './Admin/Adminitemupdate';
 import Cookies from 'js-cookie';
 import Logout from './Components/LogOut_Handler';
+import Categories from './Components/Categories';
 
 
 
@@ -38,6 +39,7 @@ function App() {
     <Route exact path="/basket" render = {(props)=><div><Nav/><br/><Basket/></div>} />
     <Route exact path="/checkout" render = {(props)=><div><Nav/><br/><Checkout/></div>} />
     <Route exact path="/paymentGateway" render = {(props)=><div><Nav/><br/><Payment/></div>} />
+    <Route exact path="/categories" render = {(props)=><div><Nav/><br/><Categories/></div>} />
 
     <Route exact path="/adminwebsite" render = {(props)=><div><Xnav/><br/><div className="row" style={{"margin":"0px"}}><Admin1/><AdminFace/></div></div>} />
     <Route exact path="/adminwebsite/requests" render = {(props)=><div><Xnav/><br/><div className="row" style={{"margin":"0px"}}><Admin1/><AdminRequests/></div></div>} />
