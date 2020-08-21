@@ -1,0 +1,64 @@
+.header{
+    clear: both;
+}
+
+.curItem{
+    background-color: gray;
+    min-height: 500px;
+}
+
+.Category-form{
+    border: 0;
+    text-align: center;
+    margin: 20px 10px;
+
+}
+.Category-form2{
+    border: 0;
+    font-size: 1em;
+    text-align: left;
+    margin: 20px 10px;
+
+}
+
+.Category-box{
+    width: 10px;
+    margin-right: 20px;
+    margin-left: 20px;
+}
+.Category-box > input{
+    width: 60px;
+}
+
+.Category-select{
+    background-color: rgb(11, 155, 11);
+    border-radius: 0px;
+    border: 0px;
+    font-size: 1.3em;
+    width: 80%;
+    height: 40px;
+}
+
+.Categories-link{
+    
+}
+
+.Category-itemOption{
+    background-color: cadetblue;
+    font-size: 1.5em;
+    font-family: cursive;
+    text-align: center;
+    margin-left: 10px;
+    min-height: 200px;
+}
+
+.curItem{
+    padding: 20px;
+    background-color: coral;
+    width: 100%;
+    font-size: 2em;
+    margin: 0;
+}
+.curItem > div > p{
+    
+}

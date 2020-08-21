@@ -96,7 +96,7 @@ function Nav() {
         <>
         <SignIn_Modal ref={signInModalRef}/>
         <SignUp_Modal ref={signUpModalRef}/>
-<nav className={navClass}>
+<nav className={navClass} id = "Top">
       <div className="hamburger" onClick={toggleNav}>
         <div className="line"></div>
         <div className="line"></div>
