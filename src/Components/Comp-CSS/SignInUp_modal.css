@@ -4,6 +4,13 @@
     bottom: 0;
     left: 0;
     right: 0;
+    background-color: rgba(18, 93, 100, 0.75);
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    z-index: 100;
   }
   .modal-backdrop {
     position: fixed;
@@ -12,32 +19,156 @@
     left: 0;
     right: 0;
     z-index: 100;
-    background-color: rgba(0,0,0,0.3);
+    background: url('bg.jpg') no-repeat center;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    z-index: 101;   
+    
   }
-  .modal-box {
+  
+
+  .login-form, .signup-form {
     position: relative;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    min-height: 30%;
-    width: 40%;
-    height: 90%;
-    overflow-y: auto;
-    background-color: white;
-    box-shadow: 0 0 20px #44d7eb;
-    z-index: 101;
-    padding: 40px;
+    width: 100%;
+    max-width: 500px;
+    padding: 80px 40px 40px;
+    background: rgba(0,0,0,0.7);
+    border-radius: 10px;
+    color: #fff;
+    box-shadow: 0 15px 25px rgba(0,0,0,0.5);
+    z-index: 102;
+  }
+  .login-form::before, .signup-form::before {
+    content:'';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    background: rgba(255,255,255, 0.08);
+    transform: skewX(-26deg);
+    transform-origin: bottom left;
+    border-radius: 10px;
+    pointer-events: none;
+  }
+  .login-form img, .signup-form img {
+    position: absolute;
+    top: -50px;
+    left: calc(50% - 50px);
+    width: 100px;
+    background: rgba(255,255,255, 0.8);
+    border-radius: 50%;
+  }
+  .login-form h2 {
+    text-align: center;
+    letter-spacing: 1px;
+    margin-bottom: 2rem;
+    color: #ff652f;
   }
 
+  .signup-form h2 {
+    text-align: center;
+    letter-spacing: 1px;
+    margin-bottom: 2rem;
+    color: yellow;
+  }
+
+  .login-form .input-group, .signup-form .input-group {
+    position: relative;
+    width: 75%;
+  }
+  .login-form .input-group input, .signup-form .input-group input {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    margin-bottom: 30px;
+    border: none;
+    border-bottom: 1px solid blue;
+    outline: none;
+    background-color: transparent;
+    color: inherit;
+  }
+  .login-form .input-group label, .signup-form .input-group label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px 0;
+    font-size: 15px;
+    pointer-events: none;
+    transition: .3s ease-out;
+  }
+  .login-form .input-group input:focus + label{
+    transform: translateY(-18px);
+    color: #ff652f;
+    font-size: .8rem;
+  }
+  .login-form .input-group input:valid + label {
+    transform: translateY(-18px);
+    color: #ff652f;
+    font-size: .8rem;
+  }
+
+  .signup-form .input-group input:focus + label{
+    transform: translateY(-18px);
+    color: yellow;
+    font-size: .8rem;
+  }
+  .signup-form .input-group input:valid + label {
+    transform: translateY(-18px);
+    color: yellow;
+    font-size: .8rem;
+  }
+
+  .login-submit-btn {
+    display: block;
+    margin-left: auto;
+    border: none;
+    outline: none;
+    background: #ff652f;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .signup-submit-btn {
+    display: block;
+    margin-left: auto;
+    border: none;
+    outline: none;
+    background: yellow;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    color: black;
+    cursor: pointer;
+  }
+
+  .close-modal {
+    position: absolute;
+    right: 1.5rem;
+    top: 0.5rem;
+    font-size: 3rem;
+    font-weight: 900;
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+  }
   
-  @media only screen and (max-width: 1200px) {
+  @media only screen and (max-width: 800px) {
     .modal-box{
       width: 80%;
     }
   }
 
-  @media only screen and (max-width: 500px) {
+  @media only screen and (max-width: 400px) {
     .modal-box{
-      width: 100%;
+      width: 90%;
     }
   }

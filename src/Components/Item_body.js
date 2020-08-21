@@ -4,8 +4,7 @@ import ScrollMenu from 'react-horizontal-scrolling-menu';
 import {Link} from 'react-router-dom';
 import Axios from 'axios';
 import './Comp-CSS/item-body.css';
-import Categories from './Categories';
-import Allproducts from './All_products';
+
 
 const list = [];
  
@@ -186,6 +185,8 @@ class ItemNavigator extends Component {
           />
         </div>
   
+        
+
       </>
     );
     
