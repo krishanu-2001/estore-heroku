@@ -38,9 +38,43 @@ const ArrowRight = Arrow({ text: '>', className: 'arrow-next' });
 const selected = 'item1';
 const menuItems = [];
  
+const frunveg = React.createRef();
+const staples = React.createRef();
+const snanam = React.createRef();
+const drinbev = React.createRef();
+const clenho = React.createRef();
+const beanhy = React.createRef();
+
+const scrollCat = (catRef) => {
+
+  switch(catRef) {
+    case 'frunveg':
+      window.scrollTo(0, frunveg.current.offsetTop);
+      break;
+    case 'staples':
+      window.scrollTo(0, staples.current.offsetTop);
+      break;
+      case 'snanam':
+        window.scrollTo(0, snanam.current.offsetTop);
+        break;
+        case 'drinbev':
+          window.scrollTo(0, drinbev.current.offsetTop);
+      break;
+      case 'clenho':
+        window.scrollTo(0, clenho.current.offsetTop);
+      break;
+      case 'beanhy':
+        window.scrollTo(0, beanhy.current.offsetTop);
+      break;
+    default:
+     console.log('lol');
+  }
+}
+
 class ItemNavigator extends Component {
   constructor(props) {
     super(props);
+   
   }
  
   
@@ -62,6 +96,8 @@ class ItemNavigator extends Component {
           this.setState({menuItems: Menu(this.state.list, selected)})
         });
   }
+
+  
  
  
   render() {
@@ -105,11 +141,10 @@ class ItemNavigator extends Component {
       );
    }
 
-
-
     return (
-      <div className="App">
-        <div className="menuRow" >
+      <>
+      <div className="cat-heading"><div>Season's Must-Haves</div></div><hr className="cat-hr"/>
+        <div>
           <ScrollMenu
             data={menu}
             arrowLeft={ArrowLeft}
@@ -119,6 +154,72 @@ class ItemNavigator extends Component {
           />
         </div>
 
+        <div className="cat-heading" ref={frunveg}><div>Fruits and Vegetable Corner</div></div><hr className="cat-hr"/>
+        <div>
+          <ScrollMenu
+            data={menu}
+            arrowLeft={ArrowLeft}
+            arrowRight={ArrowRight}
+            selected={selected}
+            onSelect={this.onSelect}
+          />
+        </div>
+
+        <div className="cat-heading" ref={staples}><div>Your Daily Staples</div></div><hr className="cat-hr"/>
+        <div>
+          <ScrollMenu
+            data={menu}
+            arrowLeft={ArrowLeft}
+            arrowRight={ArrowRight}
+            selected={selected}
+            onSelect={this.onSelect}
+          />
+        </div>
+
+        <div className="cat-heading" ref={snanam}><div>The Snack Corner</div></div><hr className="cat-hr"/>
+        <div>
+          <ScrollMenu
+            data={menu}
+            arrowLeft={ArrowLeft}
+            arrowRight={ArrowRight}
+            selected={selected}
+            onSelect={this.onSelect}
+          />
+        </div>
+
+        <div className="cat-heading" ref={drinbev}><div>Drinks and Beverages</div></div><hr className="cat-hr"/>
+        <div>
+          <ScrollMenu
+            data={menu}
+            arrowLeft={ArrowLeft}
+            arrowRight={ArrowRight}
+            selected={selected}
+            onSelect={this.onSelect}
+          />
+        </div>
+
+        <div className="cat-heading" ref={clenho}><div>Cleaning and Household</div></div><hr className="cat-hr"/>
+        <div>
+          <ScrollMenu
+            data={menu}
+            arrowLeft={ArrowLeft}
+            arrowRight={ArrowRight}
+            selected={selected}
+            onSelect={this.onSelect}
+          />
+        </div>
+
+        <div className="cat-heading" ref={beanhy}><div>Beauty and Hygiene</div></div><hr className="cat-hr"/>
+        <div>
+          <ScrollMenu
+            data={menu}
+            arrowLeft={ArrowLeft}
+            arrowRight={ArrowRight}
+            selected={selected}
+            onSelect={this.onSelect}
+          />
+        </div>
+  
         <div>
           <hr></hr>
           <h1 style={{textAlign:"center"}} id="Categories">CATEGORIES</h1>
@@ -126,9 +227,10 @@ class ItemNavigator extends Component {
             {itemList}
           </div>
         </div>
-      </div>
+      </>
     );
   }
 }
 
 export default ItemNavigator;
+export {scrollCat};

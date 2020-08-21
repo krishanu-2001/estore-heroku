@@ -17,6 +17,24 @@
     font-size: 40px;
     cursor: pointer;
   }
+
+  .cat-heading {
+    font-family: 'Cinzel', serif;
+    font-size: 2vw;
+  color:black;
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  }
+
+
+  .cat-hr {
+    margin: 0 auto;
+    width: 50%;
+    border: 0;
+    height: 2px;
+    background-image: linear-gradient(to right,white, black,white);
+  }
   
   .categoryDisplay{
     background-color: aliceblue;
@@ -28,4 +46,10 @@
     text-align: center;
     font-size: 2em;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+
+  @media screen and (max-width: 800px) {
+.cat-heading{
+  font-size: 5vw;
+}
   }
