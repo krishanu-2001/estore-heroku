@@ -13,3 +13,50 @@
     font-size: 1.5em;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
   }
+
+  .bodys{
+    color: black;
+    height: 500px;
+    background-image: url('/trys.png');
+    opacity: 1;
+  }
+
+  .small{
+    background-size: 100% 100%;
+    background-image: linear-gradient(to right,#e06f12,white);
+    height: 220px;
+  }
+
+  .headers{
+    background-image: url('/heading.png');
+    background-repeat: no-repeat;
+    height: 200px;
+  }
+
+  .mid{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: black;
+    font-size: 20px;
+    font-weight: 500;
+  }
+
+  .head{
+    text-align: center;
+  }
+
+  .btn{
+    background-color: black;
+    opacity: 0.9;
+  }
+
+  .btn:hover{
+    background-color: black;
+    opacity: 1;
+    color: blanchedalmond;
+  }
+
+  .btn:active{
+    background-color: black;
+    opacity: 1;
+    color: blanchedalmond;
+  }
