@@ -66,7 +66,7 @@ const BasketTable = (props) => {
 
       const removeItem = (remItemName)=>{
           console.log('Remove Button pressed', remItemName);
-          Axios.post('http://localhost:5000/basket/remove',{
+          /*Axios.post('http://localhost:5000/basket/remove',{
       itemname: remItemName,
     },
     {headers: {
@@ -81,17 +81,43 @@ const BasketTable = (props) => {
     })
     .catch((err)=>{
       console.log(err);
-  })
+  })*/
       }
   
       useEffect(()=>{
           const userBasketSTR = Cookies.get('basket');
           const userBasket = JSON.parse(userBasketSTR);
-          var basArray = [];
-          userBasket.forEach((element,index) => {
+
+          var holder = {};
+
+          userBasket.forEach(function(element) {
+            if (holder.hasOwnProperty(element.itemname)) {
+              holder[element.itemname] = parseInt(holder[element.itemname]) + parseInt(element.quantity);
+          
+            } else {
+              holder[element.itemname] = element.quantity;
+            }
+          });
+
+          let map= new Map();
+      userBasket.map(element=>{
+        map.set(element.itemname,element.price);
+      });
+
+      var obj2 = [];
+        
+        for (var prop in holder) {
+          obj2.push({ itemname: prop, quantity: holder[prop], price: map.get(prop)});
+        }
+        
+        console.log(obj2.length);
+        console.log(obj2);         
+
+         var basArray = [];
+          obj2.forEach((element,index) => {
               let remItemName = element.itemname;
               basArray.push({
-                  'id': index,
+                  'id': index+1,
                   'itemname': element.itemname,
                   'quantity': element.quantity,
                   'price': element.price,
@@ -100,7 +126,7 @@ const BasketTable = (props) => {
               })
           })
         setRows(basArray);
-      },[])//ComponentdidMount
+      },[])
 
   return(
     <MDBTable responsiveSm>
