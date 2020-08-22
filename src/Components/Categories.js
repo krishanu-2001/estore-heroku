@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
 import './Comp-CSS/Categories.css';
 
+const list=[];
+
 export class Categories extends React.Component {
   constructor(props) {
     super(props);
@@ -16,6 +18,7 @@ export class Categories extends React.Component {
     itemOption: [],
     dict: {},
     value:"Please select option",
+    list
   };
 
   handleChange = (event) =>{
@@ -43,7 +46,12 @@ export class Categories extends React.Component {
   }
 
   componentDidMount(){
-    const list = this.props.list;
+
+    axios.get('http://localhost:5000/items/')
+      .then((res) => {
+          this.setState({list: res.data});
+        });
+
     const dict = {};
 
     //// some relevant processing
