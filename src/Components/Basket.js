@@ -1,13 +1,10 @@
 import React,{Component} from 'react';
-import ReactDOM from 'react-dom';
-import {BrowserRouter as Router,Link} from 'react-router-dom';
-/*import Route from 'react-router-dom/Route';*/
+import {Link} from 'react-router-dom';
 import './Comp-CSS/Basket.css';
-import SignIn_Modal from './Sign_in_modal';
-import SignUp_Modal from './Sign_up_modal';
-import LogOut_Handler from './LogOut_Handler';
 import './Comp-CSS/Nav.css';
-import axios from 'axios';
+import Axios from 'axios';
+import Cookies from 'js-cookie';
+import BasketTable from './BasketList'
 
 let sub=0;
 
@@ -36,21 +33,18 @@ class Basket extends Component{
 
   }
 
+
+
   
 
   componentDidMount(){
-    axios.get('http://localhost:5000/users/')
-    .then(response=>{
-      this.setState({items: response.data})
-    })
 
-    .catch((error)=>{
-      console.log(error);
-    })
+  console.log(Cookies.get('token'));
+
   }
 
   deleteItem(id){
-    axios.delete('http://localhost:5000/users/'+id)
+    Axios.delete('http://localhost:5000/users/'+id)
         .then(res=>console.log(res.data));
 
         this.setState({
@@ -124,19 +118,19 @@ console.log(cnt);
   console.log(cnt);
   console.log(obj2);
 //  console.log(this.state.items);
-return obj2.map(current=>{
-  return (
-    <>
-    <tr>
+/*<tr>
       <td>{current.itemname}</td>
       <td>{current.quantity}</td>
       <td>{current.price}</td>
       <td>{current.quantity*current.price}</td>
       <Bas item={this.state.items} name={current.itemname} deleteItem={this.deleteItem} key={this.state.items._id}/>;
-    </tr>
+    </tr>*/
+/*return obj2.map(current=>{
+  return 
+    <>
     </>
-)
-})
+
+})*/
 }
 
   
@@ -188,6 +182,9 @@ return obj2.map(current=>{
 
 
   </div>
+<div className="bt-table-div"><BasketTable/></div>
+
+
   </>
   )
   }

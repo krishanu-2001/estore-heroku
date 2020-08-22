@@ -3,7 +3,7 @@ import Nav from './Components/Nav';
 import ItemNavigator from './Components/Item_body';
 import {Switch, Route, BrowserRouter} from 'react-router-dom';
 import ItemHtml from './Components/Individual-item';
-import All_products from './Components/All_products';
+import All_products from './Components/All_Products';
 import Contact_us from './Components/Contact-us';
 import Help from './Components/Help';
 import Basket from './Components/Basket.js';

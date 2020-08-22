@@ -14,7 +14,7 @@ const authentication = (req, res, next) =>{
     return res.json({msg: 'token not verified'});
 
     console.log(verify);
-    req.user_id = verify;
+    req.user_id = verify.id;
     next();
 
 }

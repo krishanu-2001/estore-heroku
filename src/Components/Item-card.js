@@ -1,18 +1,18 @@
 import axios from 'axios';
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
-import './Comp-CSS/item-card.css'; 
+import Cookies from 'js-cookie';
+import './Comp-CSS/item-card.css';
+
 
 export class Card extends React.Component {
   constructor(props) {
     super(props);
 
     this.onChangeQuantity=this.onChangeQuantity.bind(this);
-    this.onClick=this.onClick.bind(this);
+    this.onClick=this.addToBasket.bind(this);
 
     this.state={
-      username: "kuchbhi",
-      password: "123",
           itemname: this.props.name,
           price: this.props.price,
           quantity: 0,
@@ -34,39 +34,43 @@ export class Card extends React.Component {
       ]
     })
   })
-  } 
-
-
+  }
+  
 
   onChangeQuantity(e){
     this.setState({
-      quantity: e.target.value
+      quantity: e.target.valueAsNumber
     });
   }
 
-  onClick(e){
+  addToBasket(e){
     e.preventDefault();
-      const Baskets={
-        username: this.state.username,
-        password: this.state.password,
+      const newBasketItem={
         itemname: this.props.name,
         price: this.props.price,
         quantity: this.state.quantity
       }
-  
-    console.log(Baskets);
-    axios.post('http://localhost:5000/users/add',Baskets)
+  console.log(newBasketItem);
+
+    if(newBasketItem.quantity !== 0)
+    {
+      axios.post('http://localhost:5000/basket/add',{
+      newBasketItem,
+    },
+    {headers: {
+      'x-auth-token': Cookies.get('token')
+    }})
     .then(res=> {
         console.log(res.data);
-        console.log(Baskets);
-        alert("Successfully Added!");
-        window.location='/basket';
+        Cookies.set('basket', JSON.stringify(res.data.basket));
+        console.log('Cookies Set', Cookies.get('basket'));
     })
     .catch((err)=>{
       console.log(err);
-      alert("Item Not added");
   })
+    }
 }
+
 
 
   render() {
@@ -89,11 +93,10 @@ export class Card extends React.Component {
                 <div className="myForm">
                     <div>
                         <br></br>
-                        <form style={{border:"0px"}}>
+                        <form onSubmit={this.onClick} style={{border:"0px"}}>
                             <input type="number" min="0" placeholder="0" name="quantity" style={{"width":"60%"}} onChange={this.onChangeQuantity }/>
                             <input type="hidden" name="itemName" value={this.props.name}/>
-                            <input onClick={this.onClick} 
-                            type="submit" value="add to cart" name="submit" />
+                            <input type="submit" value="add to cart" name="submit" />
                         </form>
                     </div>
                 </div>
