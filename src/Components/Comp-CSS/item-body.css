@@ -18,12 +18,42 @@
     cursor: pointer;
   }
 
+  .cat-heading {
+    font-family: 'Cinzel', serif;
+    font-size: 2vw;
+  color:black;
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  }
+
+
+  .cat-hr {
+    margin: 0 auto;
+    width: 50%;
+    border: 0;
+    height: 2px;
+    background-image: linear-gradient(to right,white, black,white);
+  }
+  
+  .categoryDisplay{
+    background-color: aliceblue;
+    min-height: 300px;
+    
+  }
+
   .header {
     padding: 60px;
     text-align: center;
     background: #44d7eb;
     text-shadow: 2px 2px black;
     color: white;
+  }
+
+  @media screen and (max-width: 800px) {
+.cat-heading{
+  font-size: 5vw;
+}
   }
 
   .header > p {

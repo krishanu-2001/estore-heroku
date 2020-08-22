@@ -6,8 +6,11 @@ import useWindowDimensions from '../Utilities/WindowDimension'
 import './Comp-CSS/Nav.css';
 import Cookies from 'js-cookie';
 import {useHistory} from 'react-router-dom';
+import { scrollCat } from "./Item_body";
 
 var navTransi = true;
+const scrollToRef = (ref) => window.scrollTo(0, ref.current.offsetTop)
+
 
 
 function Nav() {
@@ -81,7 +84,14 @@ function Nav() {
       const gotoHome = ()=>{
         history.push('/');
       }
-    
+
+      const scrollCatNav = (catRef)=>{
+        toggleCat();
+        if(windowWidth<=800)toggleNav();
+        scrollCat(catRef);
+      }
+      
+
     return(
         <>
         <SignIn_Modal ref={signInModalRef}/>
@@ -109,7 +119,15 @@ function Nav() {
       </div>
       <ul className={navStyle}>
         <li><Link to='/allProducts'>All Products</Link></li>
-        <li><a href='/#Categories'>Categories</a></li>
+    <li><a className={catClass[1]} onClick={toggleCat}>{catClass[0]}</a><div class={categoryDropdown}>
+    <a style={windowWidth>800?{fontSize: "1vw",textShadow: 'none'}:{fontSize: "6vw", textShadow: 'none'}} onClick={()=>scrollCatNav('frunveg')}>Fruits and Vegetables</a>
+    <a style={windowWidth>800?{fontSize: "1vw", textShadow: 'none'}:{fontSize: "6vw", textShadow: 'none'}} onClick={()=>scrollCatNav('staples')}>Staples</a>
+    <a style={windowWidth>800?{fontSize: "1vw", textShadow: 'none'}:{fontSize: "6vw", textShadow: 'none'}} onClick={()=>scrollCatNav('snanam')}>Snacks and Namkeen</a>
+    <a style={windowWidth>800?{fontSize: "1vw", textShadow: 'none'}:{fontSize: "6vw", textShadow: 'none'}} onClick={()=>scrollCatNav('drinbev')}>Drinks and Beverages</a>
+    <a style={windowWidth>800?{fontSize: "1vw", textShadow: 'none'}:{fontSize: "6vw", textShadow: 'none'}} onClick={()=>scrollCatNav('clenho')}>Cleaning and Household</a>
+    <a style={windowWidth>800?{fontSize: "1vw", textShadow: 'none'}:{fontSize: "6vw", textShadow: 'none'}} onClick={()=>scrollCatNav('beanhy')}>Beauty and Hygiene</a>
+    <Link onClick={toggleCat} to='/categories' style={windowWidth>800?{fontSize: "1vw",textShadow: 'none'}:{fontSize: "6vw", textShadow: 'none'}}>Show All</Link>
+  </div></li>
         <li><Link to='/help'>Help</Link></li>
       </ul>
      {

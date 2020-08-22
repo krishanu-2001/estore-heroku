@@ -4,8 +4,6 @@ import {useHistory} from 'react-router-dom';
 import Axios from "axios";
 import Cookies from 'js-cookie';
 import './Comp-CSS/SignInUp_modal.css';
-import './Comp-CSS/Sign_Up_form.css';
-
 
 
 const Modal = React.forwardRef((props, ref)=>{
@@ -56,28 +54,27 @@ const Modal = React.forwardRef((props, ref)=>{
     if(display)
     {
         return ReactDOM.createPortal(
+            <>
             <div className = {"modal-wrapper"}>
                 <div className={"modal-backdrop"}>
-                    <div className={"modal-box"}>
-                    <form onSubmit={signInHandler}>
-                        <div className="form-container">
-                            <h1>Sign In</h1><br/>
-                            <p>Please fill in this form to create an account.</p>
-                             <hr/><br/>
-                            <label><b>Email</b></label><br/>
-                            <input type="text" onChange={e => setEmail(e.target.value)} placeholder="Enter Email" required/><br/>
-                            <label><b>Password</b></label><br/>
-                            <input type="password" onChange={e => setPaasword(e.target.value)} placeholder="Enter Password" required/><br/>
-
-                    <div className="clearfix">
-                        <button type="button" class="cancelbtn" onClick={close}>Cancel</button>
-                        <button type="submit" class="signupbtn">Sign In</button>
-                    </div>
-                </div>
-            </form>  
-                    </div>
-                </div>
-            </div>,
+                    
+     <form onSubmit={signInHandler} className="login-form">
+      <img src='avatar.png'/><a onClick={close} class="close-modal">&times;</a>
+      <h2>Log-IN</h2>
+      <div className="input-group">
+        <input type="text" onChange={e => setEmail(e.target.value)} required/>
+        <label>User Name</label>
+      </div>
+      <div className="input-group">
+        <input type="password" onChange={e => setPaasword(e.target.value)} required/>
+        <label>Password</label>
+      </div>
+      <button type="submit" className="login-submit-btn">LogIN</button>
+    </form>             
+                </div>    
+            </div> 
+          </>
+            ,
             document.getElementById('modal-root')
         );
     }
