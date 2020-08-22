@@ -5,7 +5,9 @@ import Axios from 'axios';
 import {useHistory} from 'react-router-dom';
 
 
-
+const Bas=()=>{
+  window.location.reload(false);
+}
 const BasketTable = (props) => {
 
     const history = useHistory();
@@ -65,8 +67,10 @@ const BasketTable = (props) => {
       ])
 
       const removeItem = (remItemName)=>{
+     //   userBasket.map(curr=>{
+
           console.log('Remove Button pressed', remItemName);
-          /*Axios.post('http://localhost:5000/basket/remove',{
+          Axios.post('http://localhost:5000/basket/remove',{
       itemname: remItemName,
     },
     {headers: {
@@ -77,11 +81,14 @@ const BasketTable = (props) => {
         Cookies.set('basket', JSON.stringify(res.data.basket));
         console.log('Cookies Set', Cookies.get('basket'));
         history.push('/basket');
-        
+    //    window.location.reload(false);
     })
     .catch((err)=>{
       console.log(err);
-  })*/
+  })
+//})
+//window.location.reload(false);
+
       }
   
       useEffect(()=>{
