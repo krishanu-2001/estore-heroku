@@ -29,7 +29,16 @@ export class Categories extends React.Component {
     if(dict[key] !== undefined){
       var temp = [];
       for(var i=0;i<dict[key].length;i++){
-        temp.push(<div><p><Link className="Categories-link" to={"./individual/" + dict[key][i]}>{dict[key][i]}</Link></p></div>);
+
+        temp.push(<div>
+          <p>
+            {i+1}.
+            <img src={"/items-images/" + dict[key][i] +".png"} className="category-image"></img>
+            <Link className="Categories-link" to={"./individual/" + dict[key][i]}>{dict[key][i]}</Link>
+          
+          </p>
+          </div>);
+
       }
       curItem = temp;
       itemOption.push(
@@ -50,10 +59,9 @@ export class Categories extends React.Component {
     axios.get('http://localhost:5000/items/')
       .then((res) => {
           this.setState({list: res.data});
-        });
-
+          const list = this.state.list;
     const dict = {};
-
+    console.log(list);
     //// some relevant processing
     for(var i=0;i<list.length;i++){
       if(dict[list[i].description] === undefined){
@@ -102,6 +110,8 @@ export class Categories extends React.Component {
         itemList: itemList,
       });
 
+        
+        });
   }
 
   render() {
@@ -109,12 +119,12 @@ export class Categories extends React.Component {
 
 
     return (
-        <div>
+        <div  id="_cat">
             <div className="header">
-            <h1 style={{textAlign:"center"}} >CATEGORIES</h1>
-              <p><a href="/#Top">back to top</a></p>
+            <h1 style={{textAlign:"center"}}>CATEGORIES</h1>
+              <p><a href="/#Top">back to home</a></p>
             </div>
-            
+            <span className="category-backtotop"><a href="#_cat">back to top</a></span>
             <div>
               <div className="col-lg-3">
                 <form className="Category-form" onSubmit={this.handleSubmit}>
@@ -127,7 +137,7 @@ export class Categories extends React.Component {
                   <hr></hr>
                   Apply Filter
                   <form className="Category-form2">
-                    <input type="radio" /> Price
+                    >> Price
                      : <span className="Category-box">Rs 0</span>
                      - <span className="Category-box">Rs <input type="number" /></span>
 
