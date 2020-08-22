@@ -11,7 +11,7 @@ export class Categories extends React.Component {
   }
 
   state = {
-    curItem: (<li>Please select category</li>),
+    curItem: (<li className="cat">Please select category</li>),
     keylist: [],
     keyOption: [],
     itemList: [],
@@ -31,7 +31,7 @@ export class Categories extends React.Component {
       for(var i=0;i<dict[key].length;i++){
 
         temp.push(<div>
-          <p>
+          <p className='p'>
             {i+1}.
             <img src={"/items-images/" + dict[key][i] +".png"} className="category-image"></img>
             <Link className="Categories-link" to={"./individual/" + dict[key][i]}>{dict[key][i]}</Link>
@@ -127,22 +127,11 @@ export class Categories extends React.Component {
             <span className="category-backtotop"><a href="#_cat">back to top</a></span>
             <div>
               <div className="col-lg-3">
-                <form className="Category-form" onSubmit={this.handleSubmit}>
+                <form className="Category-form" onSubmit={this.handleSubmit} className="smalls">
                     <select className="Category-select" value={this.state.value} onChange={this.handleChange}>
                       {this.state.keyOption}
                     </select>
                 </form>
-                <div className="Category-itemOption">
-                  {this.state.itemOption}
-                  <hr></hr>
-                  Apply Filter
-                  <form className="Category-form2">
-                    >> Price
-                     : <span className="Category-box">Rs 0</span>
-                     - <span className="Category-box">Rs <input type="number" /></span>
-
-                  </form>
-                </div>
               </div>
               <div className="col-lg-9 ">
                 <div className="curItem">
