@@ -1,4 +1,4 @@
-  .myStyleCard{
+  /*.myStyleCard{
     color: black;
     background-color: #fff;
     padding: 10px;
@@ -8,6 +8,7 @@
     width: 300px;
     border:4px solid #fff;
     border-radius: 0px;
+    margin-top: auto;
   }
   
   .myImage {
@@ -34,5 +35,154 @@
     padding: 5px;
     background-color: #dddddd;
   }
+*/
 
+.prod-card-container {
+  width: 280px;
+  height: 475px;
+  flex: 0 0 auto;
+  margin-top: 50px;
+}
+
+.prod-card-hp {
+  border-radius: 25px;
+  height: 100%;
+  box-shadow: -11px 11px 1px rgba(0, 0, 0, 0.3);
+  
+  background-color: #5ca0f2;
+background-image: linear-gradient(315deg, #5ca0f2 0%, #f5f7f6 74%);
+
+}
+
+.prod-card-head {
+  height: 225px;
+  width: 100%;
+  border-radius: 25px 25px 0 0;
+  display:table-cell;
+   vertical-align:middle; 
+   text-align:center;  
+}
+
+.prod-card-head img {
+  height: 75%;
+  width: 75%;
+  box-shadow: 0 8px 6px -6px black;
+  
+}
+
+.card-logo {
+  width: 55px;
+  margin: 20px;
+}
+     
+.prod-card-body {
+  height: 255px;
+  border-radius: 0 0 25px 25px;
+}
+
+.product-title {
+  padding: 12.5px 20px 9px 20px;
+display: block;
+font-size: 17px;
+font-weight: 500;
+letter-spacing: 1px;
+text-transform: uppercase;
+background: white;
+width: 75%;
+margin-left: auto;
+margin-right: auto;
+text-align: center;
+border-radius: 10px;
+box-shadow: 0 8px 6px -6px black;
+text-decoration: none;
+}
+
+.product-title b {
+  font-weight: 900;
+  letter-spacing: 0px;
+}
+
+
+.product-price {
+ 
+  display: block;
+    background: #11e95b;
+    padding: 7px 20px;
+    text-align: center;
+    font-size: 24px;
+    font-weight: 200;
+    color: #fff;
+    border-radius: 7px;
+    box-shadow: -10px 20px 15px -10px rgba(17, 233, 91, 0.3);
+}
+.product-price b {
+  margin-left: 5px;
+}
+
+
+
+.addToCart {
+  height: 35px;
+width: 50%;
+background-color: #3f0d12;
+background-image: linear-gradient(315deg, #3f0d12 0%, #a71d31 74%);
+color: white;
+border: none;
+font-size: 2rem;
+font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+padding: 0;
+stroke: black;
+outline: none;
+border-radius: 10px;
+margin: 12px;
+ }
+
+ .addToCart:hover{
+  cursor: pointer;
+  filter: drop-shadow(3px 5px 5px rgba(0, 0, 0, 0.45));
+ }
+
+ .card-quantity {
+  padding: 10px 10px;
+  color: inherit;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: inherit;
+  line-height: 20px;
+  border: none;
+  border-radius: 0.4rem;
+  width: 25%;
+  margin: auto;
+ }
+
+ .card-quantity::placeholder {
+  color: #B0BEC5;
+}
+
+.card-quantity:focus {
+  outline: none;
+  box-shadow:
+   0.2rem 0.8rem 1.6rem var(--colorPrimary600);
+}
+
+.card-form {
+  align-items: center;
+  text-align: center;
+  justify-content: space-around;
+}
+
+.card-quantity-label {
+  margin: 10px;
+  padding: 5px;
+  text-shadow: .5px .5px white;
+  font-size: 15px;
+}
+
+.card-hr {
+  margin-top: 10px;
+  margin-bottom: 0;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
  

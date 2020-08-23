@@ -77,30 +77,38 @@ export class Card extends React.Component {
     const menu = this.menuItems;
 
     return (
-        <div className="myStyleCard" >
-                <div>
-                    <img src = {("/items-images/"+this.props.name+".png")} alt={"/items-images/"+this.props.name+".png"} className="myImage"/>
-                </div>
-                <hr></hr>
-                <div style={{"marginBottom":"20px",}}>
-                    <Link to={"./individual/" + this.props.name}><div style={{"fontSize":"1.5em", "marginBottom":"200px,"}} >{this.props.name}</div></Link>
-                </div>
-                <div className="myBanner">
-                    <div className="myBannertext">
-                    1 Packet - Rs {this.props.price}
-                    </div>
-                </div>
-                <div className="myForm">
-                    <div>
-                        <br></br>
-                        <form onSubmit={this.onClick} style={{border:"0px"}}>
-                            <input type="number" min="0" placeholder="0" name="quantity" style={{"width":"60%"}} onChange={this.onChangeQuantity }/>
-                            <input type="hidden" name="itemName" value={this.props.name}/>
-                            <input type="submit" value="add to cart" name="submit" />
-                        </form>
-                    </div>
-                </div>
+      <div class="prod-card-container">
+      <div class="prod-card-hp">
+        <div class="prod-card-head">
+          <img src={("/items-images/"+this.props.name+".png")} alt={"/items-images/"+this.props.name+".png"}/>
         </div>
+        <div class="prod-card-body">
+          <div class="product-desc">
+          
+            <span class="product-title">
+            <Link to={"./individual/" + this.props.name}><b>{this.props.name}</b></Link>
+            </span>
+          </div>
+          <hr className = "card-hr"/>
+          <div class="product-properties">
+          <div className="myForm">
+                        <div>
+                            <br></br>
+                            <form onSubmit={this.onClick} className="card-form">
+                            <label className="card-quantity-label">Quantity: </label>
+                                <input type="number" min="0" placeholder="0" name="quantity" className="card-quantity" onChange={this.onChangeQuantity }/><br/>
+                                <input type="hidden" name="itemName" value={this.props.name}/>
+                                <input type="submit" value="Add To Cart" name="submit" className="addToCart" />
+                            </form>
+                        </div>
+                    </div>
+            <span class="product-price">
+                    RS.<b>{this.props.price}</b>
+                  </span>
+          </div>
+        </div>
+      </div>
+    </div>
 
     );
   }

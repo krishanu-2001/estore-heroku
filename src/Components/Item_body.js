@@ -4,6 +4,13 @@ import ScrollMenu from 'react-horizontal-scrolling-menu';
 import {Link} from 'react-router-dom';
 import Axios from 'axios';
 import './Comp-CSS/item-body.css';
+import Festive from './Comp-CSS/festive.jpg';
+import Frunveg from './Comp-CSS/frunveg.jpg';
+import Staples from './Comp-CSS/staples.jpg';
+import Snanam from './Comp-CSS/snanam.jpg';
+import Drinks from './Comp-CSS/drinks.jpg';
+import Cleaning from './Comp-CSS/cleaning.jpg';
+import Beauty from './Comp-CSS/beauty.jpg'
 
 
 const list = [];
@@ -109,7 +116,12 @@ class ItemNavigator extends Component {
     return (
       <>
       <div className="cat-heading"><div>Season's Must-Haves</div></div><hr className="cat-hr"/>
-        <div>
+        <div style={{  
+  backgroundImage: "url(" + Festive + ")",
+  backgroundPosition: 'center',
+  backgroundSize: 'cover',
+  backgroundRepeat: 'no-repeat'
+}} className="scroller-div-hp">
           <ScrollMenu
             data={menu}
             arrowLeft={ArrowLeft}
@@ -120,7 +132,12 @@ class ItemNavigator extends Component {
         </div>
 
         <div className="cat-heading" ref={frunveg}><div>Fruits and Vegetable Corner</div></div><hr className="cat-hr"/>
-        <div>
+        <div style={{  
+  backgroundImage: "url(" + Frunveg + ")",
+  backgroundPosition: 'center',
+  backgroundSize: 'cover',
+  backgroundRepeat: 'no-repeat'
+}} className="scroller-div-hp">
           <ScrollMenu
             data={menu}
             arrowLeft={ArrowLeft}
@@ -131,7 +148,12 @@ class ItemNavigator extends Component {
         </div>
 
         <div className="cat-heading" ref={staples}><div>Your Daily Staples</div></div><hr className="cat-hr"/>
-        <div>
+        <div style={{  
+  backgroundImage: "url(" + Staples + ")",
+  backgroundPosition: 'center',
+  backgroundSize: 'cover',
+  backgroundRepeat: 'no-repeat'
+}} className="scroller-div-hp">
           <ScrollMenu
             data={menu}
             arrowLeft={ArrowLeft}
@@ -142,7 +164,12 @@ class ItemNavigator extends Component {
         </div>
 
         <div className="cat-heading" ref={snanam}><div>The Snack Corner</div></div><hr className="cat-hr"/>
-        <div>
+        <div style={{  
+  backgroundImage: "url(" + Snanam + ")",
+  backgroundPosition: 'center',
+  backgroundSize: 'cover',
+  backgroundRepeat: 'no-repeat'
+}} className="scroller-div-hp">
           <ScrollMenu
             data={menu}
             arrowLeft={ArrowLeft}
@@ -153,7 +180,12 @@ class ItemNavigator extends Component {
         </div>
 
         <div className="cat-heading" ref={drinbev}><div>Drinks and Beverages</div></div><hr className="cat-hr"/>
-        <div>
+        <div style={{  
+  backgroundImage: "url(" + Drinks + ")",
+  backgroundPosition: 'center',
+  backgroundSize: 'cover',
+  backgroundRepeat: 'no-repeat'
+}} className="scroller-div-hp">
           <ScrollMenu
             data={menu}
             arrowLeft={ArrowLeft}
@@ -164,7 +196,12 @@ class ItemNavigator extends Component {
         </div>
 
         <div className="cat-heading" ref={clenho}><div>Cleaning and Household</div></div><hr className="cat-hr"/>
-        <div>
+        <div style={{  
+  backgroundImage: "url(" + Cleaning + ")",
+  backgroundPosition: 'center',
+  backgroundSize: 'cover',
+  backgroundRepeat: 'no-repeat'
+}} className="scroller-div-hp">
           <ScrollMenu
             data={menu}
             arrowLeft={ArrowLeft}
@@ -175,7 +212,12 @@ class ItemNavigator extends Component {
         </div>
 
         <div className="cat-heading" ref={beanhy}><div>Beauty and Hygiene</div></div><hr className="cat-hr"/>
-        <div>
+        <div style={{  
+  backgroundImage: "url(" + Beauty + ")",
+  backgroundPosition: 'center',
+  backgroundSize: 'cover',
+  backgroundRepeat: 'no-repeat'
+}} className="scroller-div-hp">
           <ScrollMenu
             data={menu}
             arrowLeft={ArrowLeft}
