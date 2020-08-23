@@ -173,7 +173,7 @@ console.log(cnt);
   <br />
   <br />
   <div className="hl1"></div>
-  <button className="checkout">CHECKOUT..</button>
+  <Link to='/checkout'><button className="checkout">CHECKOUT..</button></Link>
 
   </div>
 

@@ -5,9 +5,6 @@ import Axios from 'axios';
 import {useHistory} from 'react-router-dom';
 
 
-const Bas=()=>{
-  window.location.reload(false);
-}
 const BasketTable = (props) => {
 
     const history = useHistory();
@@ -66,6 +63,8 @@ const BasketTable = (props) => {
         }
       ])
 
+      const [userBasketSTR, setUBSTR] = React.useState(Cookies.get('basket'));
+
       const removeItem = (remItemName)=>{
      //   userBasket.map(curr=>{
 
@@ -80,7 +79,7 @@ const BasketTable = (props) => {
         console.log(res.data);
         Cookies.set('basket', JSON.stringify(res.data.basket));
         console.log('Cookies Set', Cookies.get('basket'));
-        history.push('/basket');
+        setUBSTR(Cookies.get('basket'));
     //    window.location.reload(false);
     })
     .catch((err)=>{
@@ -92,7 +91,6 @@ const BasketTable = (props) => {
       }
   
       useEffect(()=>{
-          const userBasketSTR = Cookies.get('basket');
           const userBasket = JSON.parse(userBasketSTR);
 
           var holder = {};
@@ -133,7 +131,7 @@ const BasketTable = (props) => {
               })
           })
         setRows(basArray);
-      },[])
+      },[userBasketSTR]);
 
   return(
     <MDBTable responsiveSm>

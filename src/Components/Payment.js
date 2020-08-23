@@ -1,63 +1,43 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Axios from 'axios';
+import Cookies from 'js-cookie';
+import {useHistory} from 'react-router-dom';
 
-const list = [
-    {
-      itemname: 'Potato',
-      description: 'Will be added soon',
-      price: 120,
-      quantity: 786
-    },
-    {
-      itemname: 'Mango',
-      description: 'Will be added soon',
-      price: 300,
-      quantity: 786
-    },
-    {
-      itemname: 'Chocolate',
-      description: 'Will be added soon',
-      price: 60,
-      quantity: 786
-    },
-    {
-      itemname: 'Milk',
-      description: 'Will be added soon',
-      price: 56,
-      quantity: 786
-    },
-    {
-      itemname: 'Chips',
-      description: 'Will be added soon',
-      price: 40,
-      quantity: 786
-    },
-    {
-      itemname: 'Lassi',
-      description: 'Will be added soon',
-      price: 300,
-      quantity: 786
-    },
-    {
-      itemname: 'Namkeen',
-      description: 'Will be added soon',
-      price: 60,
-      quantity: 786
-    },
-    {
-      itemname: 'Onion',
-      description: 'Will be added soon',
-      price: 56,
-      quantity: 786
-    }
-  ]
-
-const confirmOrder = ()=>{
-    
-}
+var orderBasket = [];
 
 const Payment = ()=>{
+
+  const history = useHistory();
+
+const confirmOrder = ()=>{
+  console.log('Confirm order ran', orderBasket);
+ if(orderBasket === []){
+history.push('/')
+ }
+ else{
+  Axios.post('http://localhost:5000/order/confirm',{
+    orderBasket,
+  },
+  {headers: {
+    'x-auth-token': Cookies.get('token')
+  }})
+  .then(res=> {
+      console.log(res.data);
+      history.push('/');
+  })
+  .catch((err)=>{
+    console.log(err);
+})  
+}
+}
+
+  
+  useEffect(()=>{
+ const orderBasketSTR = Cookies.get('order');
+ orderBasket = JSON.parse(orderBasketSTR);
+Cookies.remove('order');
+  });
     return(
         <>
         <button onClick={confirmOrder}>Confirm Order</button>

@@ -106,7 +106,7 @@ text-decoration: none;
 .product-price {
  
   display: block;
-    background: #11e95b;
+    background: red;
     padding: 7px 20px;
     text-align: center;
     font-size: 24px;

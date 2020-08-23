@@ -105,6 +105,8 @@ class ItemNavigator extends Component {
         });
   }
 
+
+  
   
  
  
@@ -115,9 +117,10 @@ class ItemNavigator extends Component {
 
     return (
       <>
-      <div className="cat-heading"><div>Season's Must-Haves</div></div><hr className="cat-hr"/>
+      
+      <div className="cat-heading" ref={snanam}><div>The Snack Corner</div></div><hr className="cat-hr"/>
         <div style={{  
-  backgroundImage: "url(" + Festive + ")",
+  backgroundImage: "url(" + Snanam + ")",
   backgroundPosition: 'center',
   backgroundSize: 'cover',
   backgroundRepeat: 'no-repeat'
@@ -150,22 +153,6 @@ class ItemNavigator extends Component {
         <div className="cat-heading" ref={staples}><div>Your Daily Staples</div></div><hr className="cat-hr"/>
         <div style={{  
   backgroundImage: "url(" + Staples + ")",
-  backgroundPosition: 'center',
-  backgroundSize: 'cover',
-  backgroundRepeat: 'no-repeat'
-}} className="scroller-div-hp">
-          <ScrollMenu
-            data={menu}
-            arrowLeft={ArrowLeft}
-            arrowRight={ArrowRight}
-            selected={selected}
-            onSelect={this.onSelect}
-          />
-        </div>
-
-        <div className="cat-heading" ref={snanam}><div>The Snack Corner</div></div><hr className="cat-hr"/>
-        <div style={{  
-  backgroundImage: "url(" + Snanam + ")",
   backgroundPosition: 'center',
   backgroundSize: 'cover',
   backgroundRepeat: 'no-repeat'
@@ -214,6 +201,22 @@ class ItemNavigator extends Component {
         <div className="cat-heading" ref={beanhy}><div>Beauty and Hygiene</div></div><hr className="cat-hr"/>
         <div style={{  
   backgroundImage: "url(" + Beauty + ")",
+  backgroundPosition: 'center',
+  backgroundSize: 'cover',
+  backgroundRepeat: 'no-repeat'
+}} className="scroller-div-hp">
+          <ScrollMenu
+            data={menu}
+            arrowLeft={ArrowLeft}
+            arrowRight={ArrowRight}
+            selected={selected}
+            onSelect={this.onSelect}
+          />
+        </div>
+
+        <div className="cat-heading"><div>Season's Must-Haves</div></div><hr className="cat-hr"/>
+        <div style={{  
+  backgroundImage: "url(" + Festive + ")",
   backgroundPosition: 'center',
   backgroundSize: 'cover',
   backgroundRepeat: 'no-repeat'
