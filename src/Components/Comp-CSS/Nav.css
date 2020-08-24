@@ -184,9 +184,30 @@ margin-right: .3vw;
   display: block;
 }
 
+.navSearchMeBox{
+  z-index: 1000;
+  background-color: white;
+  position: absolute;
+  float: bottom;
+  margin-top: 100px;
+  min-height: 100px;
+}
+.navSearchMeBox>p{
+  padding: 10px;
+  border: 2px black solid;
+  margin: 0px;
+  width: 100px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  text-shadow: 0.3px 0.3px ;
+  box-shadow: 2px 4px 0px #444;
+}
 
 
 .dropdown-category a:hover {background-color: #ddd}
+
+.fa-times:hover{
+  color: gray;
+}
 
 @media screen and (max-width: 800px) {
  
