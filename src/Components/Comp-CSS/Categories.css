@@ -3,8 +3,19 @@
 }
 
 .curItem{
-    background-color: gray;
+    background-image: url('/try2.png');
+    height: auto;
     min-height: 500px;
+    margin-left: 150px;
+    color: black;
+}
+
+.cat{
+    margin-left: 150px;
+}
+
+.p{
+    margin-left: 150px;
 }
 
 .Category-form{
@@ -26,30 +37,49 @@
     margin-right: 20px;
     margin-left: 20px;
 }
+
+.categoryTitle{
+    margin-left: 50px;
+    padding-left: 50px;
+}
+
 .Category-box > input{
     width: 60px;
 }
 
 .Category-select{
-    background-color: rgb(29, 184, 29);
+    background-color: black;
+    color: whitesmoke;
+    border-style: solid;
     border-radius: 0px;
     border: 0px;
     font-size: 1.3em;
     width: 80%;
     height: 40px;
+    margin-top: 25px;
+    margin-left: 15px;
+    opacity: 1;
+}
+
+.smalls{
+    border-style: solid;
+    background-image: linear-gradient(to right,#ccf70a,white);
+    min-height: 230px;
+    height: auto;
 }
 
 .Categories-link{
-    color: #444;
+    color: black;
 }
 
 .Category-itemOption{
-    background-color: cadetblue;
+    background-color: black;
     font-size: 1.5em;
     font-family: cursive;
     text-align: center;
     margin-left: 10px;
     min-height: 200px;
+    text-decoration: none;
 }
 
 .category-image{

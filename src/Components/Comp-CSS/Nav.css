@@ -1,8 +1,10 @@
 nav {
   height: 15vh;
-  background: #44d7eb;
+  background-color: #2884b8;
+background-image: linear-gradient(315deg, #2884b8 0%, #d1bad2 74%);
   display: flex;
   align-items: center;
+  box-shadow: 0 8px 6px -6px black;
 }
 
 .nav-links {
@@ -189,7 +191,8 @@ margin-right: .3vw;
 @media screen and (max-width: 800px) {
  
   .nav-links{
-    background: #44d7eb;
+    background-color: #2884b8;
+background-image: linear-gradient(315deg, #2884b8 0%, #d1bad2 74%);
     height: 80vh;
     width: 100%;
     flex-direction: column;
@@ -249,7 +252,8 @@ margin-right: .3vw;
  }
  
   .navPanel {
-   background: #44d7eb;
+    background-color: #2884b8;
+    background-image: linear-gradient(315deg, #2884b8 0%, #d1bad2 74%);
    flex-direction: row;
    height: 20vh;
    width: 100%;
