@@ -21,6 +21,7 @@ export class Categories extends React.Component {
     list
   };
 
+  /* event to handle category change*/ 
   handleChange = (event) =>{
     var key = event.target.value;
     this.setState({value: event.target.value});
@@ -30,6 +31,7 @@ export class Categories extends React.Component {
       var temp = [];
       for(var i=0;i<dict[key].length;i++){
 
+        /* styling goes here */
         temp.push(<div>
           <p className='p'>
             {i+1}.
@@ -38,7 +40,8 @@ export class Categories extends React.Component {
           
           </p>
           </div>);
-
+          /* styling ends */
+          
       }
       curItem = temp;
       itemOption.push(
