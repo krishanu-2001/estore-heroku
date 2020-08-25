@@ -1,10 +1,25 @@
-.basket{
+
+
+
+.basket {
     height: 100%; 
     width: auto;
     margin: 40px 40px 40px 40px;
     border-color: grey;
     border-style: double;
+    background-image:
+    repeating-radial-gradient(circle at top left, #2d545e 0, #d1bad2 150px, #12343b 30px);
+    background-blend-mode: overlay;
 }
+
+/*.basket{
+    height: 100%; 
+    width: auto;
+    margin: 40px 40px 40px 40px;
+    border-color: grey;
+    border-style: double;
+    background-image: linear-gradient(#e1b382,#2d545e);
+}*/
 
 /*.table{
     height: 100%; 
@@ -17,15 +32,20 @@
 .header{
     margin-top: 10px;
     margin-left: 15px;
-    font-size: 35px;
+    font-size: 25px;
     font-family: sans-serif;
+}
+.final{
+    background-color: transparent;
 }
 
 .hl{
-    margin-left: 0px;
-    height: 1px;
+    margin-left: -18px;
+    padding: 0;
+    height: 3px;
     background-color: gray;
     width: auto;
+    font-weight: bold;
 }
 .offers{
     margin-left: 25px;
@@ -99,7 +119,9 @@
     border-style: double;
     border-color: black;
     border-radius: 10px;
-    background-color: #f6f7f2;
+    background-image:
+    repeating-radial-gradient(circle at bottom right, #2d545e 0, #d1bad2 150px, #12343b 30px);
+    background-blend-mode: overlay;
 }
 .total{
     float: left;
@@ -125,19 +147,21 @@
     height: 55px;
     width: 150px;
     margin-top: 20px;
-    margin-right: -87px;
+    margin-right: 10px;
     border-radius: 14px;
     margin-bottom: 13px;
-    background-image:linear-gradient(#c2e03a,#e6d6d3);
+    background-image:linear-gradient(#2d545e,#e1b382);
     box-shadow: grey;
     color: black;
+    font-weight: bold;
 }
 
 .checkout:hover{
     cursor: pointer;
-    background-image:linear-gradient(#e6d6d3,#c2e03a);
-
+    background-image:linear-gradient(#e1b382,#2d545e);
 }
+
+
 
 /*.final{
     background-color: hotpink;
@@ -151,24 +175,37 @@
     width: 220px;
     font-size: 18px;
     border-radius: 15px;
-    background-image:linear-gradient(#c2e03a,#e6d6d3);
+    background-image:linear-gradient(#2d545e,#e1b382);
     color: #211e20;
     font-weight: 600;
 }
 
 .cntshp:hover{
     cursor: pointer;
-    background-image:linear-gradient(#e6d6d3,#c2e03a);
+    background-image:linear-gradient(#e1b382,#2d545e);
 }
 
 .table{
     margin-left: 50px;
-    width: 90%;
+    width: 100%;
 }
 
 .bt-table-div {
+    margin-top: 30px;
     display: flex;
     align-items: center;
     justify-content: space-around;
-    width: 90%;
+    width: 100%;
+    color: black;
+}
+
+.table-responsive{
+    width: 1200px;
+}
+
+.head{
+    font-size: 50px;
+    color: black;
+    text-transform: uppercase;
+    text-shadow: 3px 3px #e1b382;
 }

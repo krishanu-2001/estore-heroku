@@ -3,10 +3,14 @@ import Cookies from 'js-cookie';
 import { MDBBtn, MDBTable, MDBTableBody, MDBTableHead  } from 'mdbreact';
 import Axios from 'axios';
 import {useHistory} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
+var totalPayTemp = 0;
+var bas=[];
 
 const BasketTable = (props) => {
 
+    var basArray = [];
     const history = useHistory();
 
     const columns= [
@@ -118,7 +122,7 @@ const BasketTable = (props) => {
         console.log(obj2.length);
         console.log(obj2);         
 
-         var basArray = [];
+         
           obj2.forEach((element,index) => {
               let remItemName = element.itemname;
               basArray.push({
@@ -129,15 +133,35 @@ const BasketTable = (props) => {
                   'sub-total': element.price*element.quantity,
                   'remove': <button onClick={()=>removeItem(remItemName)}>Remove</button>
               })
+            //  totalPayTemp+=element.price+element.quantity;
           })
+          bas=obj2;
         setRows(basArray);
       },[userBasketSTR]);
 
   return(
-    <MDBTable responsiveSm>
-      <MDBTableHead columns={columns} />
-      <MDBTableBody rows={rows} />
-    </MDBTable>
+    <>
+    <div className="table-responsive">
+    <div className="table-responsive">
+    <table className="table table-responsive w-100 d-block d-md-table">
+    
+    <MDBTableHead  columns={columns}/>
+    <MDBTableBody rows={rows}/>
+    </table>
+    </div>
+    <Link to="/"><button className="cntshp">Continue Shopping</button></Link>
+  <button className="cntshp">Empty Cart</button>
+<div className="payment">
+<h2 className="total">TOTAL</h2>
+<h2 className="amt">Rs. {totalPayTemp}</h2>
+<br />
+<br />
+<br />
+<div className="hl1"></div>
+<Link to='/checkout'><button className="checkout">CHECKOUT..</button></Link>
+</div>
+</div>
+</>
   );
 };
 
