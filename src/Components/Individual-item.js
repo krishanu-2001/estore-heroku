@@ -105,6 +105,22 @@ export class ItemHtml extends React.Component {
       })
   })
     }
+    else{
+      store.addNotification({
+        title: 'Warning!',
+        message: "Please fill quantity",
+        type: 'warning',                         // 'default', 'success', 'info', 'warning'
+        insert: "top",
+        container: 'top-right',                // where to position the notifications
+        animationIn: ["animated", "fadeIn"],     // animate.css classes that's applied
+        animationOut: ["animated", "fadeOut"],   // animate.css classes that's applied
+        dismiss: {
+          duration: 5000,
+          onScreen: true,
+          pauseOnHover: true
+        }
+      })
+    }
 }
   
   render() {
