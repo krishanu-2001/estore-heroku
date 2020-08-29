@@ -70,6 +70,15 @@ function XNav() {
      /* Handles change in search box */
      const onEnterSearch = (e) => {
       var key = e.target.value;
+      for(var i=0;i<key.length;i++){
+        if( (key[i]>='a'&& key[i]<='z') ||(key[i]>='A'&& key[i]<='Z')
+        || (key[i]>='0'&& key[i]<='9')){
+          // ok
+        } else {
+          key = "";
+          searchMeClose();
+        }
+      }
       setsearchThis(key);
       if(key === ""){
         searchMeOpen([])
@@ -129,7 +138,7 @@ function XNav() {
           for(var i=0; i<(datalist.length); i++){
             temp.push(<p><Link to={"/individual/" + datalist[i][0]}>{datalist[i][0]}</Link></p>);
             cct += 1;
-            if(cct > 5){
+            if(cct > 3){
               break;
             }
           }

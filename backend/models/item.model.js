@@ -6,7 +6,8 @@ const itemSchema = new Schema({
     itemname: {type: String, require: true},
     description: { type: String, required: true },
     price: {type: Number, required: true},
-    quantity: {type: Number},
+    quantity: {type: Number, required: true },
+    category: { type: String, required: true },
     },
     {
         collection: 'items1812'
