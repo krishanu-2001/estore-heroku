@@ -1,10 +1,3 @@
-<<<<<<< HEAD
-=======
-import axios from 'axios';
-import {Link} from 'react-router-dom';
-import Cookies from 'js-cookie';
-import './Comp-CSS/item-card.css';
->>>>>>> dc47952ab0a5ddca0bbcbdc200ba19fd9d6a5d83
 import React, { Component } from 'react';
 import './Comp-CSS/individual-item.css';
 import Axios from 'axios';
@@ -20,7 +13,6 @@ var prices;
 export class ItemHtml extends React.Component {
   constructor(props) {
     super(props);
-<<<<<<< HEAD
     this.onChangeQuantity=this.onChangeQuantity.bind(this);
     this.addToBasket=this.addToBasket.bind(this);
     this.state ={
@@ -64,62 +56,13 @@ export class ItemHtml extends React.Component {
       const newBasketItem={
         itemname: this.state.itemname,
         price: this.state.price,
-=======
-
-    this.onChangeQuantity=this.onChangeQuantity.bind(this);
-    this.onClick=this.addToBasket.bind(this);
-
-    this.state={
-      quantity: 0,
-}
-  }
-
-
-  getVAl(){
-    var token = "Potato";
-    return token;
-  }
-
-  componentDidMount(){
-    axios.get('http://localhost:5000/items/')
-    .then(response=>{
-      console.log(response);
-      response.data.map(curr=>{
-        if(curr.itemname===this.props.match.params.id)
-        {
-          prices=curr.price;
-        }
-      })
-    }
-    )
-  }
-  
-
-  onChangeQuantity(e){
-    this.setState({
-      quantity: e.target.valueAsNumber
-    });
-  }
-
-  addToBasket(e){
-    console.log(this.props);
-    e.preventDefault();
-    
-      const newBasketItem={
-        itemname: this.props.match.params.id,
-        price: prices,
->>>>>>> dc47952ab0a5ddca0bbcbdc200ba19fd9d6a5d83
         quantity: this.state.quantity
       }
   console.log(newBasketItem);
 
     if(newBasketItem.quantity !== 0)
     {
-<<<<<<< HEAD
       Axios.post('http://localhost:5000/basket/add',{
-=======
-      axios.post('http://localhost:5000/basket/add',{
->>>>>>> dc47952ab0a5ddca0bbcbdc200ba19fd9d6a5d83
       newBasketItem,
     },
     {headers: {
@@ -129,7 +72,6 @@ export class ItemHtml extends React.Component {
         console.log(res.data);
         Cookies.set('basket', JSON.stringify(res.data.basket));
         console.log('Cookies Set', Cookies.get('basket'));
-<<<<<<< HEAD
         store.addNotification({
           title: 'Item added to cart',
           message: newBasketItem.quantity +" "+newBasketItem.itemname+" "+ "were added to cart",
@@ -165,21 +107,11 @@ export class ItemHtml extends React.Component {
     }
 }
   
-=======
-    })
-    .catch((err)=>{
-      console.log(err);
-  })
-    }
-}
-
->>>>>>> dc47952ab0a5ddca0bbcbdc200ba19fd9d6a5d83
   render() {
 
   
     return (
       <>
-<<<<<<< HEAD
       <div class="ind-container">
   <div class="ind-image">
     <img src={"https://source.unsplash.com/500x350/?"+this.state.itemname }/>
@@ -197,44 +129,6 @@ export class ItemHtml extends React.Component {
   </div>
 </div>
  
-=======
-      <div classNameName="myStyleCard1">    
-                <div>
-                  <div classNameName="row">
-                    <div classNameName="col-sm-3 col" style={{"height":"410px",}}>
-                      <div classNameName="myBox1" >
-                        <h2>{name}</h2>
-                        <hr />
-                        <h4>{description}</h4>
-                        <div classNameName="myForm1">
-                          <div>
-                              <br></br>
-                              <form style={{border:"0px"}} onSubmit={this.onClick}>
-                                  <input type="number" min="0" placeholder="0" name="quantity" style={{"width":"60%", }} onChange={this.onChangeQuantity }/>
-                                  <input type="hidden" name="itemName" value={name}/>
-                                  <input type="submit" value="add to cart" name="submit" />
-                              </form>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    
-                    <div classNameName="col-sm-9 col">
-                      <div style={{"textAlign":"center"}}>
-                      <img src = {("/items-images/"+name+".png")} alt={"/items-images/"+name+".png"} classNameName="myImage1"/>
-                      </div>
-                      <div style={{"textAlign":"left", "marginTop":"3em", "position":"relative","left":"25%", }}>
-                        <img src="/items-images/veg.png" style={{"background-color":"white","width":"20px",}}/><br />
-                      </div>
-                      <div style={{"textAlign":"center", "marginTop":"2em", }}>
-                      <span style={{"fontSize":"2em",}}>{name}</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-        </div>
-      
->>>>>>> dc47952ab0a5ddca0bbcbdc200ba19fd9d6a5d83
         
         </>
         
