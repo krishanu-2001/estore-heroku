@@ -10,7 +10,7 @@
     display: flex;
     align-items: center;
     justify-content: space-around;
-    z-index: 100;
+    z-index: 200;
   }
   .modal-backdrop {
     position: fixed;
@@ -23,7 +23,7 @@
     display: flex;
     align-items: center;
     justify-content: space-around;
-    z-index: 101;   
+    z-index: 201;   
     
   }
   
@@ -37,7 +37,7 @@
     border-radius: 10px;
     color: #fff;
     box-shadow: 0 15px 25px rgba(0,0,0,0.5);
-    z-index: 102;
+    z-index: 202;
   }
   .login-form::before, .signup-form::before {
     content:'';

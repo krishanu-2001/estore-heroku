@@ -1,4 +1,4 @@
-.categoryDisplay{
+/*.categoryDisplay{
     background-color: white;
     min-height: 300px;
     margin: 30px;
@@ -59,4 +59,41 @@
     background-color: black;
     opacity: 1;
     color: blanchedalmond;
+  }*/
+
+  .allPro-container {
+    display: flex;
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+    flex-wrap: wrap;
+   justify-content: space-around;
+   margin-bottom: 10vh;
+  }
+
+  .price-filter {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    background: pink;
+    padding: 5px;
+    border-radius: 5px;
+  }
+
+  .price-filter-form {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .price-filter span {
+    font-size: 18px;
+    font-family: 'Alata', sans-serif;
+  }
+
+  .price-filter button {
+    margin-left: 20px;
+    padding: 5px;
+    font-family: 'Alata', sans-serif;
+    border-radius: 3px;
+    background: lightgreen;
   }

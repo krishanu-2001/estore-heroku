@@ -1,150 +1,114 @@
-import axios from 'axios';
 import React, { Component } from 'react';
-import {Link} from 'react-router-dom';
+import Axios from 'axios';
+import Card from './Item-card';
 import './Comp-CSS/Categories.css';
 
 const list=[];
+const staple = [];const stationery = [];const fruits = [];const beverages = [];const household = [];const snacks = [];const beauty = [];
+
+const frunveg = React.createRef();
+const staples = React.createRef();
+const snanam = React.createRef();
+const drinbev = React.createRef();
+const clenho = React.createRef();
+const beanhy = React.createRef();
+const staery = React.createRef();
+
+const scrollCatNav = (catRef) => {
+
+  switch(catRef) {
+    case 'frunveg':
+      window.scrollTo(0, frunveg.current.offsetTop-120);
+      break;
+    case 'staples':
+      window.scrollTo(0, staples.current.offsetTop-120);
+      break;
+      case 'snanam':
+        window.scrollTo(0, snanam.current.offsetTop-120);
+        break;
+        case 'drinbev':
+          window.scrollTo(0, drinbev.current.offsetTop-120);
+      break;
+      case 'clenho':
+        window.scrollTo(0, clenho.current.offsetTop-120);
+      break;
+      case 'beanhy':
+        window.scrollTo(0, beanhy.current.offsetTop-120);
+      break;
+      case 'staery':
+        window.scrollTo(0, staery.current.offsetTop-120);
+      break;
+    default:
+     console.log('lol');
+  }
+}
 
 export class Categories extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      staple, fruits, snacks, stationery, beverages, household, beauty  
+    };
   }
 
-  state = {
-    curItem: (<li className="cat">Please select category</li>),
-    keylist: [],
-    keyOption: [],
-    itemList: [],
-    itemOption: [],
-    dict: {},
-    value:"Please select option",
-    list
-  };
-
-  /* event to handle category change*/ 
-  handleChange = (event) =>{
-    var key = event.target.value;
-    this.setState({value: event.target.value});
-    var curItem, itemOption = [];
-    var dict = this.state.dict;
-    if(dict[key] !== undefined){
-      var temp = [];
-      for(var i=0;i<dict[key].length;i++){
-
-        /* styling goes here */
-        temp.push(<div>
-          <p className='p'>
-            {i+1}.
-            <img src={"/items-images/" + dict[key][i] +".png"} className="category-image"></img>
-            <Link className="Categories-link" to={"./individual/" + dict[key][i]}>{dict[key][i]}</Link>
-          
-          </p>
-          </div>);
-          /* styling ends */
-          
-      }
-      curItem = temp;
-      itemOption.push(
-          <p><hr />Items Found: {temp.length}</p>
-        );
-    }
-    else{
-      curItem = "Please Select An Option"
-    }
-    this.setState({
-      curItem: curItem,
-      itemOption: itemOption,
-    });
-  }
-
-  componentDidMount(){
-
-    axios.get('http://localhost:5000/items/')
+  componentDidMount() {
+    Axios.get('http://localhost:5000/items/')
       .then((res) => {
-          this.setState({list: res.data});
-          const list = this.state.list;
-    const dict = {};
-    console.log(list);
-    //// some relevant processing
-    for(var i=0;i<list.length;i++){
-      if(dict[list[i].description] === undefined){
-        dict[list[i].description] = [];
-      }
-      dict[list[i].description].push(list[i].itemname);
-    }
-
-    // here is the main code
-    var items = [], itemList = [], keyList=[], curItem = [], keyOption=[];
-    for(var key in dict) {
-      if(items[key] === undefined){
-        items[key]=[];
-      }
-      if(dict[key] !== undefined) {
-        var temp = [];
-        for(var i=0;i<dict[key].length;i++){
-          temp.push(<div><p><Link to={"./individual/" + dict[key][i]}>{dict[key][i]}</Link></p></div>);
-        }
-        items[key].push(<p style={{marginLeft:"100px",}}>{temp}</p>);
-        
-      }
-     }
-
-      //implementing main display here
-      keyOption.push(<option value="Please select option">Select Option</option>);
-      for(var key in dict){
-        keyList.push(<p>{key}</p>);
-        keyOption.push(
-          <option value={key}>{key}</option>
-        );
-        itemList.push(
-        <div className="col-lg-6 categoryDisplay">
-          <div className="categoryTitle">
-            {key}
-            <hr></hr>
-          </div>{items[key]}
-        </div>
-        );
-      }
-
-      this.setState({
-        dict: dict,
-        keyList: keyList,
-        keyOption: keyOption,
-        itemList: itemList,
-      });
-
-        
+        res.data.forEach(element => {
+          let catVAr  = element.category;
+            if(catVAr === "staples"){catVAr =  "rice"};
+          if(element.category === "staples"){ this.setState(prevState=>({ staple: [...prevState.staple, <Card name={element.itemname} price = {element.price} category = {catVAr} />] })); };
+          if(element.category === "fruits"){ this.setState({ fruits: [...this.state.fruits, <Card name={element.itemname} price = {element.price} category = {catVAr} />] }); };
+          if(element.category === "snacks"){ this.setState({ snacks: [...this.state.snacks,<Card name={element.itemname} price = {element.price} category = {catVAr} />] }); };
+          if(element.category === "stationery"){ this.setState({ stationery: [...this.state.stationery, <Card name={element.itemname} price = {element.price} category = {catVAr} />] }); };
+          if(element.category === "beverage"){ this.setState({ beverages: [...this.state.beverages, <Card name={element.itemname} price = {element.price} category = {catVAr} />] }); };
+          if(element.category === "cleaning"){ this.setState({ household: [...this.state.household, <Card name={element.itemname} price = {element.price} category = {catVAr} />] }); };
+          if(element.category === "beauty"){ this.setState({ beauty: [...this.state.beauty, <Card name={element.itemname} price = {element.price} category = {catVAr} />] }); }
+        });
         });
   }
 
+  
+  
   render() {
     
 
 
     return (
-        <div  id="_cat">
-            <div className="header">
-            <h1 style={{textAlign:"center"}}>CATEGORIES</h1>
-              <p><a href="/#Top">back to home</a></p>
-            </div>
-            <span className="category-backtotop"><a href="#_cat">back to top</a></span>
-            <div>
-              <div className="col-lg-3">
-                <form className="Category-form" onSubmit={this.handleSubmit} className="smalls">
-                    <select className="Category-select" value={this.state.value} onChange={this.handleChange}>
-                      {this.state.keyOption}
-                    </select>
-                </form>
-              </div>
-              <div className="col-lg-9 ">
-                <div className="curItem">
-                  {this.state.curItem}
-                </div>
-              </div>
-            </div>
-        </div>
+        <>
+        <div className="category-container">
+          <div className="side-cat-nav">
+            <span>Categories</span>
+            <ul>
+              <li onClick={()=>scrollCatNav('frunveg')}>Fruits and Vegetables</li>
+              <li onClick={()=>scrollCatNav('staery')}>Stationery</li>
+              <li onClick={()=>scrollCatNav('staples')}>Staples</li>
+              <li onClick={()=>scrollCatNav('snanam')}>Snacks</li>
+              <li onClick={()=>scrollCatNav('drinbev')}>Beverages</li>
+              <li onClick={()=>scrollCatNav('clenho')}>Household</li>
+              <li onClick={()=>scrollCatNav('beanhy')}>Hygeine</li>
 
-    );
+            </ul>
+          </div>
+          <div className="category-items">
+          <div className="cat-heading" ref={staples}><div>Your Daily Staples</div></div><hr className="cat-hr"/>
+          <div className="cat-sub-container">{this.state.staple}</div>
+        <div className="cat-heading" ref={frunveg}><div>Fruits and Vegetable Corner</div></div><hr className="cat-hr"/>
+          <div className="cat-sub-container">{this.state.fruits}</div>
+        <div className="cat-heading" ref={snanam}><div>The Snack Corner</div></div><hr className="cat-hr"/>
+          <div className="cat-sub-container">{this.state.snacks}</div>
+        <div className="cat-heading" ref={staery}><div>Stationery</div></div><hr className="cat-hr"/>
+          <div className="cat-sub-container">{this.state.stationery}</div>
+        <div className="cat-heading" ref={drinbev}><div>Drinks and Beverages</div></div><hr className="cat-hr"/>
+          <div className="cat-sub-container">{this.state.beverages}</div>
+        <div className="cat-heading" ref={clenho}><div>Cleaning and Household</div></div><hr className="cat-hr"/>
+          <div className="cat-sub-container">{this.state.household}</div>
+        <div className="cat-heading" ref={beanhy}><div>Beauty and Hygiene</div></div><hr className="cat-hr"/>
+        <div className="cat-sub-container">{this.state.beauty}</div>
+          </div>
+        </div>
+        </>
+    )
   }
 }
 

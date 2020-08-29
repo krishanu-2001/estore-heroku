@@ -91,6 +91,17 @@ router.route("/remove").post(Authenticate,(req, res) => {
 
 });
 
+router.route('/clear').post(Authenticate,(req,res) => {
+    User.findById(req.user_id)
+      .then((user)=>{
+          console.log(user.basket);
+            user.basket = [];
 
+            user.save()
 
+         .then(()=> {res.json({msg: "Basket Empty"});console.log(user.basket);})
+         .catch(err => res.status(400).json('Error '+err));
+         }
+        );
+        })
 module.exports = router;

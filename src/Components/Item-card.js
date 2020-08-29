@@ -3,6 +3,9 @@ import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
 import Cookies from 'js-cookie';
 import './Comp-CSS/item-card.css';
+import { store } from 'react-notifications-component';
+import 'react-notifications-component/dist/theme.css';
+import 'animate.css';
 
 
 export class Card extends React.Component {
@@ -10,7 +13,7 @@ export class Card extends React.Component {
     super(props);
 
     this.onChangeQuantity=this.onChangeQuantity.bind(this);
-    this.onClick=this.addToBasket.bind(this);
+    this.addToBasket=this.addToBasket.bind(this);
 
     this.state={
           itemname: this.props.name,
@@ -19,23 +22,7 @@ export class Card extends React.Component {
     }
   }
 
-  componentDidMount(){
-    axios.get('http://localhost:5000/users/')
-    .then(response=>{
-      this.setState({
-      username: this.state.username,
-      password: this.state.password,
-      basket:[
-        {
-          itemname: this.state.name,
-          price: this.state.price,
-          quantity: this.state.quantity,
-        }
-      ]
-    })
-  })
-  }
-  
+
 
   onChangeQuantity(e){
     this.setState({
@@ -46,8 +33,8 @@ export class Card extends React.Component {
   addToBasket(e){
     e.preventDefault();
       const newBasketItem={
-        itemname: this.props.name,
-        price: this.props.price,
+        itemname: this.state.itemname,
+        price: this.state.price,
         quantity: this.state.quantity
       }
   console.log(newBasketItem);
@@ -64,10 +51,55 @@ export class Card extends React.Component {
         console.log(res.data);
         Cookies.set('basket', JSON.stringify(res.data.basket));
         console.log('Cookies Set', Cookies.get('basket'));
+          store.addNotification({
+            title: 'Item added to cart',
+            message: newBasketItem.quantity +" "+newBasketItem.itemname+" "+ "were added to cart",
+            type: 'success',                         // 'default', 'success', 'info', 'warning'
+            insert: "top",
+            container: 'top-right',                // where to position the notifications
+            animationIn: ["animated", "fadeIn"],     // animate.css classes that's applied
+            animationOut: ["animated", "fadeOut"],   // animate.css classes that's applied
+            dismiss: {
+              duration: 5000,
+              onScreen: true,
+              pauseOnHover: true
+            }
+          })
+        
     })
     .catch((err)=>{
       console.log(err);
+      store.addNotification({
+        title: 'Error Occurred !',
+        message: "Please LogIn to Add to cart",
+        type: 'danger',                         // 'default', 'success', 'info', 'warning'
+        insert: "top",
+        container: 'top-right',                // where to position the notifications
+        animationIn: ["animated", "fadeIn"],     // animate.css classes that's applied
+        animationOut: ["animated", "fadeOut"],   // animate.css classes that's applied
+        dismiss: {
+          duration: 5000,
+          onScreen: true,
+          pauseOnHover: true
+        }
+      })
   })
+    }
+    else{
+      store.addNotification({
+        title: 'Warning!',
+        message: "Please fill quantity",
+        type: 'warning',                         // 'default', 'success', 'info', 'warning'
+        insert: "top",
+        container: 'top-right',                // where to position the notifications
+        animationIn: ["animated", "fadeIn"],     // animate.css classes that's applied
+        animationOut: ["animated", "fadeOut"],   // animate.css classes that's applied
+        dismiss: {
+          duration: 5000,
+          onScreen: true,
+          pauseOnHover: true
+        }
+      })
     }
 }
 
@@ -80,7 +112,7 @@ export class Card extends React.Component {
       <div class="prod-card-container">
       <div class="prod-card-hp">
         <div class="prod-card-head">
-          <img src={("/items-images/"+this.props.name+".png")} alt={"/items-images/"+this.props.name+".png"}/>
+          <img src={"https://source.unsplash.com/100x100/?"+this.props.category} alt={"/items-images/"+this.props.name+".png"}/>
         </div>
         <div class="prod-card-body">
           <div class="product-desc">
@@ -91,10 +123,12 @@ export class Card extends React.Component {
           </div>
           <hr className = "card-hr"/>
           <div class="product-properties">
+          <span class="product-price">
+          &#8377;<b>{this.props.price}</b>
+                  </span>
           <div className="myForm">
                         <div>
-                            <br></br>
-                            <form onSubmit={this.onClick} className="card-form">
+                            <form onSubmit={this.addToBasket} className="card-form">
                             <label className="card-quantity-label">Quantity: </label>
                                 <input type="number" min="0" placeholder="0" name="quantity" className="card-quantity" onChange={this.onChangeQuantity }/><br/>
                                 <input type="hidden" name="itemName" value={this.props.name}/>
@@ -102,9 +136,6 @@ export class Card extends React.Component {
                             </form>
                         </div>
                     </div>
-            <span class="product-price">
-                    RS.<b>{this.props.price}</b>
-                  </span>
           </div>
         </div>
       </div>

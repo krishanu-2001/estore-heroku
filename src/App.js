@@ -19,6 +19,7 @@ import Xitemupdate from './Admin/Adminitemupdate';
 import Cookies from 'js-cookie';
 import Logout from './Components/LogOut_Handler';
 import Categories from './Components/Categories';
+import Carousel from './Components/HP_Carousel';
 
 
 
@@ -30,13 +31,13 @@ function App() {
     <>
     <BrowserRouter>
     <Switch>
-    <Route exact path="/" render = {(props)=><div><Nav/><br/><ItemNavigator/></div>} />
+    <Route exact path="/" render = {(props)=><div><Nav/><br/><Carousel/><br/><ItemNavigator/></div>} />
     <Route exact path="/logout" render = {(props)=><div><Nav/><br/><Logout/></div>} />
     <Route exact path="/individual/:id" render = {(props)=><div><Nav/><br/><ItemHtml {...props}/></div>}/>
     <Route exact path="/allProducts" render = {(props)=><div><Nav/><br/><All_products/></div>} />
     <Route exact path="/contact-us" render = {(props)=><div><Nav/><br/><Contact_us/></div>} />
     <Route exact path="/help" render = {(props)=><div><Nav/><br/><Help/></div>} />
-    <Route exact path="/basket" render = {(props)=><div><Nav/><br/><Basket/></div>} />
+    <Route exact path="/basket" render = {(props)=><div><Nav/><br/><Basket {...props}/></div>} />
     <Route exact path="/checkout" render = {(props)=><div><Nav/><br/><Checkout/></div>} />
     <Route exact path="/paymentGateway" render = {(props)=><div><Nav/><br/><Payment/></div>} />
     <Route exact path="/categories" render = {(props)=><div><Nav/><br/><Categories/></div>} />

@@ -4,21 +4,13 @@ import ScrollMenu from 'react-horizontal-scrolling-menu';
 import {Link} from 'react-router-dom';
 import Axios from 'axios';
 import './Comp-CSS/item-body.css';
-import Festive from './Comp-CSS/festive.jpg';
-import Frunveg from './Comp-CSS/frunveg.jpg';
-import Staples from './Comp-CSS/staples.jpg';
-import Snanam from './Comp-CSS/snanam.jpg';
-import Drinks from './Comp-CSS/drinks.jpg';
-import Cleaning from './Comp-CSS/cleaning.jpg';
-import Beauty from './Comp-CSS/beauty.jpg'
-
 
 const list = [];
  
-const MenuItem = ({text, price, selected}) => {
+const MenuItem = ({text, price, selected, category}) => {
   return <div
     className={`menu-item ${selected ? 'active' : ''}`}
-    ><div className="card"><Card name={text} price = {price} /></div></div>;
+    ><div className="card"><Card name={text} price = {price} category = {category} /></div></div>;
 };
  
 
@@ -26,8 +18,11 @@ export const Menu = (list, selected) =>
   list.map(el => {
     const {itemname} = el;
     const {price} = el;
+    const {category} = el;
+    if(category === "staples"){return <MenuItem text={itemname} key={itemname} price={price} category="rice" selected={selected} /> }
+    else{ return <MenuItem text={itemname} key={itemname} price={price} category={category} selected={selected} />;}
  
-    return <MenuItem text={itemname} key={itemname} price={price} selected={selected} />;
+    
   });
  
  
@@ -44,7 +39,7 @@ const ArrowLeft = Arrow({ text: '<', className: 'arrow-prev' });
 const ArrowRight = Arrow({ text: '>', className: 'arrow-next' });
  
 const selected = 'item1';
-const menuItems = [];
+const staple = [];const stationery = [];const fruits = [];const beverages = [];const household = [];const snacks = [];const beauty = [];
  
 const frunveg = React.createRef();
 const staples = React.createRef();
@@ -88,8 +83,8 @@ class ItemNavigator extends Component {
   
   state = {
     selected,
-    menuItems,
-    list
+    staple, fruits, snacks, stationery, beverages, household, beauty,
+
   };
  
   onSelect = key => {
@@ -99,34 +94,28 @@ class ItemNavigator extends Component {
   componentDidMount() {
     Axios.get('http://localhost:5000/items/')
       .then((res) => {
-          this.setState({list: res.data});
-          console.log(this.state.list);
-          this.setState({menuItems: Menu(this.state.list, selected)})
+        res.data.forEach(element => {
+          if(element.category === "staples"){ this.setState(prevState=>({ staple: [...prevState.staple, element] })); };
+          if(element.category === "fruits"){ this.setState({ fruits: [...this.state.fruits, element] }); };
+          if(element.category === "snacks"){ this.setState({ snacks: [...this.state.snacks, element] }); };
+          if(element.category === "stationery"){ this.setState({ stationery: [...this.state.stationery, element] }); };
+          if(element.category === "beverage"){ this.setState({ beverages: [...this.state.beverages, element] }); };
+          if(element.category === "cleaning"){ this.setState({ household: [...this.state.household, element] }); };
+          if(element.category === "beauty"){ this.setState({ beauty: [...this.state.beauty, element] }); }
+        });
         });
   }
 
-
-  
-  
- 
- 
   render() {
     const { selected } = this.state;
-    const menu = this.state.menuItems;
-    const list = this.state.list;
 
     return (
       <>
       
-      <div className="cat-heading" ref={snanam}><div>The Snack Corner</div></div><hr className="cat-hr"/>
-        <div style={{  
-  backgroundImage: "url(" + Snanam + ")",
-  backgroundPosition: 'center',
-  backgroundSize: 'cover',
-  backgroundRepeat: 'no-repeat'
-}} className="scroller-div-hp">
+      <div className="cat-heading" ref={staples}><div>Your Daily Staples</div></div><hr className="cat-hr"/>
+        <div className="scroller-div-hp">
           <ScrollMenu
-            data={menu}
+            data={Menu(this.state.staple, selected)}
             arrowLeft={ArrowLeft}
             arrowRight={ArrowRight}
             selected={selected}
@@ -135,14 +124,9 @@ class ItemNavigator extends Component {
         </div>
 
         <div className="cat-heading" ref={frunveg}><div>Fruits and Vegetable Corner</div></div><hr className="cat-hr"/>
-        <div style={{  
-  backgroundImage: "url(" + Frunveg + ")",
-  backgroundPosition: 'center',
-  backgroundSize: 'cover',
-  backgroundRepeat: 'no-repeat'
-}} className="scroller-div-hp">
+        <div className="scroller-div-hp">
           <ScrollMenu
-            data={menu}
+            data={Menu(this.state.fruits, selected)}
             arrowLeft={ArrowLeft}
             arrowRight={ArrowRight}
             selected={selected}
@@ -150,15 +134,21 @@ class ItemNavigator extends Component {
           />
         </div>
 
-        <div className="cat-heading" ref={staples}><div>Your Daily Staples</div></div><hr className="cat-hr"/>
-        <div style={{  
-  backgroundImage: "url(" + Staples + ")",
-  backgroundPosition: 'center',
-  backgroundSize: 'cover',
-  backgroundRepeat: 'no-repeat'
-}} className="scroller-div-hp">
+        <div className="cat-heading" ref={snanam}><div>The Snack Corner</div></div><hr className="cat-hr"/>
+        <div className="scroller-div-hp">
           <ScrollMenu
-            data={menu}
+            data={Menu(this.state.snacks, selected)}
+            arrowLeft={ArrowLeft}
+            arrowRight={ArrowRight}
+            selected={selected}
+            onSelect={this.onSelect}
+          />
+        </div>
+
+        <div className="cat-heading"><div>Stationery</div></div><hr className="cat-hr"/>
+        <div  className="scroller-div-hp">
+          <ScrollMenu
+            data={Menu(this.state.stationery, selected)}
             arrowLeft={ArrowLeft}
             arrowRight={ArrowRight}
             selected={selected}
@@ -167,14 +157,9 @@ class ItemNavigator extends Component {
         </div>
 
         <div className="cat-heading" ref={drinbev}><div>Drinks and Beverages</div></div><hr className="cat-hr"/>
-        <div style={{  
-  backgroundImage: "url(" + Drinks + ")",
-  backgroundPosition: 'center',
-  backgroundSize: 'cover',
-  backgroundRepeat: 'no-repeat'
-}} className="scroller-div-hp">
+        <div className="scroller-div-hp">
           <ScrollMenu
-            data={menu}
+            data={Menu(this.state.beverages, selected)}
             arrowLeft={ArrowLeft}
             arrowRight={ArrowRight}
             selected={selected}
@@ -183,14 +168,9 @@ class ItemNavigator extends Component {
         </div>
 
         <div className="cat-heading" ref={clenho}><div>Cleaning and Household</div></div><hr className="cat-hr"/>
-        <div style={{  
-  backgroundImage: "url(" + Cleaning + ")",
-  backgroundPosition: 'center',
-  backgroundSize: 'cover',
-  backgroundRepeat: 'no-repeat'
-}} className="scroller-div-hp">
+        <div className="scroller-div-hp">
           <ScrollMenu
-            data={menu}
+            data={Menu(this.state.household, selected)}
             arrowLeft={ArrowLeft}
             arrowRight={ArrowRight}
             selected={selected}
@@ -199,14 +179,9 @@ class ItemNavigator extends Component {
         </div>
 
         <div className="cat-heading" ref={beanhy}><div>Beauty and Hygiene</div></div><hr className="cat-hr"/>
-        <div style={{  
-  backgroundImage: "url(" + Beauty + ")",
-  backgroundPosition: 'center',
-  backgroundSize: 'cover',
-  backgroundRepeat: 'no-repeat'
-}} className="scroller-div-hp">
+        <div className="scroller-div-hp">
           <ScrollMenu
-            data={menu}
+            data={Menu(this.state.beauty, selected)}
             arrowLeft={ArrowLeft}
             arrowRight={ArrowRight}
             selected={selected}
@@ -214,21 +189,7 @@ class ItemNavigator extends Component {
           />
         </div>
 
-        <div className="cat-heading"><div>Season's Must-Haves</div></div><hr className="cat-hr"/>
-        <div style={{  
-  backgroundImage: "url(" + Festive + ")",
-  backgroundPosition: 'center',
-  backgroundSize: 'cover',
-  backgroundRepeat: 'no-repeat'
-}} className="scroller-div-hp">
-          <ScrollMenu
-            data={menu}
-            arrowLeft={ArrowLeft}
-            arrowRight={ArrowRight}
-            selected={selected}
-            onSelect={this.onSelect}
-          />
-        </div>
+        
   
         
 

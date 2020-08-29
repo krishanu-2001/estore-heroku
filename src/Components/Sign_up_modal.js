@@ -2,6 +2,9 @@ import React from "react";
 import ReactDOM from "react-dom";
 import './Comp-CSS/SignInUp_modal.css';
 import axios from "axios";
+import { store } from 'react-notifications-component';
+import 'react-notifications-component/dist/theme.css';
+import 'animate.css';
 
 const Modal = React.forwardRef((props, ref)=>{
 
@@ -38,11 +41,59 @@ const Modal = React.forwardRef((props, ref)=>{
                   password: password,
                 },
                 url: "http://localhost:5000/users/new",
-              }).then((res) => console.log(res));
+              }).then((res) => {
+                if(res.data.msg === 'userexists')
+                {
+                  store.addNotification({
+                    title: 'Error Occurred !',
+                    message: "User already exists",
+                    type: 'danger',                         // 'default', 'success', 'info', 'warning'
+                    insert: "top",
+                    container: 'top-right',                // where to position the notifications
+                    animationIn: ["animated", "fadeIn"],     // animate.css classes that's applied
+                    animationOut: ["animated", "fadeOut"],   // animate.css classes that's applied
+                    dismiss: {
+                      duration: 5000,
+                      onScreen: true,
+                      pauseOnHover: true
+                    }
+                  })
+                }
+                if(res.data.msg === 'done')
+                {
+                  store.addNotification({
+                    title: 'Sign-Up Successfull',
+                    message: "Please Log-In Now",
+                    type: 'success',                         // 'default', 'success', 'info', 'warning'
+                    insert: "top",
+                    container: 'top-right',                // where to position the notifications
+                    animationIn: ["animated", "fadeIn"],     // animate.css classes that's applied
+                    animationOut: ["animated", "fadeOut"],   // animate.css classes that's applied
+                    dismiss: {
+                      duration: 5000,
+                      onScreen: true,
+                      pauseOnHover: true
+                    }
+                  })
+                }
+              });
         }
         else
         {
-            console.log("Wrong Credentials");
+          store.addNotification({
+            title: 'Error Occurred !',
+            message: "Invalid Credentials",
+            type: 'danger',                         // 'default', 'success', 'info', 'warning'
+            insert: "top",
+            container: 'top-right',                // where to position the notifications
+            animationIn: ["animated", "fadeIn"],     // animate.css classes that's applied
+            animationOut: ["animated", "fadeOut"],   // animate.css classes that's applied
+            dismiss: {
+              duration: 5000,
+              onScreen: true,
+              pauseOnHover: true
+            }
+          })
         }
         close();
     }

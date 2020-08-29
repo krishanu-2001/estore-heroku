@@ -86,5 +86,11 @@ router.route('/adminwebsite/add').post((req, res) => {
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
+router.route('/ind').post((req,res) => {
+    console.log(req.body);
+    Item.findOne({"itemname": req.body.itemnamePost.itemname})
+        .then((item) => res.json(item))
+        .catch(err => res.status(400).json('Error: ' + err));
+});
 
 module.exports = router;

@@ -4,6 +4,9 @@ import {useHistory} from 'react-router-dom';
 import Axios from "axios";
 import Cookies from 'js-cookie';
 import './Comp-CSS/SignInUp_modal.css';
+import { store } from 'react-notifications-component';
+import 'react-notifications-component/dist/theme.css';
+import 'animate.css';
 
 
 const Modal = React.forwardRef((props, ref)=>{
@@ -33,20 +36,76 @@ const Modal = React.forwardRef((props, ref)=>{
     const signInHandler = async (e)=>{
         e.preventDefault();
 
-           const loginRes = await Axios.post(
+           Axios.post(
                 "http://localhost:5000/users/login",
                  {
                   username: email,
                   password: password,
                 }
                 )
-                Cookies.set('username', loginRes.data.user.username)
-                Cookies.set('id', loginRes.data.user._id)
-                Cookies.set('basket', loginRes.data.user.basket);
-                Cookies.set('token', loginRes.data.token);
+                .then((res)=>{
+                  if(res.data.msg === 'logsuc')
+                  {
+                    Cookies.set('username', res.data.user.username)
+                Cookies.set('id', res.data.user._id)
+                Cookies.set('basket', res.data.user.basket);
+                Cookies.set('token', res.data.token);
                 console.log(Cookies.get());
-                close();
+                  }
+                  if(res.data.msg === 'nouser')
+                  {
+                    store.addNotification({
+                      title: 'Error Occurred !',
+                      message: "Invalid Credentials",
+                      type: 'danger',                         // 'default', 'success', 'info', 'warning'
+                      insert: "top",
+                      container: 'top-right',                // where to position the notifications
+                      animationIn: ["animated", "fadeIn"],     // animate.css classes that's applied
+                      animationOut: ["animated", "fadeOut"],   // animate.css classes that's applied
+                      dismiss: {
+                        duration: 5000,
+                        onScreen: true,
+                        pauseOnHover: true
+                      }
+                    })
+                  }
+                  if(res.data.msg === 'nopass')
+                  {
+                    store.addNotification({
+                      title: 'Error Occurred !',
+                      message: "Password Incorrect",
+                      type: 'danger',                         // 'default', 'success', 'info', 'warning'
+                      insert: "top",
+                      container: 'top-right',                // where to position the notifications
+                      animationIn: ["animated", "fadeIn"],     // animate.css classes that's applied
+                      animationOut: ["animated", "fadeOut"],   // animate.css classes that's applied
+                      dismiss: {
+                        duration: 5000,
+                        onScreen: true,
+                        pauseOnHover: true
+                      }
+                    })
+                  }
+                  if(res.data.msg === 'logsuc')
+                  {
+                    store.addNotification({
+                      title: 'Welcome '+res.data.user.username,
+                      message: "You are now Logged-In ",
+                      type: 'success',                         // 'default', 'success', 'info', 'warning'
+                      insert: "top",
+                      container: 'top-right',                // where to position the notifications
+                      animationIn: ["animated", "fadeIn"],     // animate.css classes that's applied
+                      animationOut: ["animated", "fadeOut"],   // animate.css classes that's applied
+                      dismiss: {
+                        duration: 5000,
+                        onScreen: true,
+                        pauseOnHover: true
+                      }
+                    })
+                  }
+                  close();
                 history.push('/');
+                })
             
             
     }
