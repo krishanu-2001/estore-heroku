@@ -14,11 +14,14 @@ router.route('/add').post((req,res) => {
     const itemname = req.body.itemname;
     const description = req.body.description;
     const price = Number(req.body.price);    
-
+    const quantity = Number(req.body.quantity);
+    const category = req.body.category;
     const newItem = new Item({
         itemname,
         description,
         price,
+        quantity,
+        category,
     });
 
     newItem.save()
@@ -50,7 +53,7 @@ router.route('/adminwebsite/update/:id').post((req,res) => {
             item.itemname = req.body.itemname;
             item.description = req.body.description;
             item.price = req.body.price;
-
+            item.category = req.body.category;
             item.save()
                 .then(() => res.json('Item updated'))
                 .catch(err => res.status(400).json('Error: ' + err));
@@ -71,10 +74,11 @@ router.route('/adminwebsite/add').post((req, res) => {
         if(item === null)
         {
             var newItem = new Item({
-                "username": req.body.itemname,
+                "itemname": req.body.itemname,
                 "description": req.body.description,
                 'price': req.body.price,
                 'quantity': req.body.quantity,
+                'category': req.body.category,
             })
             newItem.save()
                 .then(() => res.json('Item Added!'))

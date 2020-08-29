@@ -21,6 +21,7 @@ export class Xitemupdate extends React.Component {
     description:"",
     price:"",
     quantity:"",
+    category: "",
     status: "",
   }
 
@@ -38,11 +39,15 @@ export class Xitemupdate extends React.Component {
     this.setState({ quantity: event.target.value });
   }
 
+  handleChange_category = event => {
+    this.setState({ category: event.target.value });
+  }
+
   handleSubmit = event => {
     event.preventDefault();
     const {match : { params }} = this.props;
     if(this.state.description === "" ||
-    this.state.price === "" || this.state.quantity === "") {
+    this.state.price === "" || this.state.quantity === "" || this.state.category==="") {
       console.log("empty field");
     }
     else{
@@ -51,6 +56,7 @@ export class Xitemupdate extends React.Component {
         "description": this.state.description,
         "price": this.state.price,
         "quantity": this.state.quantity,
+        "category": this.state.category,
       };
       console.log("item");
       console.log({item});
@@ -89,12 +95,13 @@ export class Xitemupdate extends React.Component {
             <div className="">
                 <div className="col-md-9" style={{backgroundColor:"#dddddd", height:"550px","margin-top":"0px",}}>
                     <div style={{"text-align":"center", "color":"#555555","margin-top":"0px","padding":"40px",}}>
-                        <h1>Update </h1>
+                        <h1 >Update </h1>
                         <form style={{"border":"0",}} onSubmit={this.handleSubmit}>
-                          <input type="text" name="itemname" value={this.state.person.itemname} style={{width:"400px",}} onChange={this.handleChange_itemname} readonly/><br/>
-                          <input type="text" name="description" placeholder={this.state.person.description} style={{width:"400px",}} onChange={this.handleChange_desciption} /><br />
-                          <input type="text" name="price" placeholder={this.state.person.price} style={{width:"400px",}} onChange={this.handleChange_price} /><br />
-                          <input type="text" name="quantity" placeholder={this.state.person.quantity} style={{width:"400px",}} onChange={this.handleChange_quantity} /><br />
+                          <input type="text" className="xText" name="itemname" value={this.state.person.itemname} onChange={this.handleChange_itemname} readonly/><br/>
+                          <input type="text" className="xText" name="description" placeholder={this.state.person.description} onChange={this.handleChange_desciption} /><br />
+                          <input type="text" className="xText" name="price" placeholder={this.state.person.price} onChange={this.handleChange_price} /><br />
+                          <input type="text" className="xText" name="quantity" placeholder={this.state.person.quantity} onChange={this.handleChange_quantity} /><br />
+                          <input type="text" className="xText" sname="category" placeholder={this.state.person.category} onChange={this.handleChange_category} /><br />
                           <input type="submit" className="xbtn"  />
                         </form>
                     </div>
