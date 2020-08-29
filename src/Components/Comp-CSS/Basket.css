@@ -1,144 +1,32 @@
-
-
-
-.basket {
-    height: 100%; 
-    width: auto;
-    margin: 40px 40px 40px 40px;
-    border-color: grey;
-    border-style: double;
-    background-image:
-    repeating-radial-gradient(circle at top left, #2d545e 0, #d1bad2 150px, #12343b 30px);
-    background-blend-mode: overlay;
-}
-
-/*.basket{
-    height: 100%; 
-    width: auto;
-    margin: 40px 40px 40px 40px;
-    border-color: grey;
-    border-style: double;
-    background-image: linear-gradient(#e1b382,#2d545e);
-}*/
-
-/*.table{
-    height: 100%; 
-    width: 100%; 
-    border-color: grey;
-    border-style: double;
-    border-spacing: 20px 20px 20px 20px;
-}*/
-
-.header{
-    margin-top: 10px;
-    margin-left: 15px;
-    font-size: 25px;
-    font-family: sans-serif;
-}
-.final{
-    background-color: transparent;
-}
-
-.hl{
-    margin-left: -18px;
-    padding: 0;
-    height: 3px;
-    background-color: gray;
-    width: auto;
-    font-weight: bold;
-}
-.offers{
-    margin-left: 25px;
-    margin-top: 20px;
-    height: 35px;
-    width: 200px;
-    background-image: linear-gradient(white,grey);
-    text-transform: uppercase;
-    font-size: 12px;
-    border-radius: 7px;
-    margin-bottom: 20px;
-    color: black;
-}
-.offers:hover{
-    cursor: pointer;
-    background-image: linear-gradient(grey,white);
-
-}
-
-.description{
-    height: auto;
-  /*  background-color: khaki;*/
-    color: black;
-    font-weight: 500;
-    margin-left: -50px;
-    width: 100%;
-}
-
-.index{
-    background-color: khaki;
-    height: 50px;
-    margin-left: 25px;
-}
-
-.left{
-    margin-left: 60px;
-    padding-top: 45px;
-}
-.right{
-    float: right;
-    padding-left: 20px;
-    padding-right: 20px;
-    margin-right: 50px;
-}
-.food{
-    margin-top: 3px;
-    margin-bottom: 10px;
-}
-
-.basket_left{
-    margin-left: 70px;
-    padding-top: 45px;
-
-}
-
-.basket_right{
-    float: right;
-    padding-left: 20px;
-    padding-right: 20px;
-    margin-right: 80px;
-    justify-content: center;
-
-}
-
-.payment{
-    margin-top: 13px;
-    margin-right: 5px;
-    width: 500px;
-    float: right;
-   /* background-color: blue; */
-    border-style: double;
+.basket-container { 
+    width: 80%;;
+    font-size: 2vw;
+    margin-left: auto;
+    margin-right: auto;
     border-color: black;
-    border-radius: 10px;
-    background-image:
-    repeating-radial-gradient(circle at bottom right, #2d545e 0, #d1bad2 150px, #12343b 30px);
-    background-blend-mode: overlay;
-}
-.total{
-    float: left;
-    margin-left: 25px;
-}
-.amt{
-    float: right;
-    margin-right: 30px;
+    border-style: double;
+    background-color: #f5f186;
+    padding: 5px;
+background-image: linear-gradient(315deg, #f5f186 0%, #9dfbc8 74%);
+margin-bottom: 10vh;
+display: flex;
+flex-direction: column;
 }
 
-.hl1{
-    padding: 0px;
-    height: 1px;
-    background-color: gray;
-    width: auto;
-    margin-left: 20px;
-    margin-right: 22px;
+.basket-container button{
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.basket-head {
+    font-family: 'Cinzel', serif;
+    padding: 5px;
+    text-shadow: 2px 2px white;
+    background: wheat;
+    border-radius: 2px;
+}
+
+.basket-body{
+    display: flex;
 }
 
 .checkout{
@@ -149,7 +37,7 @@
     margin-top: 20px;
     margin-right: 10px;
     border-radius: 14px;
-    margin-bottom: 13px;
+    margin-bottom: 10vh;
     background-image:linear-gradient(#2d545e,#e1b382);
     box-shadow: grey;
     color: black;
@@ -161,21 +49,9 @@
     background-image:linear-gradient(#e1b382,#2d545e);
 }
 
-
-
-/*.final{
-    background-color: hotpink;
-}*/
-
 .cntshp{
-    margin-left: 40px;
-    margin-bottom: 70px;
-    margin-top: 80px;
-    height: 60px;
-    width: 220px;
-    font-size: 18px;
-    border-radius: 15px;
-    background-image:linear-gradient(#2d545e,#e1b382);
+    
+    
     color: #211e20;
     font-weight: 600;
 }
@@ -191,21 +67,31 @@
 }
 
 .bt-table-div {
-    margin-top: 30px;
     display: flex;
-    align-items: center;
-    justify-content: space-around;
     width: 100%;
     color: black;
+    font-family: 'Alata', sans-serif;
+    text-align: center;
 }
 
 .table-responsive{
-    width: 1200px;
+    width: 100%;
 }
 
-.head{
-    font-size: 50px;
-    color: black;
-    text-transform: uppercase;
-    text-shadow: 3px 3px #e1b382;
+.table-responsive tr {
+    text-align: initial;
+}
+
+.table-responsive button {
+    margin: 5px;
+    color: white;
+    background: red;
+}
+
+.basket-action{
+    padding: 2px;
+    border-radius: 5px;
+    background: green;
+    color: white;
+    text-decoration: none;
 }

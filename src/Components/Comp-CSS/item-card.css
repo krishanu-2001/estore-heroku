@@ -38,35 +38,30 @@
 */
 
 .prod-card-container {
-  width: 280px;
-  height: 475px;
+  width: 250px;
+  height: 260px;
   flex: 0 0 auto;
   margin-top: 50px;
 }
 
 .prod-card-hp {
-  border-radius: 25px;
   height: 100%;
   box-shadow: -11px 11px 1px rgba(0, 0, 0, 0.3);
-  
-  background-color: #5ca0f2;
-background-image: linear-gradient(315deg, #5ca0f2 0%, #f5f7f6 74%);
-
-}
+  background: white;
+  }
 
 .prod-card-head {
-  height: 225px;
-  width: 100%;
-  border-radius: 25px 25px 0 0;
+  height: 130px;
+  width: 250px;
   display:table-cell;
    vertical-align:middle; 
    text-align:center;  
 }
 
 .prod-card-head img {
-  height: 75%;
-  width: 75%;
+  height: 90%;
   box-shadow: 0 8px 6px -6px black;
+  margin-top: 5px;
   
 }
 
@@ -76,24 +71,15 @@ background-image: linear-gradient(315deg, #5ca0f2 0%, #f5f7f6 74%);
 }
      
 .prod-card-body {
-  height: 255px;
-  border-radius: 0 0 25px 25px;
+  height: 155px;
+  text-align: center;
 }
 
 .product-title {
-  padding: 12.5px 20px 9px 20px;
-display: block;
 font-size: 17px;
-font-weight: 500;
 letter-spacing: 1px;
 text-transform: uppercase;
-background: white;
-width: 75%;
-margin-left: auto;
-margin-right: auto;
-text-align: center;
-border-radius: 10px;
-box-shadow: 0 8px 6px -6px black;
+font-family: 'Alata', sans-serif;
 text-decoration: none;
 }
 
@@ -104,16 +90,8 @@ text-decoration: none;
 
 
 .product-price {
- 
-  display: block;
-    background: red;
-    padding: 7px 20px;
-    text-align: center;
-    font-size: 24px;
-    font-weight: 200;
-    color: #fff;
-    border-radius: 7px;
-    box-shadow: -10px 20px 15px -10px rgba(17, 233, 91, 0.3);
+   font-weight: 200;
+    font-family: 'Alata', sans-serif;
 }
 .product-price b {
   margin-left: 5px;
@@ -122,19 +100,15 @@ text-decoration: none;
 
 
 .addToCart {
-  height: 35px;
-width: 50%;
-background-color: #3f0d12;
-background-image: linear-gradient(315deg, #3f0d12 0%, #a71d31 74%);
-color: white;
 border: none;
 font-size: 2rem;
-font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+font-family: 'Alata', sans-serif;
 padding: 0;
-stroke: black;
 outline: none;
-border-radius: 10px;
-margin: 12px;
+width: 90%;
+margin-top: 5px;
+background: red;
+color: white;
  }
 
  .addToCart:hover{
@@ -143,7 +117,7 @@ margin: 12px;
  }
 
  .card-quantity {
-  padding: 10px 10px;
+  padding-left: 10px;
   color: inherit;
   font-family: inherit;
   font-size: 15px;
@@ -152,7 +126,6 @@ margin: 12px;
   border: none;
   border-radius: 0.4rem;
   width: 25%;
-  margin: auto;
  }
 
  .card-quantity::placeholder {
@@ -172,8 +145,7 @@ margin: 12px;
 }
 
 .card-quantity-label {
-  margin: 10px;
-  padding: 5px;
+  font-family: 'Alata', sans-serif;
   text-shadow: .5px .5px white;
   font-size: 15px;
 }

@@ -35,11 +35,11 @@ router.route('/new').post((req, res) => {
                 "password": hashedPassword
             })
             newUser.save()
-                .then(() => res.json('Item Added!'))
+                .then(() => res.json({msg: 'done'}))
                 .catch(err => res.status(200).json('Error: ' + err));
         
         }
-        else res.json(user + 'User already exists');
+        else res.json({msg: 'userexists'});
     })
     .catch(err => res.status(200).json('Error: ' + err));
 });
@@ -49,15 +49,16 @@ router.route('/login').post((req, res)=>{
     .then(async (user)=>{
         if(user === null)
         {
-            res.json({msg: "User does not exist"});
+            res.json({msg: "nouser"});
         }
         else{
             const isMatch = await bcrypt.compare(req.body.password, user.password);
-            if(!isMatch){ return res.json({msg: "Password does not match"})};
+            if(!isMatch){ return res.json({msg: "nopass"})};
             const token = jwt.sign({id: user._id},process.env.JWT_SECRET);
             res.json({
                 token,
-                user
+                user,
+                msg: 'logsuc'
             })
         }
     })

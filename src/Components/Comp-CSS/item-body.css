@@ -1,13 +1,19 @@
 .menu-item {
-    padding: 0 20px;
+    padding: 0;
     margin: 5px 10px;
     user-select: none;
     cursor: pointer;
     border: none;
   }
+
+.horizontal-menu {
+  height: 265px;
+}
+
   .arrow-prev, .arrow-next {
-    font-size: 75px;
-    border-radius: 40%;
+    font-size: 35px;
+    border-radius: 50%;
+    margin: 10px;
     background-color: #08e1ae;
 background-image: linear-gradient(315deg, #08e1ae 0%, #98de5b 74%);
   }
@@ -42,11 +48,10 @@ background-image: linear-gradient(315deg, #08e1ae 0%, #98de5b 74%);
   .scroller-div-hp{
     margin-top: 5vh;
     padding: 5px;
-    background: black;
-    width: 80%;
+    width: 75%;
     margin-left: auto;
     margin-right: auto;
-    height: 575px;
+    height: 300px;
     border-radius: 10px;
 
   }

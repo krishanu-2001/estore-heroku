@@ -106,7 +106,7 @@ const Checkout = ()=>{
         
           basArray.forEach((el)=>{
             listTemp1.push(<div className="prod-card">
-            <img src ={"/items-images/"+el.itemname+".png"}/>
+            <img src ={"https://source.unsplash.com/100x100/?"+el.itemname}/>
              <h2>{el.itemname}</h2>
              <h2>{el.price}</h2>
         <h2>x{el.quantity}</h2>

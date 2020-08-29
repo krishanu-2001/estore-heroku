@@ -4,6 +4,9 @@ import { MDBBtn, MDBTable, MDBTableBody, MDBTableHead  } from 'mdbreact';
 import Axios from 'axios';
 import {useHistory} from 'react-router-dom';
 import {Link} from 'react-router-dom';
+import { store } from 'react-notifications-component';
+import 'react-notifications-component/dist/theme.css';
+import 'animate.css';
 
 var totalPayTemp = 0;
 var bas=[];
@@ -83,7 +86,23 @@ const BasketTable = (props) => {
         console.log(res.data);
         Cookies.set('basket', JSON.stringify(res.data.basket));
         console.log('Cookies Set', Cookies.get('basket'));
+        store.addNotification({
+          title: 'Done !',
+          message: "Item removed from Cart",
+          type: 'success',                         // 'default', 'success', 'info', 'warning'
+          insert: "top",
+          container: 'top-right',                // where to position the notifications
+          animationIn: ["animated", "fadeIn"],     // animate.css classes that's applied
+          animationOut: ["animated", "fadeOut"],   // animate.css classes that's applied
+          dismiss: {
+            duration: 5000,
+            onScreen: true,
+            pauseOnHover: true
+          }
+        })
+        props.action();
         setUBSTR(Cookies.get('basket'));
+        
     //    window.location.reload(false);
     })
     .catch((err)=>{
@@ -95,6 +114,8 @@ const BasketTable = (props) => {
       }
   
       useEffect(()=>{
+        console.log('use effect ran');
+        setUBSTR(Cookies.get('basket'));
           const userBasket = JSON.parse(userBasketSTR);
 
           var holder = {};
@@ -137,30 +158,18 @@ const BasketTable = (props) => {
           })
           bas=obj2;
         setRows(basArray);
-      },[userBasketSTR]);
+      },[userBasketSTR, props.lolProp]);
 
   return(
     <>
     <div className="table-responsive">
-    <div className="table-responsive">
-    <table className="table table-responsive w-100 d-block d-md-table">
+    <table className="table-responsive">
     
     <MDBTableHead  columns={columns}/>
     <MDBTableBody rows={rows}/>
     </table>
     </div>
-    <Link to="/"><button className="cntshp">Continue Shopping</button></Link>
-  <button className="cntshp">Empty Cart</button>
-<div className="payment">
-<h2 className="total">TOTAL</h2>
-<h2 className="amt">Rs. {totalPayTemp}</h2>
-<br />
-<br />
-<br />
-<div className="hl1"></div>
-<Link to='/checkout'><button className="checkout">CHECKOUT..</button></Link>
-</div>
-</div>
+    
 </>
   );
 };
