@@ -152,10 +152,10 @@ function Nav() {
             var cct = 0;
             temp.push(
               <i className="fa fa-times" aria-hidden="true" 
-              onClick={searchMeClose} style={{"float":"right","padding":"5px"}}></i>
+              onClick={searchMeClose} style={{"float":"right","padding":"5px",}}></i>
             );
             for(var i=0; i<(datalist.length); i++){
-              temp.push(<p><Link to={"/individual/" + datalist[i][0]}>{datalist[i][0]}</Link></p>);
+              temp.push(<p style={{"fontSize":"0.8em",}}><Link to={"/individual/" + datalist[i][0]}>{datalist[i][0]}</Link></p>);
               cct += 1;
               if(cct > 3){
                 break;
