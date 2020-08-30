@@ -29,8 +29,8 @@ export class AdminUpdate extends React.Component {
         return (
             <div className="">
                 
-                <div className="col-md-9" style={{backgroundColor:"#dddddd", height:"550px","margin-top":"0px",}}>
-                    <div style={{"text-align":"center", "color":"#555555","margin-top":"0px","padding":"40px",}}>
+                <div className="col-md-9" style={{backgroundColor:"#dddddd", height:"100%","margin-top":"0px",}}>
+                    <div style={{"text-align":"center", "color":"#555555","margin":"0px","padding":"40px",}}>
                         <h1>Update items here</h1>
                         <ul>
 

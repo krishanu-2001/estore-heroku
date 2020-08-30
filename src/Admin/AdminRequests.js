@@ -71,6 +71,29 @@ const AdminRequests = ()=>{
   })
   } 
 
+  const setCollectionTime = (obj) =>{
+    if(obj.getHours() < 10){
+      obj.setHours(10);
+      obj.setMinutes(0);
+    }
+    else if(obj.getHours() >= 18){
+      if(obj.getHours() === 18 && obj.getMinutes()<=30){
+        //pass
+      }
+      obj.setDate(obj.getDate()+1);
+      obj.setHours(10);
+      obj.setMinutes(0);
+    }
+    var obj2 = new Date(obj);
+    obj2.setMinutes(obj2.getMinutes() + 30);
+    return <div>
+            {obj.getDate()+"-"+obj.getMonth()}<br />
+            {obj.getHours() + ":" + obj.getMinutes() + "-"}
+            {obj2.getHours() + ":" + obj2.getMinutes()}
+    
+          </div>;
+  }
+
   useEffect(()=>{
     Axios.get('http://localhost:5000/order/')
     .then((res) => {
@@ -91,13 +114,15 @@ const AdminRequests = ()=>{
               <li>{el.quantity}</li>
             )
         })
+          /*--- creating date object ---*/
+          var obj = new Date(element.createdAt);
           tempArr.push({
               'id': index+1,
               'itemname': element.user_id,
               'quantity': element.username,
           'price': <ol>{listTemp1}</ol>,
           'sub-total': <ul style={{listStyleType:"none"}}>{listTemp2}</ul>,
-              'remove': element.createdAt,
+              'remove': setCollectionTime(obj),
               'state': element.state,
               'update': <button onClick={()=>deliverOrder(orderID)}>Delivered</button>,
           });

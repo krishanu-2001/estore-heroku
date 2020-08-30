@@ -38,8 +38,8 @@ function App() {
     <Route exact path="/allProducts" render = {(props)=><div><Nav/><br/><div><All_products/></div><Footer/></div>}/>
     <Route exact path="/contact-us" render = {(props)=><div><Nav/><br/><Contact_us/><Footer/></div>} />
     <Route exact path="/help" render = {(props)=><div><Nav/><br/><Help/><Footer/></div>} />
-    <Route exact path="/basket" render = {(props)=><div><Nav/><br/><Basket/><Footer/></div>} />
-    <Route exact path="/checkout" render = {(props)=><div><Nav/><br/><Checkout/><Footer/></div>} />
+    <Route exact path="/basket" render = {(props)=><div><Nav/><br/><Basket {...props}/><Footer/></div>} />
+    <Route exact path="/checkout" render = {(props)=><div><Nav/><br/><Checkout {...props}/><Footer/></div>} />
     <Route exact path="/paymentGateway" render = {(props)=><div><Nav/><br/><Payment/></div>} />
     <Route exact path="/categories" render = {(props)=><div><Nav/><br/><Categories/><Footer/></div>} />
 
