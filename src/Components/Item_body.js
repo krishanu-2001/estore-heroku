@@ -119,6 +119,7 @@ class ItemNavigator extends Component {
             arrowLeft={ArrowLeft}
             arrowRight={ArrowRight}
             selected={selected}
+            wheel = {false}
             onSelect={this.onSelect}
           />
         </div>
@@ -130,6 +131,7 @@ class ItemNavigator extends Component {
             arrowLeft={ArrowLeft}
             arrowRight={ArrowRight}
             selected={selected}
+            wheel = {false}
             onSelect={this.onSelect}
           />
         </div>
@@ -141,6 +143,7 @@ class ItemNavigator extends Component {
             arrowLeft={ArrowLeft}
             arrowRight={ArrowRight}
             selected={selected}
+            wheel = {false}
             onSelect={this.onSelect}
           />
         </div>
@@ -152,6 +155,7 @@ class ItemNavigator extends Component {
             arrowLeft={ArrowLeft}
             arrowRight={ArrowRight}
             selected={selected}
+            wheel = {false}
             onSelect={this.onSelect}
           />
         </div>
@@ -163,6 +167,7 @@ class ItemNavigator extends Component {
             arrowLeft={ArrowLeft}
             arrowRight={ArrowRight}
             selected={selected}
+            wheel = {false}
             onSelect={this.onSelect}
           />
         </div>
@@ -174,6 +179,7 @@ class ItemNavigator extends Component {
             arrowLeft={ArrowLeft}
             arrowRight={ArrowRight}
             selected={selected}
+            wheel = {false}
             onSelect={this.onSelect}
           />
         </div>
@@ -185,6 +191,7 @@ class ItemNavigator extends Component {
             arrowLeft={ArrowLeft}
             arrowRight={ArrowRight}
             selected={selected}
+            wheel = {false}
             onSelect={this.onSelect}
           />
         </div>
