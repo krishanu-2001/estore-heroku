@@ -5,12 +5,13 @@
     margin-right: auto;
     border-color: black;
     border-style: double;
-    background-color: #f5f186;
     padding: 5px;
-background-image: linear-gradient(315deg, #f5f186 0%, #9dfbc8 74%);
+    background-color: #e7eff9;
+    background-image: linear-gradient(315deg, #e7eff9 0%, #cfd6e6 74%);
 margin-bottom: 10vh;
 display: flex;
 flex-direction: column;
+box-shadow: 8px 10px 15px 8px rgba(0, 0, 0, 0.5);
 }
 
 .basket-container button{
@@ -23,6 +24,7 @@ flex-direction: column;
     text-shadow: 2px 2px white;
     background: wheat;
     border-radius: 2px;
+    font-weight: 1000;
 }
 
 .basket-body{
@@ -78,8 +80,20 @@ flex-direction: column;
     width: 100%;
 }
 
-.table-responsive tr {
-    text-align: initial;
+.table-responsive li {
+    text-align: center;
+}
+
+.table-responsive th {
+    text-align: center;
+}
+
+.table-responsive tbody tr:nth-child(odd) {
+    background-color: white;
+ }
+
+.table-responsive td {
+    text-align: center;
 }
 
 .table-responsive button {

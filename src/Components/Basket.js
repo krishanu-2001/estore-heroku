@@ -115,7 +115,7 @@ class Basket extends Component{
     </div><hr/>
     <div style={{display: 'flex', flexDirection: 'row', textDecoration: 'none', fontFamily: "'Alata', sans-serif",padding: '10px'}}>
     <div style={{width: '50%', display: 'flex', flexDirection: 'row', justifyContent: 'space-around', textDecoration: 'none'}}>
-    <Link to='/' className='basket-action' style={{textDecoration: 'none'}}>Continue Shopping</Link>
+    <Link to='/myOrders' className='basket-action' style={{textDecoration: 'none'}}>My Orders</Link>
     <button className='basket-action' onClick={this.clearBasket}>Empty Basket</button>
     </div>
     <div style={{width: '50%', display: 'flex', flexDirection: 'row', justifyContent: 'space-around'}}>
