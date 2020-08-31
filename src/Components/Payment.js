@@ -6,9 +6,12 @@ import {useHistory} from 'react-router-dom';
 import { store } from 'react-notifications-component';
 import 'react-notifications-component/dist/theme.css';
 import 'animate.css';
+import Swal from 'sweetalert2';
 
 
 var orderBasket = [];
+
+
 
 const Payment = ()=>{
 
@@ -28,20 +31,11 @@ history.push('/')
   }})
   .then(res=> {
       console.log(res.data);
-      store.addNotification({
-        title: 'Payment Successfull',
-        message: "Your order has been placed",
-        type: 'success',                         // 'default', 'success', 'info', 'warning'
-        insert: "top",
-        container: 'top-right',                // where to position the notifications
-        animationIn: ["animated", "fadeIn"],     // animate.css classes that's applied
-        animationOut: ["animated", "fadeOut"],   // animate.css classes that's applied
-        dismiss: {
-          duration: 5000,
-          onScreen: true,
-          pauseOnHover: true
-        }
-      })
+      Swal.fire(
+        'Order Placed',
+        '',
+        'success'
+      )
       Axios.post('http://localhost:5000/basket/clear',{
     },
     {headers: {
@@ -50,7 +44,7 @@ history.push('/')
     .then(res=> {
         console.log(res);
         Cookies.set('basket', "[]");
-        history.push('/');
+        history.push('/myOrders');
     })
   
   })

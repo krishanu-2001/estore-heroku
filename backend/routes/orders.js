@@ -44,4 +44,17 @@ router.route("/deliver").post((req, res) => {
 });
 
 
+router.route("/myOrders").post(Authenticate,(req, res) => {
+
+    Order.find({"user_id": req.user_id})
+
+    .then((orders)=>{
+        res.json(orders);
+  })
+
+  .catch(err=> res.status(400).json('Error: '+err));
+
+});
+
+
 module.exports = router;

@@ -5,7 +5,7 @@ router.route('/').get((req, res) => {
     Item.find()
         .then((items)=>{
             res.json(items);
-            console.log(items);
+            
         })
         .catch(err => res.status(400).json('Error: ' + err));
 });
@@ -50,6 +50,7 @@ router.route('/:id').delete((req,res) => {
 router.route('/adminwebsite/update/:id').post((req,res) => {
     Item.findOne({"itemname": req.params.id})
         .then(item => {
+            console.log(item, req.body);
             item.itemname = req.body.itemname;
             item.description = req.body.description;
             item.price = req.body.price;

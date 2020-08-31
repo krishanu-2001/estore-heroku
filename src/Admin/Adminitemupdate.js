@@ -43,29 +43,28 @@ export class Xitemupdate extends React.Component {
     this.setState({ category: event.target.value });
   }
 
-  handleSubmit = event => {
+  handleSubmit = (event) => {
     event.preventDefault();
     const {match : { params }} = this.props;
     if(this.state.description === "" ||
     this.state.price === "" || this.state.quantity === "" || this.state.category==="") {
-      console.log("empty field");
+      alert('Please fill all details!');
     }
     else{
       const item = {
         "itemname": params.id,
         "description": this.state.description,
-        "price": this.state.price,
-        "quantity": this.state.quantity,
+        "price": Number(this.state.price),
+        "quantity": Number(this.state.quantity),
         "category": this.state.category,
       };
       console.log("item");
-      console.log({item});
+      console.log(item);
       axios.post(`http://localhost:5000/items/adminwebsite/update/${params.id}`,
         item
         ,{headers: {'Content-Type': 'application/json'}})
         .then((res)=>{
             console.log(res);
-            window.location.reload();
             alert("Successfully updated");
         })
         .catch((err)=>{
