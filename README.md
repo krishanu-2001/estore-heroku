@@ -11,9 +11,13 @@
         
 ## Features  
 ### 1. USER SECTION:  
-      contains Login-logout feature, Add to cart, Basket, Checkout and collection features.  
-      Also allowes user to view items according to category and search for required items.
-      It comes with help feature to report grievances. All in all it provides a pleasing User experience.
+      Login-logout feature,  
+      Add to cart, Basket, Checkout and collection features.  
+      Item category and search for required items.  
+      It comes with help feature to report grievances.  
         
 ### 2. ADMIN SECTION:  
-      it provides all admin functions such as item addition, item updation, and shows pending and delivered orders
+      it provides all admin functions such as   
+      item addition,  
+      item updation,   
+      shows pending and delivered orders
