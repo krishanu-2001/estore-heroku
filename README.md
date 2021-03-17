@@ -21,3 +21,7 @@
       item addition,  
       item updation,   
       shows pending and delivered orders
+      
+## Updates
+1. Hosted on AWS  
+2. API hosted on mongoDB Atlas and Heroku
