@@ -23,8 +23,6 @@ import Categories from './Components/Categories';
 import Carousel from './Components/HP_Carousel';
 import MyOrders from './Components/MyOrders';
 
-
-
 function App() {
 
   // console.log(Cookies.get()); 
