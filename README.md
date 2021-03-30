@@ -31,6 +31,5 @@
       shows pending and delivered orders
       
 ## Updates
-1. Hosted on AWS EC2 Instance  
-2. API hosted on mongoDB Atlas and Heroku
+1. Also hosted on AWS EC2 Instance  
 
