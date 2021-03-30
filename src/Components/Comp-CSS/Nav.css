@@ -66,6 +66,10 @@ background-image: linear-gradient(315deg, #2884b8 0%, #d1bad2 74%);
   justify-content: space-around;
 }
 
+.searchItem{
+  font-size :"0.8em";
+}
+
 .searchImg {
   height: 95%;
   cursor: pointer;
@@ -192,15 +196,18 @@ margin-right: .3vw;
 
 .navSearchMeBox{
   z-index: 1000;
-  background-color: white;
   position: absolute;
+  display: flex;
+  align-items: flex-start;
   float: bottom;
-  margin-top: 100px;
+  margin-top: 10px;
   min-height: 100px;
 }
 .navSearchMeBox>p{
   padding: 10px;
+  display: inline;
   border: 2px black solid;
+  background-color: aliceblue;
   margin: 0px;
   width: 100px;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;

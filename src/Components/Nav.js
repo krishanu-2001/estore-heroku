@@ -89,6 +89,10 @@ function Nav() {
       /* Handles change in search box */
       const onEnterSearch = (e) => {
         var key = e.target.value;
+        if(key === ""){
+          searchMeClose();
+          return;
+        }
         for(var i=0;i<key.length;i++){
           if( (key[i]>='a'&& key[i]<='z') ||(key[i]>='A'&& key[i]<='Z')
           || (key[i]>='0'&& key[i]<='9')){
@@ -96,21 +100,22 @@ function Nav() {
           } else {
             key = "";
             searchMeClose();
+            return;
           }
         }
         setsearchThis(key);
         if(key === ""){
           searchMeOpen([])
         }
-        var itemListnew = [], showList = [];
-        for(var i=0;i<navItemList.length;i++){
+        let itemListnew = [], showList = [];
+        for(let i=0;i<navItemList.length;i++){
           itemListnew.push(navItemList[i].itemname);
         }
         /* processing */
-        for(var i=0; i<itemListnew.length; i++){
+        for(let i=0; i<itemListnew.length; i++){
           var str = itemListnew[i]; 
           var re = new RegExp(key, 'gi');
-          var result = str.match(re); 
+          var result = str.match(re);
           if(result === null) continue;
           var Max = 0;
           for(var j=0; j<result.length; j++){
@@ -121,7 +126,7 @@ function Nav() {
           }
           showList.push([str, Max]);
         }
-        if(showList.length ===itemListnew.length){
+        if(showList.length ===itemListnew.length && showList.length > 1){
           searchMeOpen([]);
         }
         else
@@ -155,7 +160,7 @@ function Nav() {
               onClick={searchMeClose} style={{"right":"0","padding":"2px","position":"absolute"}}></i>
             );
             for(var i=0; i<(datalist.length); i++){
-              temp.push(<p style={{"fontSize":"0.8em",}}><a href={"/individual/" + datalist[i][0]}>{datalist[i][0]}</a></p>);
+              temp.push(<p className="searchItem"><a href={"/individual/" + datalist[i][0]}>{datalist[i][0]}</a></p>);
               cct += 1;
               if(cct > 3){
                 break;
