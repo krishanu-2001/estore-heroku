@@ -42,7 +42,7 @@ function Footer() {
             <a href="http://www.iiti.ac.in" target='_' className="link">View Official Page</a>
           </li>
           <li>
-            <Link to="/adminwebsite"><span className="link">Admin Section</span></Link>
+            <Link to="/" ><span className="link">Admin Section</span></Link>
           </li>
           <li>
             <a href="http://iiti.ac.in/people/~cnsd2013/how_to_find_us_files/ms.html" className="link" target="_">Location</a>
