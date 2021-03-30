@@ -86,8 +86,9 @@ const AdminRequests = ()=>{
     }
     var obj2 = new Date(obj);
     obj2.setMinutes(obj2.getMinutes() + 30);
+    const month = obj.toLocaleString('default', { month: 'long' });
     return <div>
-            {obj.getDate()+"-"+obj.getMonth()}<br />
+            {obj.getDate()+"-"+month}<br />
             {obj.getHours() + ":" + obj.getMinutes() + "-"}
             {obj2.getHours() + ":" + obj2.getMinutes()}
     
