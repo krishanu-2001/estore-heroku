@@ -27,7 +27,7 @@ import MyOrders from './Components/MyOrders';
 
 function App() {
 
-  console.log(Cookies.get()); 
+  // console.log(Cookies.get()); 
 
   return (
     <>
