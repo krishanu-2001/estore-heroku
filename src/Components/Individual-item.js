@@ -26,7 +26,7 @@ export class ItemHtml extends React.Component {
 
   componentDidMount(){
     var itemnamePost = {itemname: this.state.itemname};
-    Axios.post('http://localhost:5000/items/ind',{
+    Axios.post('https://mernstackestore.herokuapp.com/items/ind',{
       itemnamePost
     })
     .then(res=> {
@@ -62,7 +62,7 @@ export class ItemHtml extends React.Component {
 
     if(newBasketItem.quantity !== 0)
     {
-      Axios.post('http://localhost:5000/basket/add',{
+      Axios.post('https://mernstackestore.herokuapp.com/basket/add',{
       newBasketItem,
     },
     {headers: {

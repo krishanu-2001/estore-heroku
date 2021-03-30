@@ -154,7 +154,7 @@ function XNav() {
     useEffect(() => {
       const fetchData = async () => {
         const res = await Axios.get(
-          'http://localhost:5000/items/',
+          'https://mernstackestore.herokuapp.com/items/',
         );
         setNavItemList(res.data);
       };

@@ -52,7 +52,7 @@ export class Categories extends React.Component {
   }
 
   componentDidMount() {
-    Axios.get('http://localhost:5000/items/')
+    Axios.get('https://mernstackestore.herokuapp.com/items/')
       .then((res) => {
         res.data.forEach(element => {
           let catVAr  = element.category;

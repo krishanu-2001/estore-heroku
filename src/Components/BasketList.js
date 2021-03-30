@@ -76,7 +76,7 @@ const BasketTable = (props) => {
      //   userBasket.map(curr=>{
 
           console.log('Remove Button pressed', remItemName);
-          Axios.post('http://localhost:5000/basket/remove',{
+          Axios.post('https://mernstackestore.herokuapp.com/basket/remove',{
       itemname: remItemName,
     },
     {headers: {

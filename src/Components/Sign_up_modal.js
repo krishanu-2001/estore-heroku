@@ -40,7 +40,7 @@ const Modal = React.forwardRef((props, ref)=>{
                   username: email,
                   password: password,
                 },
-                url: "http://localhost:5000/users/new",
+                url: "https://mernstackestore.herokuapp.com/users/new",
               }).then((res) => {
                 if(res.data.msg === 'userexists')
                 {

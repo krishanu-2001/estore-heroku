@@ -58,7 +58,7 @@ class Basket extends Component{
   }
 
   clearBasket(){
-    Axios.post('http://localhost:5000/basket/clear',{
+    Axios.post('https://mernstackestore.herokuapp.com/basket/clear',{
     },
     {headers: {
       'x-auth-token': Cookies.get('token')

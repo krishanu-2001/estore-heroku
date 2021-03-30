@@ -23,7 +23,7 @@ const confirmOrder = ()=>{
 history.push('/')
  }
  else{
-  Axios.post('http://localhost:5000/order/confirm',{
+  Axios.post('https://mernstackestore.herokuapp.com/order/confirm',{
     orderBasket,
   },
   {headers: {
@@ -36,7 +36,7 @@ history.push('/')
         '',
         'success'
       )
-      Axios.post('http://localhost:5000/basket/clear',{
+      Axios.post('https://mernstackestore.herokuapp.com/basket/clear',{
     },
     {headers: {
       'x-auth-token': Cookies.get('token')

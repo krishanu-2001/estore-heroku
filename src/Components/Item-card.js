@@ -41,7 +41,7 @@ export class Card extends React.Component {
 
     if(newBasketItem.quantity !== 0)
     {
-      axios.post('http://localhost:5000/basket/add',{
+      axios.post('https://mernstackestore.herokuapp.com/basket/add',{
       newBasketItem,
     },
     {headers: {

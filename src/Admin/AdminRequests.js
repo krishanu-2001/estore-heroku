@@ -59,7 +59,7 @@ const AdminRequests = ()=>{
 
   const deliverOrder = (orderID)=>{
     console.log('order delivered', orderID);
-    Axios.post('http://localhost:5000/order/deliver',{
+    Axios.post('https://mernstackestore.herokuapp.com/order/deliver',{
       orderID: orderID,
     })
     .then(res=> {
@@ -95,7 +95,7 @@ const AdminRequests = ()=>{
   }
 
   useEffect(()=>{
-    Axios.get('http://localhost:5000/order/')
+    Axios.get('https://mernstackestore.herokuapp.com/order/')
     .then((res) => {
         console.log(res.data);
         let tempArr = [];

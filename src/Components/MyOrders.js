@@ -68,7 +68,7 @@ const MyOrders =  ()=>{
     }
   
     useEffect(()=>{
-      Axios.post('http://localhost:5000/order/myOrders',{
+      Axios.post('https://mernstackestore.herokuapp.com/order/myOrders',{
       },
       {headers: {
         'x-auth-token': Cookies.get('token')

@@ -58,7 +58,7 @@ export class AdminAdd extends React.Component {
       };
       console.log("item");
       console.log({item});
-      axios.post('http://localhost:5000/items/add',
+      axios.post('https://mernstackestore.herokuapp.com/items/add',
             item
             ,{headers: {'Content-Type': 'application/json'}})
             .then((res)=>{

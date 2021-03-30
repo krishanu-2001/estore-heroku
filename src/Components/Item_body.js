@@ -92,7 +92,7 @@ class ItemNavigator extends Component {
   }
 
   componentDidMount() {
-    Axios.get('http://localhost:5000/items/')
+    Axios.get('https://mernstackestore.herokuapp.com/items/')
       .then((res) => {
         res.data.forEach(element => {
           if(element.category === "staples"){ this.setState(prevState=>({ staple: [...prevState.staple, element] })); };
