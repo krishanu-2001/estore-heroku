@@ -12,8 +12,8 @@
 ## Set Up    
       1. clone the repository
       2. navigate to directory
-      3. run: npm install in base directory
-      4. run: npm start in base directory
+      3. run: npm install in root directory
+      4. run: npm start in root directory
       5. navigate to /backend in new command prompt
       6. run: npm install
       7. run: node server.js
