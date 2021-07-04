@@ -33,4 +33,6 @@
       
 ## Updates
 1. Also hosted on AWS EC2 Instance  
-2. adminwebsite is hidden
+2. adminwebsite is hidden  
+3. Search-Autocomplete-Trie algorithm visit - https://github.com/krishanu-2001/Search-Autocomplete-Trie.  
+4. Implemented above in la-fresco repository
